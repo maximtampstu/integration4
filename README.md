@@ -25,3 +25,4 @@
 
 ## Links
 - [Figjam](https://www.figma.com/board/Nr3fZrnXCkMB2hazPraKhG/Integration-4-%7C-ABBY?node-id=0-1&t=FO36EDk33gBNd9JH-1)
+- [Figma](https://www.figma.com/design/ezuupgFzktTVkkimQ2tv5W/Figma-%7C-Integration-4?node-id=1-4&t=3RKdeLVnpljbZjHl-1)
