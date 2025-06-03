@@ -1,7 +1,4 @@
-// root.jsx
 import { Outlet } from "react-router";
-//https://reactrouter.com/6.30.0/components/scroll-restoration
-//https://reactrouter.com/api/components/Scripts
 
 export default function Root() {
     return (
