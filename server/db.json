@@ -5,6 +5,28 @@
       "email": "test@test.com",
       "password": "1234",
       "subscribed": true
+    },
+    {
+      "username": "muhammed",
+      "email": "mohammed.godil2001@gmail.com",
+      "password": "abcd",
+      "subscribed": true,
+      "id": 2
+    },
+    {
+      "username": "abcdddd",
+      "email": "mohammedjune10@gamil.com",
+      "password": "abcd",
+      "subscribed": true,
+      "id": 3
+    }
+  ],
+  "media": [
+    {
+      "userId": 2,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748906691/ffwnbepmdv1rhgjofueb.png",
+      "type": "image",
+      "id": 1
     }
   ]
 }

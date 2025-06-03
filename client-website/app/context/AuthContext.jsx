@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 //https://react.dev/reference/react/createContext
-import { redirect } from "react-router-dom";
+// import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const AuthContext = createContext();
 
@@ -8,6 +9,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
     // Just a placeholder user store (you'd replace this with a real backend later)
     const [users, setUsers] = useState([
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         setUser(null)
-        redirect("/")
+        navigate("/");
     }
 
     return (
