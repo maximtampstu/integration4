@@ -1,51 +1,51 @@
 import { createContext, useContext, useState } from "react";
-//https://react.dev/reference/react/createContext
-// import { redirect } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { getUsers, addUser } from "../services/users"; // Adjust path as needed
 
 const AuthContext = createContext();
 
-
-
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-    // Just a placeholder user store (you'd replace this with a real backend later)
-    const [users, setUsers] = useState([
-        { id: 1, username:"tester123", email: "test@test.com", password: "1234", subscribed: true }
-    ]);
-
-    console.log(users)
-
-    const login = (email, password) => {
-        const found = users.find((user) => user.email === email && user.password === password);
-        if (found) {
-            setUser(found);
-            return true;
-        }
-        return false;
-    };
-
-    const signup = (username, email, password, subscribed) => {
-        if (users.find((user) => user.email === email)) return false;
-        const id = users.length + 1
-        const newUser = { id, username, email, password, subscribed };
-        setUsers([...users, newUser]);
-        setUser(newUser);
+  const login = async (email, password) => {
+    try {
+      const users = await getUsers();
+      const found = users.find(
+        (user) => user.email === email && user.password === password
+      );
+      if (found) {
+        setUser(found);
         return true;
-    };
-
-    const logout = () => {
-        setUser(null)
-        navigate("/");
+      }
+      return false;
+    } catch (err) {
+      console.error("Login failed:", err);
+      return false;
     }
+  };
 
-    return (
-        <AuthContext.Provider value={{ user, login, logout, signup, isAuthenticated: !!user }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  const signup = async (username, email, password, subscribed) => {
+    try {
+      const newUser = { username, email, password, subscribed };
+      const createdUser = await addUser(newUser);
+      setUser(createdUser);
+      return true;
+    } catch (err) {
+      console.error("Signup failed:", err);
+      return false;
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{ user, login, logout, signup, isAuthenticated: !!user }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
