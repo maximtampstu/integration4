@@ -1,9 +1,15 @@
-import { index, route } from "@react-router/dev/routes";
+import { route, layout, index } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.jsx"),
-  route("/explore", "routes/explore.jsx"),
-  route("/create", "routes/create.jsx"),
-  route("/profile", "routes/profile.jsx"),
-  route("/activity", "routes/activity.jsx"),
+  layout("layouts/BaseLayout.jsx", [
+    index("routes/intro.jsx"),
+    route("/about", "routes/about.jsx"),
+    route("/home", "routes/home.jsx"),
+    route("/previous-event-gallery", "routes/previous-event-gallery.jsx"),
+    route("/upload-info", "routes/upload-info.jsx"),
+    route("/vote-art", "routes/vote-art.jsx"),
+    route("/vote-complete", "routes/vote-complete.jsx"),
+    route("/vote-theme", "routes/vote-theme.jsx"),
+    route("/vote", "routes/vote.jsx"),
+  ]),
 ];
