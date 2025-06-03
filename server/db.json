@@ -7,10 +7,77 @@
       "subscribed": true
     },
     {
-      "id": 2,
-      "email": "test2@test.com",
-      "password": "1234",
-      "subscribed": false
+      "username": "muhammed",
+      "email": "mohammed.godil2001@gmail.com",
+      "password": "abcd",
+      "subscribed": true,
+      "id": 2
+    },
+    {
+      "username": "abcdddd",
+      "email": "mohammedjune10@gamil.com",
+      "password": "abcd",
+      "subscribed": true,
+      "id": 3
+    }
+  ],
+  "media": [
+    {
+      "userId": 2,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748947523/qnctsuwtdycrvdjhkkxz.png",
+      "type": "image",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748958661/w4k5cdchbvbnk7smh44r.png",
+      "type": "image",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "efefe",
+      "description": "qwdwqwqf",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748965940/bghkaa7da95juajowtsz.png",
+      "type": "image",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "motion video",
+      "description": "This is the motion video for the kickstarter",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966060/y9huomtbv9rz3gd5oifx.mp4",
+      "type": "video",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "ejfkjbg",
+      "description": "wfwdwrwg",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748966685/ngejjfhxgmhig4pftmkr.png",
+      "type": "image",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "wfwefwef",
+      "description": "e2fefefef",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966763/gs0u8r4najazzz4aunqm.mov",
+      "type": "video",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "title": "vbdfb",
+      "description": "fbfbf",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748966860/fxwg5zdsb6wk0jaa6aqv.png",
+      "type": "image",
+      "id": 9
     }
   ]
 }
