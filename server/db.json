@@ -73,6 +73,14 @@
     {
       "id": 1,
       "email": "test@test.com"
+    },
+  ],
+  "media": [
+    {
+      "userId": 2,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748906691/ffwnbepmdv1rhgjofueb.png",
+      "type": "image",
+      "id": 1
     }
   ]
 }
