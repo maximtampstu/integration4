@@ -1,5 +1,78 @@
 {
   "users": [
-    { "id": 1, "email": "test@test.com", "password": "1234", "subscribed": true }
+    {
+      "id": 1,
+      "email": "test@test.com",
+      "password": "1234",
+      "subscribed": true
+    },
+    {
+      "id": 2,
+      "email": "test2@test.com",
+      "password": "1234",
+      "subscribed": false
+    }
+  ],
+  "artTypes": [
+    {
+      "id": 1,
+      "name": "music"
+    },
+    {
+      "id": 2,
+      "name": "motion graphic"
+    },
+    {
+      "id": 3,
+      "name": "digital art"
+    },
+    {
+      "id": 4,
+      "name": "physical art"
+    },
+    {
+      "id": 5,
+      "name": "performance"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "",
+      "description": "",
+      "startDate": ""
+    }
+  ],
+  "art": [
+    {
+      "id": 1,
+      "name": "",
+      "description": "",
+      "fileUrl": "",
+      "artTypeId": 1,
+      "eventId": 1,
+      "userId": 1
+    }
+  ],
+  "artVotes": [
+    {
+      "id": 1,
+      "artId": 1,
+      "userId": 1
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "artId": 1,
+      "userId": 1,
+      "feedback": ""
+    }
+  ],
+  "subscribed": [
+    {
+      "id": 1,
+      "email": "test@test.com"
+    }
   ]
 }
