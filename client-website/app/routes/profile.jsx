@@ -56,7 +56,7 @@ const Profile = () => {
   return (
     <>
       <h2>Hi, {user.username}</h2>
-      <p>Email: {user.email}</p>
+      {/* <p>Email: {user.email}</p> */}
       
       {isSubmitting && <p>Uploading...</p>}
       <Form method="post" encType="multipart/form-data" className="media-form">
