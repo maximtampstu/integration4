@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useAuth } from "../../context/AuthContext";
 
 const NavBar = () => {
@@ -8,6 +8,9 @@ const NavBar = () => {
         <nav style={{ padding: "1rem", background: "#eee" }}>
             <Link to="/">Home</Link> |{" "}
             <Link to="/about">About</Link> |{" "}
+            <Link to="/current-event">Current Event</Link> |{" "}
+            <Link to="/previous-events">Past Events</Link> |{" "}
+            <Link to="/participate">Participate</Link> |{" "}
             <Link to="/profile">Profile</Link>
             {isAuthenticated && (
                 <>
