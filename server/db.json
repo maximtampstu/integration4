@@ -1,101 +1,149 @@
 {
-  "users": [
+ "users": [
+  {
+    "id": 1,
+    "email": "test@test.com",
+    "username": "Alex_the_King",
+    "password": "1234",
+    "subscribed": true
+  },
+  {
+    "id": 2,
+    "email": "test2@test.com",
+    "username": "maxim",
+    "password": "1234",
+    "subscribed": false
+  },
+  {
+    "id": 3,
+    "email": "third@example.com",
+    "username": "maria",
+    "password": "abcd",
+    "subscribed": false
+  }
+],
+  "artTypes": [
     {
       "id": 1,
-      "email": "test@test.com",
-      "password": "1234",
-      "subscribed": true
+      "name": "music"
     },
     {
-      "username": "muhammed",
-      "email": "mohammed.godil2001@gmail.com",
-      "password": "abcd",
-      "subscribed": true,
-      "id": 2
+      "id": 2,
+      "name": "motion graphic"
     },
     {
-      "username": "abcdddd",
-      "email": "mohammedjune10@gamil.com",
-      "password": "abcd",
-      "subscribed": true,
-      "id": 3
+      "id": 3,
+      "name": "digital art"
+    },
+    {
+      "id": 4,
+      "name": "physical art"
+    },
+    {
+      "id": 5,
+      "name": "performance"
     }
   ],
-  "media": [
+  "events": [
     {
-      "userId": 2,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748947523/qnctsuwtdycrvdjhkkxz.png",
-      "type": "image",
-      "id": 2
+      "id": 1,
+      "name": "Spring Gallery",
+      "description": "A showcase of digital and physical artworks",
+      "startDate": "2025-03-01"
     },
     {
-      "userId": 1,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748958661/w4k5cdchbvbnk7smh44r.png",
-      "type": "image",
-      "id": 4
+      "id": 2,
+      "name": "Summer Music Fest",
+      "description": "A collection of music-based art pieces and performances",
+      "startDate": "2025-06-15"
     },
     {
-      "userId": 1,
-      "title": "efefe",
-      "description": "qwdwqwqf",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748965940/bghkaa7da95juajowtsz.png",
-      "type": "image",
-      "id": 5
-    },
+      "id": 3,
+      "name": "Motion Madness",
+      "description": "A curated motion graphic art exhibit",
+      "startDate": "2025-09-01"
+    }
+  ],
+  "art": [
     {
-      "userId": 1,
-      "title": "motion video",
-      "description": "This is the motion video for the kickstarter",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966060/y9huomtbv9rz3gd5oifx.mp4",
-      "type": "video",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "title": "ejfkjbg",
-      "description": "wfwdwrwg",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748966685/ngejjfhxgmhig4pftmkr.png",
-      "type": "image",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "title": "wfwefwef",
-      "description": "e2fefefef",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966763/gs0u8r4najazzz4aunqm.mov",
-      "type": "video",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "title": "vbdfb",
-      "description": "fbfbf",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748966860/fxwg5zdsb6wk0jaa6aqv.png",
-      "type": "image",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "title": "hhn",
-      "description": "bjbjb",
-      "visibility": true,
+      "id": 1,
+      "title": "Blooming",
+      "description": "A digital art piece showing flowers.",
       "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748981191/gqpqozrjrvcd210qlvt4.png",
+      "visibility": true,
       "type": "image",
-      "id": 10
+      "artTypeId": 3,
+      "eventId": 1,
+      "userId": 3
+    },
+    {
+      "id": 2,
+      "title": "Day in the Life",
+      "description": "day in the life video",
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966763/gs0u8r4najazzz4aunqm.mov",
+      "visibility": true,
+      "type": "video",
+      "artTypeId": 1,
+      "eventId": 2,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "title": "Motion video",
+      "description": "This is the motion video for the kickstarter",
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966060/y9huomtbv9rz3gd5oifx.mp4",
+      "visibility": true,
+      "type": "video",
+      "artTypeId": 2,
+      "eventId": 3,
+      "userId": 2
     },
     {
       "userId": 1,
-      "title": "efewrg",
-      "description": "wgrwgrw",
+      "title": "etetetegte",
+      "description": "efegfegeg",
       "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1748981407/brcr69efztdgwn8atjqa.png",
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749033062/e57yog7egbnykhespgde.png",
       "type": "image",
-      "id": 11
+      "eventId": 1,
+      "artTypeId": 1,
+      "id": 4
+    }
+  ],
+  "artVotes": [
+    {
+      "id": 1,
+      "artId": 1,
+      "userId": 2
+    },
+    {
+      "id": 2,
+      "artId": 2,
+      "userId": 3
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "artId": 1,
+      "userId": 2,
+      "feedback": "Loved the vibrant colors!"
+    },
+    {
+      "id": 2,
+      "artId": 3,
+      "userId": 3,
+      "feedback": "Very smooth animation work."
+    }
+  ],
+  "subscribed": [
+    {
+      "id": 1,
+      "email": "test@test.com"
+    },
+    {
+      "id": 2,
+      "email": "third@example.com"
     }
   ]
 }

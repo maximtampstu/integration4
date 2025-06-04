@@ -2,7 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const addMedia = async (media) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/media`, {
+    const response = await fetch(`${API_BASE_URL}/art`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(media),
@@ -15,27 +15,35 @@ export const addMedia = async (media) => {
   }
 };
 
-export const getMediaByUser = async (userId) => {
+export const getAllEvents = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/media?userId=${userId}`);
-    if (!response.ok) throw new Error("Failed to fetch media");
+    const response = await fetch(`${API_BASE_URL}/events`);
+    if (!response.ok) throw new Error("Failed to fetch events");
     return await response.json();
   } catch (error) {
-    console.error("Error fetching media:", error);
+    console.error("Error fetching events:", error);
     throw error;
   }
 };
 
-
-export const deleteMedia = async (id) => {
+export const getArtByEvent = async (eventId) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/media/${id}`, {
-      method: "DELETE",
-    });
-    if (!response.ok) throw new Error("Failed to delete media");
-    return true;
+    const response = await fetch(`${API_BASE_URL}/art?eventId=${eventId}`);
+    if (!response.ok) throw new Error("Failed to fetch art for event");
+    return await response.json();
   } catch (error) {
-    console.error("Error deleting media:", error);
-    throw error;
+    console.error("Error fetching art:", error);
+    return [];
+  }
+};
+
+export const getArtById = async (id) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/art/${id}`);
+    if (!response.ok) throw new Error("Failed to fetch artwork");
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching artwork:", error);
+    return null;
   }
 };
