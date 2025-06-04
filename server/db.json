@@ -108,7 +108,513 @@
       "eventId": 1,
       "artTypeId": 1,
       "id": 4
-    }
+    },
+    {
+    "id": 5,
+    "title": "Chasing Light",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047320/Alex_MakeMusic_-_Lost_Dancer_rsq3wx.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 2
+  },
+  {
+    "id": 6,
+    "title": "Lost in Sound",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047318/Aves_-_Joy_Ride_bmkclq.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 7,
+    "title": "City Pulse",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047317/Brianna_Tam_-_Bloom_nyd8et.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 3
+  },
+  {
+    "id": 8,
+    "title": "Midnight Echo",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047316/Ian_Post_-_DuDa_q5czu1.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 2
+  },
+  {
+    "id": 9,
+    "title": "Summer Vibes",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047311/HOOX_-_Roll_with_It_Feat_AK_htso8x.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 10,
+    "title": "Nightfall Rhythm",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047308/Assaf_Ayalon_-_Honey_Baby_hzzzs8.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 11,
+    "title": "Golden Horizon",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047308/Notize_-_Glam_Queen_oe1ouv.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 3
+  },
+  {
+    "id": 12,
+    "title": "Midnight Echo",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047308/Ardie_Son_-_Uprising_vcnxq3.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 2
+  },
+  {
+    "id": 13,
+    "title": "Chasing Light",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047307/Max_Jackson_-_Lets_Go_e05zff.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 2
+  },
+  {
+    "id": 14,
+    "title": "Festival Beat",
+    "description": "An original music track created for the Summer Music Fest.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749047208/Soniq_Branding_-_Body_Freak_qhh7mp.mp3",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 1,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 15,
+    "title": "Looped Realities",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048669/original-3c3ae475380715b783ec174201756d9a_ylxs4m.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 2
+  },
+  {
+    "id": 16,
+    "title": "Looped Realities",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048666/original-7cd4e9b29254998fc6408bbcd73b69e9_n1tluu.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 3
+  },
+  {
+    "id": 17,
+    "title": "Neon Drift",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048665/original-b1e2856fed85bfb1db934e7f4802cad5_swdhwr.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 1
+  },
+  {
+    "id": 18,
+    "title": "Color Motion",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048659/original-00033bfe6222012baab385b5f0bde46d_jsat3b.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 2
+  },
+  {
+    "id": 19,
+    "title": "Looped Realities",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048658/original-a6c03438ec9ed5d589e9b33b6a8d575b_rwyo7j.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 1
+  },
+  {
+    "id": 20,
+    "title": "Kinetic Illusion",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048658/original-8147db5aafdcee90330d731d875e2423_phyksy.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 3
+  },
+  {
+    "id": 21,
+    "title": "Neon Drift",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048650/original-0c831f76b844293f873e3f442343649b_isumlo.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 1
+  },
+  {
+    "id": 22,
+    "title": "Urban Pulse",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048650/original-a2ad20cc637a88280ab5d590ab387757_wr3bfb.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 1
+  },
+  {
+    "id": 23,
+    "title": "Liquid Geometry",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048647/original-70de7c2beabdadd7cff1cc048cb0fa4d_sntluq.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 2
+  },
+  {
+    "id": 24,
+    "title": "Looped Realities",
+    "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048642/original-2c6a3480b8090d51c4a01f2462ddbee2_ndo0b9.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 2,
+    "eventId": 3,
+    "userId": 2
+  },
+  {
+    "id": 25,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048991/daa0505c6c0ac55efddf41988d628b7b_i0sgtw.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 26,
+    "title": "Silent Horizon",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048990/3391800d931f91ebafaf81f3e1171978_cjnj9u.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 3
+  },
+  {
+    "id": 27,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048990/be8514e296cf10423e30a398d4825137_qsaea5.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 3
+  },
+  {
+    "id": 28,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048989/5482af7038e1294d048056e2b717040b_cmddxl.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 29,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048988/753c1a30f1b065403c86524689e768ed_mmtvun.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 30,
+    "title": "Echo Garden",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048988/1628ccd9a512dab3c30730d9d51a5d84_t1wowy.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 31,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048987/3739ef6c4730c22e126cc8dcb24f5620_jcpyyl.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 32,
+    "title": "Dream Bloom",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048987/8cf036312136e8cd713edd7f5c6afce5_durt8n.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 33,
+    "title": "Echo Garden",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048987/0c73e6e62e3568061e5ce9035ae4f38b_lxklpx.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 34,
+    "title": "Fractal Sky",
+    "description": "A digital artwork expressing creativity through modern techniques and color.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749048987/6ac54af8f52b6b8275d8af5418eafa85_abrorx.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 3,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 35,
+    "title": "Faded Beauty",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049674/a93be7bf2bf8e71d2a8405fac937e9b6_eijkqx.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 36,
+    "title": "Faded Beauty",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049673/389208d12d628f09e2dbed0c2da204a7_wswnll.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 37,
+    "title": "Lines of Memory",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049673/855c84a59929cbca835ac999d383792a_jllerx.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 3
+  },
+  {
+    "id": 38,
+    "title": "Form & Feel",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049672/ff30d0b8afb69b308ab133130a25e4b8_jzzvtz.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 39,
+    "title": "Crafted Silence",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049670/d5dbdf7bac168aef583b57b671d39c36_b0gcck.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 40,
+    "title": "Raw Expression",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049670/a416f23a8d7f500f4172192c53a5ce23_hd5yzr.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 41,
+    "title": "Form & Feel",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049670/805cc15c6b1978b81c9e07c4708a7cac_gwnnqo.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 42,
+    "title": "Earth & Hand",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049669/40e93f18496e5e93db82665b56c5f40d_p1xrvr.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 1
+  },
+  {
+    "id": 43,
+    "title": "Timeless Touch",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049670/72c942db7b8b50ed85a582afb566857c_magkau.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 2
+  },
+  {
+    "id": 44,
+    "title": "Crafted Silence",
+    "description": "A photo of a physical piece showcasing hand-crafted artistic expression.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749049669/4ec178ae2e959af3597d4fbb53f7002e_gshaze.jpg",
+    "visibility": true,
+    "type": "image",
+    "artTypeId": 4,
+    "eventId": 1,
+    "userId": 3
+  },
+  {
+    "id": 45,
+    "title": "Power Flow",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052053/Fuego_Dance_Crew_-_Gasolina_Routine_Official_Video_gasolinachallenge_pitw3x.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 2
+  },
+  {
+    "id": 46,
+    "title": "Soul Motion",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052047/Cosmo_the_Cougar_the_Cougarettes_Dance_-_BYU_Vs_Boise_St_2017_zau6sw.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 47,
+    "title": "Power Flow",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052043/Cosmo_and_the_Cougarettes_-_In_my_Feelings_xiuylf.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 3
+  },
+  {
+    "id": 48,
+    "title": "Rise and Move",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052038/Mic_Drop_-_BTS_-_Cosmo_the_Cougar_pcf3kb.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 3
+  },
+  {
+    "id": 49,
+    "title": "Power Flow",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052034/Ride_It_-_Jay_Sean_Choreo_by_Anna_Pryanikova_Good_Foot_Dance_Studio_t9gtyv.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 1
+  },
+  {
+    "id": 50,
+    "title": "Echo Beat",
+    "description": "A vibrant and passionate performance captured during the event.",
+    "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749052026/Cosmo_Cougar_Rolex_Halftime_with_Ayo_Teo_y7qraz.mp4",
+    "visibility": true,
+    "type": "video",
+    "artTypeId": 5,
+    "eventId": 2,
+    "userId": 3
+  }
   ],
   "artVotes": [
     {
@@ -183,23 +689,23 @@
     "art": [
       {
         "artTypeId": 1,
-        "artIds": [1, 2, 3, 4, 5, 6]
+        "artIds": [11, 6, 10, 5, 14, 9]
       },
       {
         "artTypeId": 2,
-        "artIds": [1, 2, 3, 4, 5, 6]
+        "artIds": [16, 20, 17, 19, 24, 15]
       },
       {
         "artTypeId": 3,
-        "artIds": [1, 2, 3, 4, 5, 6]
+        "artIds": [26, 1, 33, 30, 31, 29]
       },
       {
         "artTypeId": 4,
-        "artIds": [1, 2, 3, 4, 5, 6]
+        "artIds": [38, 35, 40, 42, 39, 44]
       },
       {
         "artTypeId": 5,
-        "artIds": [1, 2, 3, 4, 5, 6]
+        "artIds": [48, 46, 50, 45, 47, 49]
       }
     ]
   }

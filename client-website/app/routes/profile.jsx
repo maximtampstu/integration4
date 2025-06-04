@@ -35,7 +35,15 @@ export async function clientAction({ request }) {
 
   const result = await res.json();
   const url = result.secure_url;
-  const type = file.type.startsWith("video") ? "video" : "image";
+  // const type = file.type.startsWith("video") ? "video" : "image";
+  const type = file.type.startsWith("audio/")
+  ? "music"
+  : file.type.startsWith("video/")
+  ? "motion graphic"
+  : file.type.startsWith("image/")
+  ? "digital art"
+  : "physical art";
+
 
   await addMedia({
     userId: user.id,
