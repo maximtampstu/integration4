@@ -1,7 +1,13 @@
 import { Link } from "react-router";
+import { getThemeById } from "../services/theme";
 
-const VoteComplete = () => {
+export async function clientLoader({ params }) {
+    const theme = await getThemeById(params.id);
+    return { theme };
+}
 
+const VoteComplete = ({ loaderData }) => {
+    const { theme } = loaderData;
     return (
         <>
             <h1>Vote Complete</h1>
@@ -9,6 +15,7 @@ const VoteComplete = () => {
                 <li><Link to="/home">Go Home</Link></li>
                 <li><Link to="/vote-art">Vote for Art</Link></li>
             </ul>
+            <p>Your vote for <b>{theme.name}</b> has been counted</p>
         </>
     );
 };

@@ -1,27 +1,27 @@
 {
- "users": [
-  {
-    "id": 1,
-    "email": "test@test.com",
-    "username": "Alex_the_King",
-    "password": "1234",
-    "subscribed": true
-  },
-  {
-    "id": 2,
-    "email": "test2@test.com",
-    "username": "maxim",
-    "password": "1234",
-    "subscribed": false
-  },
-  {
-    "id": 3,
-    "email": "third@example.com",
-    "username": "maria",
-    "password": "abcd",
-    "subscribed": false
-  }
-],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@test.com",
+      "username": "Alex_the_King",
+      "password": "1234",
+      "subscribed": true
+    },
+    {
+      "id": 2,
+      "email": "test2@test.com",
+      "username": "maxim",
+      "password": "1234",
+      "subscribed": false
+    },
+    {
+      "id": 3,
+      "email": "third@example.com",
+      "username": "maria",
+      "password": "abcd",
+      "subscribed": false
+    }
+  ],
   "artTypes": [
     {
       "id": 1,
@@ -122,6 +122,18 @@
       "userId": 3
     }
   ],
+  "themeVotes": [
+    {
+      "id": 1,
+      "themeId": 1,
+      "userEmail": "test@test.com"
+    },
+    {
+      "themeId": "3",
+      "userEmail": "maxim.tampere@gmail.com",
+      "id": 2
+    }
+  ],
   "feedback": [
     {
       "id": 1,
@@ -145,5 +157,80 @@
       "id": 2,
       "email": "third@example.com"
     }
-  ]
+  ],
+  "current": {
+    "eventId": 4,
+    "phase": "voting",
+    "themes": [
+      {
+        "id": 1,
+        "name": "New York"
+      },
+      {
+        "id": 2,
+        "name": "Digital World"
+      },
+      {
+        "id": 3,
+        "name": "Japanese Garden"
+      }
+    ],
+    "art": [
+      {
+        "artTypeId": 1,
+        "artIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "artTypeId": 2,
+        "artIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "artTypeId": 3,
+        "artIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "artTypeId": 4,
+        "artIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "artTypeId": 5,
+        "artIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    ]
+  }
 }
