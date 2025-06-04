@@ -14,6 +14,7 @@ export default [
     route("/previous-events/:id", "routes/event-gallery.jsx"),
     route("/upload", "routes/upload.jsx"),
     route("/vote-art", "routes/vote-art.jsx"),
+    route("/vote-art/:id", "routes/art-category.jsx"),
     route("/vote-theme", "routes/vote-theme.jsx"),
   ]),
 ];
