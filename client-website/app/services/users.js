@@ -6,6 +6,7 @@ export const getUsers = async () => {
   return await response.json();
 };
 
+
 export const addUser = async (user) => {
   const response = await fetch(`${API_BASE_URL}/users`, {
     method: "POST",
