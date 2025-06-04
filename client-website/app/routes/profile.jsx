@@ -44,6 +44,8 @@ export async function clientAction({ request }) {
     visibility,
     url,
     type,
+    eventId: 1, // I am assuming it to the first event for now, it will chnage later based on what the theme id is
+    artTypeId: 1, // this will be taken from the params or the url but for now i am assuming it to be 1
   });
 
   return redirect("/");
