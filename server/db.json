@@ -1,27 +1,27 @@
 {
- "users": [
-  {
-    "id": 1,
-    "email": "test@test.com",
-    "username": "Alex_the_King",
-    "password": "1234",
-    "subscribed": true
-  },
-  {
-    "id": 2,
-    "email": "test2@test.com",
-    "username": "maxim",
-    "password": "1234",
-    "subscribed": false
-  },
-  {
-    "id": 3,
-    "email": "third@example.com",
-    "username": "maria",
-    "password": "abcd",
-    "subscribed": false
-  }
-],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@test.com",
+      "username": "Alex_the_King",
+      "password": "1234",
+      "subscribed": true
+    },
+    {
+      "id": 2,
+      "email": "test2@test.com",
+      "username": "maxim",
+      "password": "1234",
+      "subscribed": false
+    },
+    {
+      "id": 3,
+      "email": "third@example.com",
+      "username": "maria",
+      "password": "abcd",
+      "subscribed": false
+    }
+  ],
   "artTypes": [
     {
       "id": 1,
@@ -635,14 +635,9 @@
       "userEmail": "test@test.com"
     },
     {
-      "id": 1,
-      "themeId": 1,
-      "userEmail": "test2@test.com"
-    },
-    {
-      "id": 1,
-      "themeId": 2,
-      "userEmail": "test3@test.com"
+      "themeId": "3",
+      "userEmail": "maxim.tampere@gmail.com",
+      "id": 2
     }
   ],
   "feedback": [
@@ -706,7 +701,7 @@
       {
         "artTypeId": 5,
         "artIds": [48, 46, 50, 45, 47, 49]
-      }
+      },
     ]
   }
 }
