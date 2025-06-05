@@ -31,7 +31,7 @@ export async function clientAction({ request }) {
   const artId = Number(data.get("artId"));
   const userId = 1; 
   await addArtVote({ artId, userId });
-  return redirect("/"); 
+  return redirect(`/vote-complete/${artId}`);
 }
 
 import { useState } from "react";
