@@ -636,6 +636,16 @@
       "artId": 11,
       "userId": 1,
       "id": 4
+    },
+    {
+      "artId": 33,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "artId": 45,
+      "userId": 1,
+      "id": 6
     }
   ],
   "themeVotes": [
