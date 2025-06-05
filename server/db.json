@@ -652,17 +652,37 @@
     {
       "id": 1,
       "themeId": 1,
-      "userEmail": "test@test.com"
-    },
-    {
-      "id": 1,
-      "themeId": 1,
       "userEmail": "test2@test.com"
     },
     {
       "id": 1,
       "themeId": 2,
       "userEmail": "test3@test.com"
+    },
+    {
+      "themeId": "3",
+      "userEmail": "appel@gmail.com",
+      "id": 2
+    },
+    {
+      "themeId": "2",
+      "userEmail": "appel2@gmail.com",
+      "id": 3
+    },
+    {
+      "themeId": "3",
+      "userEmail": "appel3@gmail.com",
+      "id": 4
+    },
+    {
+      "themeId": "2",
+      "userEmail": "appel5@gmail.com",
+      "id": 5
+    },
+    {
+      "themeId": "3",
+      "userEmail": "appel6@gmail.com",
+      "id": 6
     }
   ],
   "feedback": [
@@ -692,6 +712,7 @@
   "current": {
     "eventId": 4,
     "phase": "voting",
+    "userId": 1,
     "themes": [
       {
         "id": 1,
