@@ -16,3 +16,19 @@ export const addUser = async (user) => {
   if (!response.ok) throw new Error("Failed to add user");
   return await response.json();
 };
+
+
+export const getUserById = async (id) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/users/${id}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch habit");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching habit:", error);
+    return null;
+  }
+};
