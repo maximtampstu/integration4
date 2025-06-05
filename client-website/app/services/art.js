@@ -21,3 +21,20 @@ export const getCurrentEventData = async () => {
   if (!res.ok) throw new Error("Failed to fetch current voting data");
   return res.json();
 };
+
+
+export const getArtVotes = async () => {
+  const response = await fetch(`${API_BASE_URL}/artVotes`);
+  if (!response.ok) throw new Error("Failed to fetch votes");
+  return await response.json();
+};
+
+export const addArtVote = async (vote) => {
+  const response = await fetch(`${API_BASE_URL}/artVotes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(vote),
+  });
+  if (!response.ok) throw new Error("Failed to submit vote");
+  return await response.json();
+};
