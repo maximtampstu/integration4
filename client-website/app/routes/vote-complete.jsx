@@ -15,7 +15,7 @@ export default function VoteComplete({ loaderData }) {
   return (
     <main className="vote-complete-page">
       <div className="vote-complete-page__container">
-        <h1 className="vote-complete-page__title">🎉 Thank You for Voting!</h1>
+        <h1 className="vote-complete-page__title">Thank You for Voting!</h1>
         <p className="vote-complete-page__text">
           You voted for <strong>{art.title}</strong> by {creator?.username}.
         </p>
