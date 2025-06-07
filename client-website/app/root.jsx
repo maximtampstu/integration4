@@ -16,9 +16,17 @@ export default function Root() {
         <AuthProvider>
           <Outlet />
         </AuthProvider>
-        <ScrollRestoration /> 
+        <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
 }
+
+
+
+/* export function HydrateFallback() {
+  return (
+    <p>Loading, please wait...</p>
+  );
+} */
