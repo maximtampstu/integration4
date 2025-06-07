@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import BackButton from "../components/BackButton/BackButton";
 
 const UploadInfo = () => {
 
@@ -6,7 +6,7 @@ const UploadInfo = () => {
         <>
             <h1>Upload Info</h1>
             <ul>
-                <li><Link to="/home">Back</Link></li>
+                <li><BackButton /></li>
             </ul>
         </>
     );

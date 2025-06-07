@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import BackButton from "../components/BackButton/BackButton";
 
 const VoteArt = () => {
 
@@ -6,7 +6,7 @@ const VoteArt = () => {
         <>
             <h1>Vote Art</h1>
             <ul>
-                <li><Link to="/vote">Back</Link></li>
+                <li><BackButton /></li>
             </ul>
         </>
     );

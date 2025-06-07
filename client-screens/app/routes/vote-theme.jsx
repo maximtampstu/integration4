@@ -1,7 +1,8 @@
-import { Link, redirect } from "react-router";
+import { redirect } from "react-router";
 import { getThemeVotes, addThemeVote } from "../services/theme";
 import { getCurrent } from "../services/current";
 import VoteVerification from "../components/VoteVerification/VoteVerification";
+import BackButton from "../components/BackButton/BackButton";
 import { useState } from "react";
 
 export async function clientLoader() {
@@ -42,7 +43,7 @@ const VoteTheme = ({ loaderData }) => {
   return (
     <>
       <h1>Vote Theme</h1>
-        <Link to="/vote">Back</Link>
+        <BackButton/>
         <p>Vote Theme</p>
         <form onSubmit={handleSubmitVote}>
           {votebleThemes.map(theme => <label key={theme.id}><input type="radio" name="theme" value={theme.id} required />{theme.name}</label>)}
