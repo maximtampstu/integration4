@@ -1,4 +1,4 @@
-import {getArtById} from "../services/media";
+import { getArtById } from "../services/media";
 import { getUsers } from "../services/users";
 import { getAllEvents } from "../services/events";
 import { getAllArtTypes } from "../services/art";
@@ -8,13 +8,14 @@ import { Link, useFetcher } from "react-router";
 import "./art-detail.css";
 import { useState } from "react";
 
+
 export async function clientLoader({ params }) {
   const art = await getArtById(params.id);
   const users = await getUsers();
   const events = await getAllEvents();
   const artTypes = await getAllArtTypes();
 
-  const feedback = await getFeedbackByArtId(art.id)
+  const feedback = await getFeedbackByArtId(art.id);
   const currentUserId = (await getCurrent()).userId
 
   return { art, users, events, artTypes, feedback, currentUserId };
@@ -22,13 +23,13 @@ export async function clientLoader({ params }) {
 
 export async function clientAction({ request }) {
   const data = await request.formData()
-  const artId = data.get("artId")
-  const userId = data.get("userId")
+  const artId = Number(data.get("artId"))
+  const userId = Number(data.get("userId"))
   const feedback = data.get("feedback")
   await addFeedback(artId, userId, feedback)
 }
 
-export default function ArtDetail({loaderData}) {
+export default function ArtDetail({ loaderData }) {
   const { art, users, events, artTypes, feedback, currentUserId } = loaderData;
   const fetcher = useFetcher();
 
@@ -41,11 +42,9 @@ export default function ArtDetail({loaderData}) {
 
   const handleSubmitFeedback = (e) => {
     e.preventDefault()
-    fetcher.submit({ artId: art.id, userId: currentUserId, feedback:comment }, { method: "post" });
-    if (fetcher.state === "idle") {
-      setCommenting(false);
-      setComment("")
-    }
+    fetcher.submit({ artId: art.id, userId: currentUserId, feedback: comment }, { method: "post" });
+    setCommenting(false);
+    setComment("")
   }
 
   return (
@@ -75,19 +74,19 @@ export default function ArtDetail({loaderData}) {
         </div> */}
 
         <div className="art-detail__media">
-        {art.url.endsWith(".mp3") ? (
+          {art.url.endsWith(".mp3") ? (
             <audio controls style={{ width: "100%" }}>
-            <source src={art.url} type="audio/mpeg" />
-            Your browser does not support the audio tag.
+              <source src={art.url} type="audio/mpeg" />
+              Your browser does not support the audio tag.
             </audio>
-        ) : art.type === "video" ? (
+          ) : art.type === "video" ? (
             <video controls width="100%">
-            <source src={art.url} type="video/mp4" />
-            Your browser does not support the video tag.
+              <source src={art.url} type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
-        ) : (
+          ) : (
             <img src={art.url} alt={art.title} className="art-detail__image" />
-        )}
+          )}
         </div>
 
 
@@ -96,9 +95,10 @@ export default function ArtDetail({loaderData}) {
       <div className="feedback">
         <form onSubmit={handleSubmitFeedback}>
           <label>Feedback</label>
-          <input type="hidden" name="artId" value={art.id}/>
-          <input type="hidden" name="userId" value={currentUserId}/>
-          <input onClick={() => setCommenting(true)} onChange={(e) => setComment(e.target.value)} type="text" name="feedback" value={comment} required/>
+          <input type="hidden" name="artId" value={art.id} />
+          <input type="hidden" name="userId" value={currentUserId} />
+          {/* <input onClick={() => setCommenting(true)} type="text" name="feedback" required /> */}
+          <input onClick={() => setCommenting(true)} onChange={(e) => setComment(e.target.value)} type="text" name="feedback" value={comment} required />
           {commenting && (
             <>
               <button type="button" onClick={() => setCommenting(false)}>Cancel</button>
@@ -108,7 +108,11 @@ export default function ArtDetail({loaderData}) {
         </form>
         <ul>
           {feedback.map(feedbackItem => (
-            <li key={feedbackItem.id}>{feedbackItem.feedback}</li>
+            <li key={feedbackItem.id}>
+              <img src="#" alt="Avatar" />
+              <p>{users.find((u) => u.id === Number(feedbackItem.userId)).username}</p>
+              <p>{feedbackItem.feedback}</p>
+            </li>
           ))}
         </ul>
       </div>
