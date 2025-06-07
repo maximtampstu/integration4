@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import BackButton from "../components/BackButton/BackButton";
 
 const PreviousEventGallery = () => {
 
@@ -6,7 +7,8 @@ const PreviousEventGallery = () => {
         <>
             <h1>Previous Event Gallery</h1>
             <ul>
-                <li><Link to="/about">Back</Link></li>
+                <li><BackButton /></li>
+                <li><Link to="/vote">Vote</Link></li>
             </ul>
         </>
     );
