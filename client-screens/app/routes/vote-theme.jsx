@@ -40,6 +40,7 @@ const VoteTheme = ({ loaderData }) => {
     setVote("")
   }
 
+
   return (
     <>
       <h1>Vote Theme</h1>

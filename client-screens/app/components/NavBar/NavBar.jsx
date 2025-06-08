@@ -4,7 +4,7 @@ const NavBar = () => {
 
     return (
         <nav style={{ padding: "1rem", background: "#eee" }}>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
         </nav>
     );
 };

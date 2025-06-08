@@ -12,7 +12,7 @@ const VoteComplete = ({ loaderData }) => {
         <>
             <h1>Vote Complete</h1>
             <ul>
-                <li><Link to="/home">Go Home</Link></li>
+                <li><Link to="/">Go Home</Link></li>
                 <li><Link to="/vote-art">Vote for Art</Link></li>
             </ul>
             <p>Your vote for <b>{theme.name}</b> has been counted</p>

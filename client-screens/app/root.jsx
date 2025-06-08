@@ -1,9 +1,8 @@
-// root.jsx
 import { Outlet } from "react-router";
-//https://reactrouter.com/6.30.0/components/scroll-restoration
-//https://reactrouter.com/api/components/Scripts
+import TouchCountDown from "./components/TouchCountDown/TouchCountDown";
 
 export default function Root() {
+
     return (
         <html lang="en">
             <head>
@@ -12,6 +11,7 @@ export default function Root() {
             </head>
             <body>
                 <Outlet />
+                <TouchCountDown />
             </body>
         </html>
     );
