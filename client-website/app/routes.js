@@ -19,5 +19,6 @@ export default [
     route("/vote-complete/:artId", "routes/vote-complete.jsx"),
     route("/test", "routes/test.jsx"),
     route("/edit-art/:id", "routes/edit-art.jsx"),
+    route("/destroy-art/:artId", "routes/destroy-art.jsx"),
   ]),
 ];
