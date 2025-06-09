@@ -286,28 +286,6 @@
       "userId": 1
     },
     {
-      "id": 23,
-      "title": "Liquid Geometry",
-      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048647/original-70de7c2beabdadd7cff1cc048cb0fa4d_sntluq.mp4",
-      "visibility": true,
-      "type": "video",
-      "artTypeId": 2,
-      "eventId": 3,
-      "userId": 2
-    },
-    {
-      "id": 24,
-      "title": "Looped Realities",
-      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048642/original-2c6a3480b8090d51c4a01f2462ddbee2_ndo0b9.mp4",
-      "visibility": true,
-      "type": "video",
-      "artTypeId": 2,
-      "eventId": 3,
-      "userId": 2
-    },
-    {
       "id": 25,
       "title": "Fractal Sky",
       "description": "A digital artwork expressing creativity through modern techniques and color.",
