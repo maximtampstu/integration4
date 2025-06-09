@@ -17,10 +17,7 @@ export default [
     route("/vote-art/:id", "routes/art-category.jsx"),
     route("/vote-theme", "routes/vote-theme.jsx"),
     route("/vote-complete/:artId", "routes/vote-complete.jsx"),
-<<<<<<< HEAD
-    route("/test", "routes/test.jsx")
-=======
+    route("/test", "routes/test.jsx"),
     route("/edit-art/:id", "routes/edit-art.jsx"),
->>>>>>> 02d5bf1 (my galley page with delete and edit features)
   ]),
 ];
