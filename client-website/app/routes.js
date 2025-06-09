@@ -12,7 +12,9 @@ export default [
     route("/participate", "routes/participate.jsx"),
     route("/previous-events", "routes/previous-events.jsx"),
     route("/previous-events/:id", "routes/event-gallery.jsx"),
-    route("/upload", "routes/upload.jsx"),
+    route("/upload", "routes/upload-list.jsx"),
+    // route("/upload", "routes/upload.jsx"),
+    route("/upload/:id", "routes/upload.jsx"),
     route("/vote-art", "routes/vote-art.jsx"),
     route("/vote-art/:id", "routes/art-category.jsx"),
     route("/vote-theme", "routes/vote-theme.jsx"),
@@ -20,5 +22,6 @@ export default [
     route("/test", "routes/test.jsx"),
     route("/edit-art/:id", "routes/edit-art.jsx"),
     route("/destroy-art/:artId", "routes/destroy-art.jsx"),
+    route("/upload-success/:id", "routes/upload-success.jsx"),
   ]),
 ];
