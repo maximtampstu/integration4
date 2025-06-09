@@ -38,3 +38,32 @@ export const addArtVote = async (vote) => {
   if (!response.ok) throw new Error("Failed to submit vote");
   return await response.json();
 };
+
+
+export const getArt = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/art`);
+    if (!response.ok) throw new Error("Failed to fetch art");
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching art:", error);
+    throw error;
+  }
+};
+
+
+export const deleteArt = async (artId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/art/${artId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+    if (!response.ok) throw new Error("Failed to delete artwork");
+    return response;
+  } catch (error) {
+    console.error("Error deleting artwork:", error);
+    throw error;
+  }
+};

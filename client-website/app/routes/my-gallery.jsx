@@ -1,0 +1,123 @@
+import { getArt, deleteArt } from "../services/art";
+import { getCurrent } from "../services/current";
+import { getUsers } from "../services/users";
+import { Link, redirect, Form } from "react-router";
+
+
+export async function clientLoader() {
+  const current = await getCurrent(); 
+  const allArt = await getArt();
+  const users = await getUsers();
+
+  const currentEventId = current.eventId;
+  const currentUserId = current.userId;
+
+  
+  const currentEventArt = allArt.filter(art => art.eventId === currentEventId);
+
+  
+  const otherUserArt = allArt.filter(
+    art => art.userId === currentUserId && art.eventId !== currentEventId
+  );
+
+  return {
+    currentEventArt,
+    otherUserArt,
+    users,
+    current
+  };
+}
+
+
+export async function clientAction({ request }) {
+  const formData = await request.formData();
+  const artId = formData.get("artId");
+  await deleteArt(artId);
+  return redirect("/my-gallery");
+}
+
+
+export default function CurrentEvent({ loaderData }) {
+  const { currentEventArt, otherUserArt, users, current } = loaderData;
+  
+
+
+  return (
+    <main className="current-event-page">
+      <h1>Current Event Artworks</h1>
+     <section>
+  {currentEventArt.length > 0 ? (
+    currentEventArt.map((art) => {
+      const creator = users.find((u) => u.id === art.userId);
+      const isAudio = art?.url?.endsWith(".mp3");
+      const isVideo = art?.type === "video";
+      return (
+        <div key={art.id} className="art-card">
+          <h3>{art.title}</h3>
+          <p><strong>Creator:</strong> {creator?.username}</p>
+          {isAudio ? (
+            <audio controls>
+              <source src={art.url} type="audio/mpeg" />
+            </audio>
+          ) : isVideo ? (
+            <video controls width="300">
+              <source src={art.url} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={art.url} alt={art.title} width="300" />
+          )}
+          <p>{art.description}</p>
+          <Form
+            method="post"
+            onSubmit={(event) => {
+                const confirmed = confirm("Do you really want to delete this artwork?");
+                if (!confirmed) {
+                event.preventDefault();
+                }
+            }}
+            >
+            <input type="hidden" name="artId" value={art.id} />
+            <button type="submit" className="delete-button">Delete</button>
+        </Form>
+        <Link to={`/edit-art/${art.id}`} className="edit-button">Edit</Link>
+        </div>
+      );
+    })
+  ) : (
+    <p>No artworks in the current event.</p>
+  )}
+</section>
+
+<h2>Other Artworks by You</h2>
+<section>
+  {otherUserArt.length > 0 ? (
+    otherUserArt.map((art) => {
+      const isAudio = art?.url?.endsWith(".mp3");
+      const isVideo = art?.type === "video";
+      return (
+        <div key={art.id} className="art-card">
+          <h3>{art.title}</h3>
+          {isAudio ? (
+            <audio controls>
+              <source src={art.url} type="audio/mpeg" />
+            </audio>
+          ) : isVideo ? (
+            <video controls width="300">
+              <source src={art.url} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={art.url} alt={art.title} width="300" />
+          )}
+          <p>{art.description}</p>
+        </div>
+      );
+    })
+  ) : (
+    <p>You have no artworks in other events.</p>
+  )}
+</section>
+
+      <Link to="/">Back to Home</Link>
+    </main>
+  );
+}

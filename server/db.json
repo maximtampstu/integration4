@@ -88,17 +88,6 @@
       "userId": 1
     },
     {
-      "id": 3,
-      "title": "Motion video",
-      "description": "This is the motion video for the kickstarter",
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1748966060/y9huomtbv9rz3gd5oifx.mp4",
-      "visibility": true,
-      "type": "video",
-      "artTypeId": 2,
-      "eventId": 3,
-      "userId": 2
-    },
-    {
       "userId": 1,
       "title": "etetetegte",
       "description": "efegfegeg",
@@ -220,26 +209,15 @@
       "userId": 1
     },
     {
-      "id": 15,
-      "title": "Looped Realities",
-      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048669/original-3c3ae475380715b783ec174201756d9a_ylxs4m.mp4",
-      "visibility": true,
-      "type": "video",
-      "artTypeId": 2,
-      "eventId": 3,
-      "userId": 2
-    },
-    {
       "id": 16,
       "title": "Looped Realities",
-      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+      "description": "A visually engaging motion graphic .....exploring digital movement and rhythm.",
       "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048666/original-7cd4e9b29254998fc6408bbcd73b69e9_n1tluu.mp4",
-      "visibility": true,
       "type": "video",
       "artTypeId": 2,
       "eventId": 3,
-      "userId": 3
+      "userId": 3,
+      "visibility": true
     },
     {
       "id": 17,
@@ -614,6 +592,37 @@
       "artTypeId": 5,
       "eventId": 2,
       "userId": 3
+    },
+    {
+      "userId": 1,
+      "title": "frgrfgbr",
+      "description": "dgdvbvf",
+      "visibility": true,
+      "type": "digital art",
+      "eventId": 1,
+      "artTypeId": 1,
+      "id": 51
+    },
+    {
+      "userId": 1,
+      "title": "dfdg",
+      "description": "wgrwgrw",
+      "visibility": true,
+      "type": "digital art",
+      "eventId": 1,
+      "artTypeId": 1,
+      "id": 52
+    },
+    {
+      "userId": 1,
+      "title": "motion video",
+      "description": "kickstarter motion video",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749465608/a0ilp5ko5gfvovcdia9p.mp4",
+      "type": "motion graphic",
+      "eventId": 1,
+      "artTypeId": 1,
+      "id": 53
     }
   ],
   "artVotes": [
@@ -646,6 +655,11 @@
       "artId": 45,
       "userId": 1,
       "id": 6
+    },
+    {
+      "artId": 38,
+      "userId": 1,
+      "id": 7
     }
   ],
   "themeVotes": [
@@ -660,9 +674,9 @@
       "userEmail": "test3@test.com"
     },
     {
-      "themeId": 2,
+      "themeId": 1,
       "userEmail": "test@test.com",
-      "id": 2
+      "id": 7
     }
   ],
   "feedback": [
@@ -690,7 +704,7 @@
     }
   ],
   "current": {
-    "eventId": 4,
+    "eventId": 3,
     "phase": "voting",
     "userId": 1,
     "themes": [
