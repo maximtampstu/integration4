@@ -286,6 +286,28 @@
       "userId": 1
     },
     {
+      "id": 23,
+      "title": "Liquid Geometry",
+      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048647/original-70de7c2beabdadd7cff1cc048cb0fa4d_sntluq.mp4",
+      "visibility": true,
+      "type": "video",
+      "artTypeId": 2,
+      "eventId": 3,
+      "userId": 2
+    },
+    {
+      "id": 24,
+      "title": "Looped Realities",
+      "description": "A visually engaging motion graphic exploring digital movement and rhythm.",
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749048642/original-2c6a3480b8090d51c4a01f2462ddbee2_ndo0b9.mp4",
+      "visibility": true,
+      "type": "video",
+      "artTypeId": 2,
+      "eventId": 3,
+      "userId": 2
+    },
+    {
       "id": 25,
       "title": "Fractal Sky",
       "description": "A digital artwork expressing creativity through modern techniques and color.",
@@ -671,15 +693,15 @@
       "id": 59
     },
     {
-      "userId": 1,
+      "id": 60,
       "title": "vjvhkbk",
       "description": "bkblkj",
-      "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485618/npzkg1csjf8gumwlb7tb.png",
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749486703/enurdghyi6xiiefzkfps.png",
       "type": "image",
-      "eventId": 3,
       "artTypeId": 3,
-      "id": 60
+      "eventId": 3,
+      "userId": 1,
+      "visibility": true
     }
   ],
   "artVotes": [

@@ -66,18 +66,11 @@ export default function CurrentEvent({ loaderData }) {
             <img src={art.url} alt={art.title} width="300" />
           )}
           <p>{art.description}</p>
-          <Form
-            method="post"
-            onSubmit={(event) => {
-                const confirmed = confirm("Do you really want to delete this artwork?");
-                if (!confirmed) {
-                event.preventDefault();
-                }
-            }}
-            >
-            <input type="hidden" name="artId" value={art.id} />
-            <button type="submit" className="delete-button">Delete</button>
-        </Form>
+          
+            <form onSubmit={handleSubmitDelete}>
+              <input type="hidden" name="artId" value={art.id} />
+              <button type="submit" className="delete-button">Delete</button>
+            </form>
         <Link to={`/edit-art/${art.id}`} className="edit-button">Edit</Link>
         </div>
       );
