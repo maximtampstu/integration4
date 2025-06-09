@@ -1,14 +1,13 @@
 import { redirect } from "react-router";
 import { getThemeVotes, addThemeVote } from "../services/theme";
-import { getCurrent } from "../services/current";
 import VoteVerification from "../components/VoteVerification/VoteVerification";
 import BackButton from "../components/BackButton/BackButton";
 import { useState } from "react";
 
 export async function clientLoader() {
-  const current = await getCurrent();
+  const votableThemes = JSON.parse(import.meta.env.VITE_VOTABLE_THEMES);
   const themeVotes = await getThemeVotes();
-  return { current, themeVotes };
+  return { votableThemes, themeVotes };
 }
 
 export async function clientAction({ request }) {
@@ -20,8 +19,7 @@ export async function clientAction({ request }) {
 }
 
 const VoteTheme = ({ loaderData }) => {
-  const { current, themeVotes } = loaderData;
-  const votebleThemes = current.themes
+  const { votableThemes, themeVotes } = loaderData;
 
   const [state, setState] = useState("email")
   const [vote, setVote] = useState("")
@@ -47,7 +45,7 @@ const VoteTheme = ({ loaderData }) => {
         <BackButton/>
         <p>Vote Theme</p>
         <form onSubmit={handleSubmitVote}>
-          {votebleThemes.map(theme => <label key={theme.id}><input type="radio" name="theme" value={theme.id} required />{theme.name}</label>)}
+          {votableThemes.map(theme => <label key={theme.id}><input type="radio" name="theme" value={theme.id} required />{theme.name}</label>)}
           <button type="submit">Vote</button>
         </form>
       {vote != "" ? <VoteVerification themeVotes={themeVotes} state={state} changeState={changeState} themeId={vote} ClosePopup={ClosePopup} /> : null}
