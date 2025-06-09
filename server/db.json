@@ -573,34 +573,113 @@
     },
     {
       "userId": 1,
-      "title": "frgrfgbr",
-      "description": "dgdvbvf",
+      "title": "this is a digital art",
+      "description": "digital arts made by me",
       "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749481385/wtk2ixohiglhhrqlwcae.svg",
       "type": "digital art",
-      "eventId": 1,
-      "artTypeId": 1,
+      "eventId": 3,
+      "artTypeId": 3,
       "id": 51
     },
     {
       "userId": 1,
-      "title": "dfdg",
-      "description": "wgrwgrw",
+      "title": "kickstarter motion",
+      "description": "motion for the kickstarter here",
       "visibility": true,
-      "type": "digital art",
-      "eventId": 1,
-      "artTypeId": 1,
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749481455/zumabhvciibijkg6iail.mp4",
+      "type": "motion graphic",
+      "eventId": 3,
+      "artTypeId": 2,
       "id": 52
     },
     {
       "userId": 1,
-      "title": "motion video",
-      "description": "kickstarter motion video",
+      "title": "brkbgrbgklr",
+      "description": "dvdvfvbfbfe",
       "visibility": true,
-      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749465608/a0ilp5ko5gfvovcdia9p.mp4",
-      "type": "motion graphic",
-      "eventId": 1,
-      "artTypeId": 1,
+      "url": "https://res.cloudinary.com/dngqj5iyc/video/upload/v1749483730/wkm1fanwkq65sw9yfmyq.mp4",
+      "type": "video",
+      "eventId": 3,
+      "artTypeId": 2,
       "id": 53
+    },
+    {
+      "userId": 1,
+      "title": "ffbfeb",
+      "description": "rfbfrbrf",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749483860/ylbnoz1prncjswigdznj.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 3,
+      "id": 54
+    },
+    {
+      "userId": 1,
+      "title": "efewfgeg",
+      "description": "wegrwgr",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749484890/rg5gnpajfacux6vijimd.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 4,
+      "id": 55
+    },
+    {
+      "userId": 1,
+      "title": "wdvwv",
+      "description": "rwvrv",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485022/scedbrjyjplrzz0ltc3j.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 3,
+      "id": 56
+    },
+    {
+      "userId": 1,
+      "title": "rrgrfeg",
+      "description": "rgrht4hegfbg",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485203/ldci0y9kwdy8htcetxuy.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 3,
+      "id": 57
+    },
+    {
+      "userId": 1,
+      "title": "efef",
+      "description": "wrgrwrv",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485368/dlfgohzm449gyk238yx1.jpg",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 3,
+      "id": 58
+    },
+    {
+      "userId": 1,
+      "title": "wvfvb",
+      "description": "rwvbrb",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485455/t0tdaxop1elwsrkrtpna.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 4,
+      "id": 59
+    },
+    {
+      "userId": 1,
+      "title": "vjvhkbk",
+      "description": "bkblkj",
+      "visibility": true,
+      "url": "https://res.cloudinary.com/dngqj5iyc/image/upload/v1749485618/npzkg1csjf8gumwlb7tb.png",
+      "type": "image",
+      "eventId": 3,
+      "artTypeId": 3,
+      "id": 60
     }
   ],
   "artVotes": [
@@ -652,7 +731,32 @@
       "userEmail": "test3@test.com"
     },
     {
-      "themeId": 1,
+      "themeId": "3",
+      "userEmail": "appel@gmail.com",
+      "id": 2
+    },
+    {
+      "themeId": "2",
+      "userEmail": "appel2@gmail.com",
+      "id": 3
+    },
+    {
+      "themeId": "3",
+      "userEmail": "appel3@gmail.com",
+      "id": 4
+    },
+    {
+      "themeId": "2",
+      "userEmail": "appel5@gmail.com",
+      "id": 5
+    },
+    {
+      "themeId": "3",
+      "userEmail": "appel6@gmail.com",
+      "id": 6
+    },
+    {
+      "themeId": "2",
       "userEmail": "test@test.com",
       "id": 7
     }
