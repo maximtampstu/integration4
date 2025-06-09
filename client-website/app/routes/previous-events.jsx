@@ -1,5 +1,6 @@
 import { Link } from "react-router";
-import { getAllEvents } from "../services/media"; 
+import { getAllEvents } from "../services/media";
+import { getEndDate, getCountDownToParty, getMonthAndDayString } from "../services/events";
 import "./previous-events.css";
 
 export function meta() {
@@ -16,6 +17,7 @@ export async function clientLoader() {
 
 export default function PreviousEvents({ loaderData }) {
   const { events } = loaderData;
+  console.log(getCountDownToParty("2025-08-23"))
 
   console.log(events);
   return (
@@ -36,7 +38,7 @@ export default function PreviousEvents({ loaderData }) {
                   <div className="events-list__info">
                     <h2 className="events-list__name">{event.name}</h2>
                     <p className="events-list__description">{event.description}</p>
-                    <p className="events-list__date">Start Date: {event.startDate}</p>
+                    <p className="events-list__date">{getMonthAndDayString(event.startDate)} - {getMonthAndDayString(getEndDate(event.startDate))}</p>
                   </div>
                   <div className="events-list__actions">
                     <Link
