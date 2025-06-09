@@ -49,7 +49,7 @@ const BaseLayout = () => {
     };
 
     return (
-        <div onTouchStart={handleTouchScreen} style={{ height: "100vh"}}>
+        <div onTouchStart={handleTouchScreen} onClick={handleTouchScreen} style={{ height: "100vh"}}>
             <NavBar />
             <Outlet />
             {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}

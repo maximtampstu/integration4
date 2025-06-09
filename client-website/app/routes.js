@@ -16,6 +16,7 @@ export default [
     route("/vote-art", "routes/vote-art.jsx"),
     route("/vote-art/:id", "routes/art-category.jsx"),
     route("/vote-theme", "routes/vote-theme.jsx"),
-    route("/vote-complete/:artId", "routes/vote-complete.jsx")
+    route("/vote-complete/:artId", "routes/vote-complete.jsx"),
+    route("/test", "routes/test.jsx")
   ]),
 ];
