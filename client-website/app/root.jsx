@@ -3,16 +3,13 @@ import { Outlet, ScrollRestoration, Scripts } from "react-router";
 //https://reactrouter.com/6.30.0/components/scroll-restoration
 //https://reactrouter.com/api/components/Scripts
 
-<<<<<<< HEAD
-=======
-import { AuthProvider } from "./context/AuthContext";
+// import { AuthProvider } from "./context/AuthContext";
 
 // import "./app.css";
 
 import "./reset.css"
 import "./app.css";
 
->>>>>>> 1ca5cc5 (about page html and css)
 export default function Root() {
   return (
     <html lang="en">
