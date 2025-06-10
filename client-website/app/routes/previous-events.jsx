@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { getAllEvents } from "../services/media";
+import { getPastEvents } from "../services/events";
 import { getEndDate, getCountDownToParty, getMonthAndDayString } from "../services/events";
 import "./previous-events.css";
 
@@ -11,15 +11,14 @@ export function meta() {
 }
 
 export async function clientLoader() {
-  const events = await getAllEvents();
-  return { events };
+  const previousEvents = await getPastEvents(); //done
+  return { previousEvents };
 }
 
 export default function PreviousEvents({ loaderData }) {
-  const { events } = loaderData;
+  const { previousEvents } = loaderData;
   console.log(getCountDownToParty("2025-08-23"))
 
-  console.log(events);
   return (
     <main className="events-page">
       <div className="events-page__container">
@@ -30,10 +29,10 @@ export default function PreviousEvents({ loaderData }) {
 
         <div className="events-page__content">
           <ul className="events-list">
-            {events.length === 0 ? (
+            {previousEvents.length === 0 ? (
               <li className="events-list__empty">No events available yet.</li>
             ) : (
-              events.map((event) => (
+              previousEvents.map((event) => (
                 <li key={event.id} className="events-list__item">
                   <div className="events-list__info">
                     <h2 className="events-list__name">{event.name}</h2>

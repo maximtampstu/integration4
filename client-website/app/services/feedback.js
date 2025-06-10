@@ -1,40 +1,40 @@
+import supabase from "./supabase";
+
 export const getFeedbackByArtId = async (artId) => {
     try {
-        const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/feedback?artId=${artId}`
-        );
+        let { data, error } = await supabase
+            .from("Feedback")
+            .select("*")
+            .eq("artId", artId)
 
-        if (!response.ok) throw new Error("Failed to fetch notes");
-
-        return await response.json();
+        if (!error) {
+            if (data.length === 0) {
+                return [];
+            }
+            return data;
+        } else {
+            console.log(" get contact err", error);
+        }
     } catch (error) {
         console.error("Error fetching notes:", error);
         throw error;
-      }
+    }
 };
 
 export const addFeedback = async (artId, userId, feedback) => {
     try {
-        const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/feedback`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    artId: artId,
-                    userId: userId,
-                    feedback: feedback
-                }),
-            }
-        );
+        const { data, error } = await supabase
+            .from("Feedback")
+            .insert([{
+                artId: artId,
+                userId: userId,
+                feedback: feedback
+            }])
+            .select();
 
-        if (!response.ok) throw new Error("Failed to create folder");
-
-        return await response.json();
+        return data[0];
     } catch (error) {
-        console.error("Error creating folder:", error);
+        console.error("Error adding feedback:", error);
         throw error;
     }
-};
+}

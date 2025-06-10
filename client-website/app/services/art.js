@@ -1,69 +1,214 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import supabase from "./supabase";
+
+export const getArtById = async (artId) => {
+    try {
+        let { data, error } = await supabase
+            .from("Art")
+            .select("*")
+            .eq("id", artId)
+
+        if (!error) {
+            return data[0];
+        } else {
+            console.log(" get contact err", error);
+        }
+    } catch (error) {
+        console.error("Error fetching notes:", error);
+        throw error;
+    }
+};
+
+export const getArtTypeById = async (artTypeId) => {
+  try {
+    let { data, error } = await supabase
+      .from("ArtTypes")
+      .select("*")
+      .eq("id", artTypeId)
+
+    if (!error) {
+      return data[0];
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getArtByEventId = async (eventId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Art")
+      .select("*")
+      .eq("eventId", eventId);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getUsersCurrentEventArt = async (eventId, userId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Art")
+      .select("*")
+      .eq("eventId", eventId)
+      .eq("userId", userId);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getUsersPreviousEventsArt = async (eventId, userId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Art")
+      .select("*")
+      .lt("eventId", eventId)
+      .eq("userId", userId);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
 
 export const getAllArtTypes = async () => {
-  const res = await fetch(`${API_BASE_URL}/artTypes`);
-  return res.ok ? res.json() : [];
-};
-
-export const getArtTypes = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/artTypes`);
-    if (!response.ok) throw new Error("Failed to fetch art types");
-    return await response.json();
+    let { data, error } = await supabase
+      .from("ArtTypes")
+      .select("*")
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
   } catch (error) {
-    console.error("Error fetching art types:", error);
+    console.error("Error fetching notes:", error);
     throw error;
   }
 };
 
-export const getCurrentEventData = async () => {
-  const res = await fetch(`${API_BASE_URL}/current`);
-  if (!res.ok) throw new Error("Failed to fetch current voting data");
-  return res.json();
-};
-
-
-export const getArtVotes = async () => {
-  const response = await fetch(`${API_BASE_URL}/artVotes`);
-  if (!response.ok) throw new Error("Failed to fetch votes");
-  return await response.json();
-};
-
-export const addArtVote = async (vote) => {
-  const response = await fetch(`${API_BASE_URL}/artVotes`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(vote),
-  });
-  if (!response.ok) throw new Error("Failed to submit vote");
-  return await response.json();
-};
-
-
-export const getArt = async () => {
+export const addArt = async (media) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/art`);
-    if (!response.ok) throw new Error("Failed to fetch art");
-    return await response.json();
+    const { data, error } = await supabase
+      .from("Art")
+      .insert([media])
+      .select();
+
+    return data[0];
   } catch (error) {
-    console.error("Error fetching art:", error);
+    console.error("Error adding art:", error);
     throw error;
   }
-};
+}
 
+export const updateArt = async (media, artId) => {
+  try {
+    const { data, error } = await supabase
+      .from("Art")
+      .update(media)
+      .eq("id", artId)
+      .select();
+
+    return data[0];
+  } catch (error) {
+    console.error("Error updating art:", error);
+    throw error;
+  }
+}
 
 export const deleteArt = async (artId) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/art/${artId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    });
-    if (!response.ok) throw new Error("Failed to delete artwork");
-    return response;
+    const { data, error } = await supabase
+      .from("Art")
+      .delete()
+      .eq("id", artId);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
   } catch (error) {
-    console.error("Error deleting artwork:", error);
+    console.error("Error fetching notes:", error);
     throw error;
   }
 };
+
+export const getCurrentEventSelectedArtByArtType = async (eventId, artTypeId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Art")
+      .select("*")
+      .eq("eventId", eventId)
+      .eq("artTypeId", artTypeId)
+      .eq("selected", true);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getArtVotes = async () => {
+  try {
+    let { data, error } = await supabase
+      .from("ArtVotes")
+      .select("*")
+
+    if (!error) {
+      if (data.length === 0) {
+        return [];
+      }
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const addArtVote = async (artId, userId) => {
+  try {
+    const { data, error } = await supabase
+      .from("ArtVotes")
+      .insert([{
+        artId: artId,
+        userId: userId
+      }])
+      .select();
+
+    return data[0];
+  } catch (error) {
+    console.error("Error adding art vote:", error);
+    throw error;
+  }
+}

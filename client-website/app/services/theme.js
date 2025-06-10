@@ -1,58 +1,74 @@
-export const getThemeVotes = async () => {
-    try {
-        const response = await fetch(
-            `${import.meta.env.VITE_API_BASE_URL}/themeVotes`
-        );
+import supabase from "./supabase";
 
-        if (!response.ok) throw new Error("Failed to fetch parcels");
+export const getVotableThemes = async () => {
+  try {
+    let { data, error } = await supabase
+      .from("VotableThemes")
+      .select("*")
 
-        return await response.json();
-    } catch (error) {
-        console.error("Error fetching folders:", error);
-        throw error;
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
     }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getThemeVotes = async () => {
+  try {
+    let { data, error } = await supabase
+      .from("ThemeVotes")
+      .select("*")
+
+    if (!error) {
+      if (data.length === 0) {
+        return [];
+      }
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
 };
 
 export const addThemeVote = async (themeId, email) => {
-    try {
-      const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/themeVotes`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            themeId: themeId,
-            userEmail: email
-          }),
-        }
-      );
-  
-      if (!response.ok) throw new Error("Failed to create folder");
-  
-      return await response.json();
-    } catch (error) {
-      console.error("Error creating folder:", error);
-      throw error;
-    }
-};
+  try {
+    const { data, error } = await supabase
+      .from("ThemeVotes")
+      .insert([{
+        themeId: themeId,
+        userEmail: email
+      }])
+      .select();
+
+    return data[0];
+  } catch (error) {
+    console.error("Error adding theme vote:", error);
+    throw error;
+  }
+}
 
 export const getThemeById = async (themeId) => {
   try {
-    const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/current`
-    );
+    let { data, error } = await supabase
+      .from("VotableThemes")
+      .select("*")
+      .eq("id", themeId);
 
-    if (!response.ok) throw new Error("Failed to fetch notes");
-
-    const data = await response.json();
-
-    const theme = data.themes.find(t => t.id === Number(themeId));
-
-    if (!theme) throw new Error("Theme not found");
-
-    return theme;
+    if (!error) {
+      if (data.length === 0) {
+        return [];
+      }
+      return data[0];
+    } else {
+      console.log(" get contact err", error);
+    }
   } catch (error) {
     console.error("Error fetching notes:", error);
     throw error;

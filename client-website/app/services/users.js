@@ -1,34 +1,54 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import supabase from "./supabase";
 
-export const getUsers = async () => {
-  const response = await fetch(`${API_BASE_URL}/users`);
-  if (!response.ok) throw new Error("Failed to fetch users");
-  return await response.json();
-};
-
-
-export const addUser = async (user) => {
-  const response = await fetch(`${API_BASE_URL}/users`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
-  if (!response.ok) throw new Error("Failed to add user");
-  return await response.json();
-};
-
-
-export const getUserById = async (id) => {
+export const getAllUsers = async () => {
   try {
-    const response = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/users/${id}`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch habit");
+    let { data, error } = await supabase
+      .from("Users")
+      .select("*")
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
     }
-    return await response.json();
   } catch (error) {
-    console.error("Error fetching habit:", error);
-    return null;
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getCurrentUser = async () => {
+    try {
+        let { data, error } = await supabase
+            .from("Users")
+            .select("*")
+            .eq("current", true)
+
+        if (!error) {
+            return data[0];
+        } else {
+            console.log(" get contact err", error);
+        }
+    } catch (error) {
+        console.error("Error fetching notes:", error);
+        throw error;
+    }
+};
+
+export const getUserById = async (userId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Users")
+      .select("*")
+      .eq("id", userId)
+
+    if (!error) {
+      return data[0];
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
   }
 };

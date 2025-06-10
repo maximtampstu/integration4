@@ -1,36 +1,25 @@
-import { getArt, deleteArt } from "../services/art";
-import { getCurrent } from "../services/current";
-import { getUsers } from "../services/users";
+import { getUsersCurrentEventArt, getUsersPreviousEventsArt } from "../services/art";
 import { Link, Form } from "react-router";
 import { useState } from "react";
+import { getCurrentEvent } from "../services/events";
+import { getCurrentUser } from "../services/users";
 
 
 export async function clientLoader() {
-  const current = await getCurrent(); 
-  const allArt = await getArt();
-  const users = await getUsers();
-
-  const currentEventId = current.eventId;
-  const currentUserId = current.userId;
-
+  const currentEvent = await getCurrentEvent(); //done
+  const currentUser = await getCurrentUser(); //done
   
-  const currentEventArt = allArt.filter(art => art.eventId === currentEventId);
-
-  
-  const otherUserArt = allArt.filter(
-    art => art.userId === currentUserId && art.eventId !== currentEventId
-  );
+  const currentEventArt = await getUsersCurrentEventArt(currentEvent.id, currentUser.id); //done
+  const previousEventsArt = await getUsersPreviousEventsArt(currentEvent.id, currentUser.id); //done
 
   return {
     currentEventArt,
-    otherUserArt,
-    users,
-    current
+    previousEventsArt,
   };
 }
 
 export default function CurrentEvent({ loaderData }) {
-  const { currentEventArt, otherUserArt, users, current } = loaderData;
+  const { currentEventArt, previousEventsArt } = loaderData;
 
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [artIdToDelete, setArtIdToDelete] = useState("");
@@ -47,13 +36,11 @@ export default function CurrentEvent({ loaderData }) {
      <section>
   {currentEventArt.length > 0 ? (
     currentEventArt.map((art) => {
-      const creator = users.find((u) => u.id === art.userId);
       const isAudio = art?.url?.endsWith(".mp3");
       const isVideo = art?.type === "video";
       return (
         <div key={art.id} className="art-card">
           <h3>{art.title}</h3>
-          <p><strong>Creator:</strong> {creator?.username}</p>
           {isAudio ? (
             <audio controls>
               <source src={art.url} type="audio/mpeg" />
@@ -82,8 +69,8 @@ export default function CurrentEvent({ loaderData }) {
 
     <h2>Other Artworks by You</h2>
     <section>
-      {otherUserArt.length > 0 ? (
-        otherUserArt.map((art) => {
+      {previousEventsArt.length > 0 ? (
+        previousEventsArt.map((art) => {
           const isAudio = art?.url?.endsWith(".mp3");
           const isVideo = art?.type === "video";
           return (

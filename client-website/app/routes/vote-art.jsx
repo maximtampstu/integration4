@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { getArtTypes } from "../services/art";
+import { getAllArtTypes } from "../services/art";
 import "./vote-art.css"; 
 
 export function meta() {
@@ -10,7 +10,7 @@ export function meta() {
 }
 
 export async function clientLoader() {
-  const artTypes = await getArtTypes();
+  const artTypes = await getAllArtTypes(); //done
   return { artTypes };
 }
 

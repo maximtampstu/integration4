@@ -1,11 +1,10 @@
-import { getArtById } from "../services/media";
-import { getUsers } from "../services/users";
+import { getArtById } from "../services/art";
+import { getUserById } from "../services/users";
 import { Link } from "react-router";
 
 export async function clientLoader({ params }) {
-  const art = await getArtById(params.artId);
-  const users = await getUsers();
-  const creator = users.find((u) => u.id === art.userId);
+  const art = await getArtById(params.artId); //done
+  const creator = await getUserById(art.userId); //done
   return { art, creator };
 }
 
