@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar/NavBar";
 const BaseLayout = () => (
     <>
         <NavBar />
-        <main style={{ padding: "1rem" }}>
+        <main >
             <Outlet />
         </main>
     </>
