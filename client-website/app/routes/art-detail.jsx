@@ -1,24 +1,22 @@
-import { getArtById } from "../services/media";
-import { getUsers } from "../services/users";
-import { getAllEvents } from "../services/events";
-import { getAllArtTypes } from "../services/art";
+import { getCurrentUser, getAllUsers, getUserById } from "../services/users";
+import { getEventById } from "../services/events";
+import { getArtById, getArtTypeById } from "../services/art";
 import { getFeedbackByArtId, addFeedback } from "../services/feedback";
-import { getCurrent } from "../services/current";
 import { Link, useFetcher } from "react-router";
 import "./art-detail.css";
 import { useState } from "react";
 
 
 export async function clientLoader({ params }) {
-  const art = await getArtById(params.id);
-  const users = await getUsers();
-  const events = await getAllEvents();
-  const artTypes = await getAllArtTypes();
+  const art = await getArtById(params.id); //done
+  const users = await getAllUsers(); //done
+  const event = await getEventById(art.eventId); //done
+  const artType = await getArtTypeById(art.artTypeId); //done
+  const feedback = await getFeedbackByArtId(art.id); //done
+  const currentUserId = (await getCurrentUser()).id //done
+  const creator = await getUserById(art.userId); //done
 
-  const feedback = await getFeedbackByArtId(art.id);
-  const currentUserId = (await getCurrent()).userId
-
-  return { art, users, events, artTypes, feedback, currentUserId };
+  return { art, users, event, artType, feedback, currentUserId, creator };
 }
 
 export async function clientAction({ request }) {
@@ -30,12 +28,8 @@ export async function clientAction({ request }) {
 }
 
 export default function ArtDetail({ loaderData }) {
-  const { art, users, events, artTypes, feedback, currentUserId } = loaderData;
+  const { art, users, event, artType, feedback, currentUserId, creator } = loaderData;
   const fetcher = useFetcher();
-
-  const creator = users.find((u) => u.id === art.userId);
-  const theme = events.find((e) => e.id === art.eventId);
-  const tag = artTypes.find((t) => t.id === art.artTypeId);
 
   const [commenting, setCommenting] = useState(false)
   const [comment, setComment] = useState("")
@@ -55,8 +49,8 @@ export default function ArtDetail({ loaderData }) {
         </Link>
 
         <h1 className="art-detail__title">{art.title}</h1>
-        <p className="art-detail__tag">{tag?.name || "Unknown Tag"}</p>
-        <p className="art-detail__theme">{theme?.name || "Untitled Event"}</p>
+        <p className="art-detail__tag">{artType?.name || "Unknown Tag"}</p>
+        <p className="art-detail__theme">{event?.name || "Untitled Event"}</p>
 
         <p className="art-detail__creator">
           <strong>Creator:</strong> {creator?.username}
@@ -107,13 +101,15 @@ export default function ArtDetail({ loaderData }) {
           )}
         </form>
         <ul>
-          {feedback.map(feedbackItem => (
+          {feedback.length > 0 ? (feedback.map(feedbackItem => (
             <li key={feedbackItem.id}>
               <img src="#" alt="Avatar" />
               <p>{users.find((u) => u.id === Number(feedbackItem.userId)).username}</p>
               <p>{feedbackItem.feedback}</p>
             </li>
-          ))}
+          ))) : (
+            <li>No feedback available</li>
+          )}
         </ul>
       </div>
     </main>

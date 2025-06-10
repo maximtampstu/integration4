@@ -1,8 +1,74 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import supabase from "./supabase";
 
 export const getAllEvents = async () => {
-  const res = await fetch(`${API_BASE_URL}/events`);
-  return res.ok ? res.json() : [];
+  try {
+    let { data, error } = await supabase
+      .from("Events")
+      .select("*")
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getEventById = async (eventId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Events")
+      .select("*")
+      .eq("id", eventId)
+
+    if (!error) {
+      return data[0];
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getCurrentEvent = async () => {
+  try {
+    let { data, error } = await supabase
+      .from("Events")
+      .select("*")
+      .eq("current", true)
+
+    if (!error) {
+      return data[0];
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
+export const getPastEvents = async () => {
+  try {
+    let { data, error } = await supabase
+      .from("Events")
+      .select("*")
+      .eq("current", false);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
 };
 
 export const getEndDate = (dateStart) => {

@@ -1,11 +1,10 @@
-import { getArtById } from "../services/media"; 
+import { getArtById } from "../services/art"; 
 import { Link } from "react-router-dom";
 
 export async function clientLoader({ params }) {
-  const art = await getArtById(Number(params.id));
+  const art = await getArtById(Number(params.id)); //done
   return { art };
 }
-
 
 export default function UploadSuccess({loaderData}) {
   const { art } = loaderData;

@@ -1,18 +1,18 @@
 import { redirect } from "react-router";
-import { getThemeVotes, addThemeVote } from "../services/theme";
+import { getThemeVotes, addThemeVote, getVotableThemes } from "../services/theme";
 import VoteVerification from "../components/VoteVerification/VoteVerification";
 import BackButton from "../components/BackButton/BackButton";
 import { useState } from "react";
 
 export async function clientLoader() {
-  const votableThemes = JSON.parse(import.meta.env.VITE_VOTABLE_THEMES);
+  const votableThemes = await getVotableThemes();
   const themeVotes = await getThemeVotes();
   return { votableThemes, themeVotes };
 }
 
 export async function clientAction({ request }) {
   const data = await request.formData()
-  const themeId = data.get("themeId")
+  const themeId = Number(data.get("themeId"))
   const email = data.get("email")
   await addThemeVote(themeId, email)
   return redirect(`/vote-complete/${themeId}`)

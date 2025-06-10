@@ -1,5 +1,5 @@
 import { Form, Link, redirect, useNavigation } from "react-router";
-import { getArtById, updateArt } from "../services/media";
+import { getArtById, updateArt } from "../services/art";
 import { uploadMediaToCloudinary } from "../services/media"; 
 
 
@@ -30,19 +30,18 @@ export async function clientAction({ request, params }) {
     }
   }
 
-  const updatedArt = {
-    id: Number(params.id),
-    title: formData.get("title"),
-    description: formData.get("description"),
-    url,
-    type,
-    artTypeId: Number(formData.get("artTypeId")),
-    eventId: Number(formData.get("eventId")),
-    userId: Number(formData.get("userId")),
-    visibility: formData.get("visibility") === "true",
-  };
+  await updateArt({
+      id: Number(params.id),
+      title: formData.get("title"),
+      description: formData.get("description"),
+      url,
+      type,
+      artTypeId: Number(formData.get("artTypeId")),
+      eventId: Number(formData.get("eventId")),
+      userId: Number(formData.get("userId")),
+      visibility: formData.get("visibility") === "true",
+  }, params.id);
 
-  await updateArt(updatedArt);
   return redirect("/my-gallery");
 }
 

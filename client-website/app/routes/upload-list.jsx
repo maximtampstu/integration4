@@ -1,8 +1,8 @@
-import { getArtTypes } from "../services/art";
+import { getAllArtTypes } from "../services/art";
 import { Link } from "react-router";
 
 export async function clientLoader() {
-  const artTypes = await getArtTypes();
+  const artTypes = await getAllArtTypes(); //done
   return { artTypes };
 }
 

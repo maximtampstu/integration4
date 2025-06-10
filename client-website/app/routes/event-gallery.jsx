@@ -1,20 +1,20 @@
-import { getArtByEvent } from "../services/media";
-import { getUsers } from "../services/users";
+import { getArtByEventId } from "../services/art";
+import { getAllUsers } from "../services/users";
+import { getEventById } from "../services/events";
 import { Link } from "react-router";
 import "./event-gallery.css";
 
-
 export async function clientLoader({ params }) {
-  const eventId = params.id;
-  const artworks = await getArtByEvent(eventId);
-  const users = await getUsers();
-  return { artworks, eventId, users };
+  const artworks = await getArtByEventId(params.id); //done
+  const event = await getEventById(params.id); //done
+  const users = await getAllUsers(); //done
+  return { artworks, event, users };
 }
 
 export default function CurrentEvent({loaderData}) {
-  const { artworks, eventId, users } = loaderData;
+  const { artworks, event, users } = loaderData;
 
-   const getUsername = (userId) => {
+  const getUsername = (userId) => {
     const user = users.find((u) => u.id === userId);
     console.log(user);
     return user?.username;
@@ -24,7 +24,7 @@ export default function CurrentEvent({loaderData}) {
     <main className="event-gallery">
       <div className="event-gallery__container">
         <header className="event-gallery__header">
-          <h1 className="event-gallery__title">Gallery for Event #{eventId}</h1>
+          <h1 className="event-gallery__title">Gallery for Event: {event.name}</h1>
           <Link to="/previous-events" className="event-gallery__back">
             Back to Events
           </Link>

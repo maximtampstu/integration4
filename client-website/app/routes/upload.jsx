@@ -1,17 +1,14 @@
-import { addMedia} from "../services/media";
+import { addArt } from "../services/art";
 import { Form, Link, redirect } from "react-router";
 import { useNavigation } from "react-router"
-import { getCurrent } from "../services/current";
+import { getCurrentUser } from "../services/users";
+import { getCurrentEvent } from "../services/events";
 
-
-const user = {
-  id: 1,
-  username: "Alex_the_King",
-  email: "test@test.com",
-  subscribed: true,
-};
-
-
+export async function clientLoader() {
+  const currentUser = await getCurrentUser(); //done
+  const currentEvent = await getCurrentEvent(); //done
+  return { currentUser, currentEvent };
+}
 
 export async function clientAction({ request, params }) {
   const formData = await request.formData();
@@ -26,7 +23,8 @@ export async function clientAction({ request, params }) {
     throw new Error("File is required");
   }
 
-  const { eventId } = await getCurrent();
+  const eventId = Number(formData.get("eventId"));
+  const userId = Number(formData.get("userId"));
 
   const uploadData = new FormData();
   uploadData.append("file", file);
@@ -41,7 +39,6 @@ export async function clientAction({ request, params }) {
   const result = await res.json();
   const url = result.secure_url;
  
-
 const type = file.type.startsWith("audio/")
   ? "audio"
   : file.type.startsWith("video/")
@@ -50,11 +47,8 @@ const type = file.type.startsWith("audio/")
   ? "image"
   : "unknown";
 
-
-
-
-  const createdArt = await addMedia({
-    userId: user.id,
+  const createdArt = await addArt({
+    userId,
     title,
     description,
     visibility,
@@ -64,21 +58,23 @@ const type = file.type.startsWith("audio/")
     artTypeId
   });
 
-//   return redirect("/");
-return redirect(`/upload-success/${createdArt.id}`);
+  return redirect(`/upload-success/${createdArt.id}`);
 }
 
-const Upload = () => {
+const Upload = ({ loaderData }) => {
+  const { currentUser, currentEvent } = loaderData;
   let navigation = useNavigation();
  const isSubmitting = navigation.state === "submitting";
 
   return (
     <>
-      <h2>Hi, {user.username}</h2>
-      {/* <p>Email: {user.email}</p> */}
-      
+      <h2>Hi, {currentUser.username}</h2>
+      {/* <p>Email: {currentUser.email}</p> */}
+
       {isSubmitting && <p>Uploading...</p>}
       <Form method="post" encType="multipart/form-data" className="media-form">
+        <input type="hidden" name="userId" value={currentUser.id} />
+        <input type="hidden" name="eventId" value={currentEvent.id} />
         <div className="media-form__field">
           <label htmlFor="title" className="media-form__label">Title</label>
           <input

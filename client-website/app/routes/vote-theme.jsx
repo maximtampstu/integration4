@@ -1,16 +1,15 @@
 import { Link, Form, useActionData } from "react-router";
-import { getThemeVotes, addThemeVote } from "../services/theme";
-import { getCurrent } from "../services/current";
-import { getUserById } from "../services/users";
+import { getThemeVotes, addThemeVote, getVotableThemes } from "../services/theme";
+import { getCurrentUser } from "../services/users";
 
 export async function clientLoader() {
-  const current = await getCurrent();
-  const votableThemes = JSON.parse(import.meta.env.VITE_VOTABLE_THEMES);
-  const themeVotes = await getThemeVotes();
-  const email = (await getUserById(current.userId)).email
-  const hasAlreadyVoted = themeVotes.some((vote) => vote.userEmail === email);
+  const currentUser = await getCurrentUser(); //done
+  const votableThemes = await getVotableThemes(); //done
+  const themeVotes = await getThemeVotes(); //done
 
-  return { votableThemes, email, hasAlreadyVoted };
+  const hasAlreadyVoted = themeVotes.some((vote) => vote.userEmail === currentUser.email);
+
+  return { votableThemes, currentUser, hasAlreadyVoted };
 }
 
 export async function clientAction({ request }) {
@@ -22,7 +21,7 @@ export async function clientAction({ request }) {
 }
 
 const VoteTheme = ({ loaderData }) => {
-  const { votableThemes, email, hasAlreadyVoted } = loaderData;
+  const { votableThemes, currentUser, hasAlreadyVoted } = loaderData;
   const data = useActionData();
 
   return (
@@ -35,7 +34,7 @@ const VoteTheme = ({ loaderData }) => {
         <p>You already have voted</p>
       ) : (
         <Form method="POST" >
-          <input type="hidden" name="email" value={email} />
+              <input type="hidden" name="email" value={currentUser.email} />
           {votableThemes.map(theme => <label key={theme.id}><input type="radio" name="themeId" value={theme.id} required />{theme.name}</label>)}
           <button type="submit">Vote</button>
         </Form>
