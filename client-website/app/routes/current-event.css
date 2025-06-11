@@ -124,20 +124,18 @@ gap: 0.75rem;
 }
 
 .timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.2rem;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 2rem;
 }
 
 .timeline__week {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -157,12 +155,44 @@ gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
 
+.timeline__line, .timeline__line-start , .timeline__line-end{
+    width: 4px;
+    background: var(--color-sec-green);
+    height: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.timeline__line-start , .timeline__line-end{
+    height: 40px;
+}
+
 .timeline__now-label {
     background: var(--color-sec-blue);
     font-size: 1.125rem;
-    padding: 0.5rem 1.25rem;
-   
+    padding: 0.8rem 1.25rem;
+    margin-bottom: -0.8rem;
+    z-index: 2;
 }
+
+.timeline__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.timeline__week--upcoming{
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+}
+
+.timeline__label-party{
+    background-color: var(--color-sec-blue);
+}
+
 
 .timeline__week-label {
     background: var(--color-sec-yellow);
@@ -170,65 +200,54 @@ gap: 0.75rem;
     font-family: "GT Walsheim", sans-serif;
     font-weight: 500;
     font-size: 1.1rem;
-    padding: 1.125rem 2rem;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.5rem;
 }
 
 .timeline__uploading {
-  background: var(--color-pri-white);
-  border: 2px solid var(--color-sec-blue);
-  border-radius: 0.7rem;
-  margin-top: 0.7rem;
-  padding: 1.2rem 1rem 1.2rem 1rem;
-  box-shadow: 0 2px 8px 0 rgba(95, 144, 255, 0.08);
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  width: 100%;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1.5rem;
 }
 
 .timeline__arrow {
-  width: 24px;
-  height: 24px;
-  margin-top: 0.2rem;
+  width: 1.5rem;
+  transform: rotate(180deg);
 }
 
 .timeline__uploading-content {
-  text-align: left;
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .timeline__phase {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-sec-blue);
-  margin-bottom: 0.2rem;
+  font-size: 1.5rem;
 }
 
 .timeline__urgent {
-  color: var(--color-sec-red);
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.25rem;
 }
 
 .timeline__description {
-  font-size: 1rem;
-  color: #222;
-  margin-bottom: 0.7rem;
+  font-size: 1.125rem;
+line-height: 133%;
+font-weight: 400;
+text-align: center;
 }
 
 .timeline__cta {
-  display: inline-block;
-  background: var(--color-sec-green);
-  color: var(--color-pri-black);
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 0.4rem;
-  padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  margin-top: 0.2rem;
-  transition: background 0.2s;
+    background: var(--color-sec-green);
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
 }
+
 .timeline__cta:hover {
   background: #00905a;
 }
@@ -241,63 +260,49 @@ gap: 0.75rem;
   margin-top: 0.3rem;
 }
 
-.current-event__status-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin: 2.5rem 0 1.5rem 0;
-  align-items: center;
+.status-card{
+    background-color: var(--color-sec-yellow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
 }
 
-.status-card {
-  width: 90%;
-  max-width: 340px;
-  border-radius: 0.7rem;
-  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-  text-align: center;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+.current-event__status-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
 }
 
-.status-card--past {
-  background: #ffe7b3;
-  color: #a18a5c;
+.status-card__title{
+    font-size: 1.25rem;
 }
-.status-card--active {
-  background: #fff7d6;
-  color: var(--color-pri-black);
-  border: 2px solid var(--color-sec-blue);
-}
-.status-card--upcoming {
-  background: var(--color-sec-yellow);
-  color: var(--color-pri-black);
+.status-card__state{
+    font-size: 1.5rem;
+    color: var(--color-sec-red);
+    font-weight: 500;
 }
 
-.status-card__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-}
-.status-card__state {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.status-card__btn {
-  background: var(--color-sec-blue);
-  color: var(--color-pri-white);
-  font-weight: 700;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.4rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.status-card__btn:hover {
-  background: #3a6edc;
+
+.status-card__content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
+.status-card__btn{
+    font-size: 1.25rem;
+    background-color: var(--color-sec-blue);
+    padding: 0.75rem 1.5rem;
+    border: none;
+}
+
+.status-card--past, .status-card--active{
+    opacity: 0.5;
+}

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import header_image from "../../assets/header_image.svg";
 import at_abby_kortrijk from "../../assets/at_abby_kortrijk.svg";
+import arrow from "../../assets/arrow.svg";
 import "./current-event.css";
 
 const CurrentEvent = () => {
@@ -65,46 +66,53 @@ const CurrentEvent = () => {
                 <p className="current-event__timeline-subheading">Check out this month’s cycle</p>
 
                 <section className="timeline">
-                
-                    <section className="timeline__week">
-                        <h4 className="visually-hidden">Week 1</h4>
-                        <div className="timeline__label">WEEK 1</div>
-                    </section>
+                    <h3 className="visually-hidden">Timeline</h3>
+                    <div className="timeline__container">
 
-                
-                    <section className="timeline__week">
-                        <h4 className="visually-hidden">Week 2</h4>
-                        <div className="timeline__label">WEEK 2</div>
-                    </section>
+                        <div className="timeline__line-start"></div>
+                        <section className="timeline__week">
+                            <h4 className="visually-hidden">Week 1</h4>
+                            <div className="timeline__label">WEEK 1</div>
+                        </section>
 
-                
-                    <section className="timeline__week timeline__week--active">
-                        <h4 className="visually-hidden">Week 3</h4>
+                        <div className="timeline__line"></div>
+                        <section className="timeline__week">
+                            <h4 className="visually-hidden">Week 2</h4>
+                            <div className="timeline__label">WEEK 2</div>
+                        </section>
 
-                        <div className="timeline__status">
-                            <div className="timeline__now-label">NOW</div>
-                            <div className="timeline__week-label">WEEK 3</div>
-                        </div>
+                        <div className="timeline__line"></div>
+                        <section className="timeline__week timeline__week--active">
+                            <h4 className="visually-hidden">Week 3</h4>
 
-                        <div className="timeline__uploading">
-                            <img src="" alt="" className="timeline__arrow" />
-                            <div className="timeline__uploading-content">
-                                <p className="timeline__phase">UPLOADING</p>
-                                <p className="timeline__urgent">ENDS TOMORROW!</p>
-                                <p className="timeline__description">
-                                We can’t wait to see how you envision a <strong>Japanese garden</strong>! Maybe it’s a playlist, a graphic, motion design, video snippets, or photography—anything that captures the theme.
-                                </p>
-                                <Link to="" className="timeline__cta">Take Part Now</Link>
+                            <div className="timeline__status">
+                                <div className="timeline__now-label">NOW</div>
+                                <div className="timeline__week-label">WEEK 3</div>
                             </div>
-                        </div>
-                    </section>
 
-                
-                    <section className="timeline__week">
-                        <h4 className="visually-hidden">Week 4</h4>
-                        <div className="timeline__label">WEEK 4</div>
-                        <div className="timeline__label">PARTY</div>
-                    </section>
+                            <div className="timeline__uploading">
+                                <img src={arrow} alt="arrow" className="timeline__arrow" />
+                                <div className="timeline__uploading-content">
+                                    <p className="timeline__phase">UPLOADING</p>
+                                    <p className="timeline__urgent">ENDS TOMORROW!</p>
+                                    <p className="timeline__description">
+                                    We can’t wait to see how you envision a <strong>Japanese garden</strong>! Maybe it’s a playlist, a graphic, motion design, video snippets, or photography—anything that captures the theme.
+                                    </p>
+                                </div>
+                                    <Link to="" className="timeline__cta">Take Part Now</Link>
+                            </div>
+                        </section>
+
+                        <div className="timeline__line"></div>
+                        <section className="timeline__week timeline__week--upcoming">
+                            <h4 className="visually-hidden">Week 4</h4>
+                            <div className="timeline__label timeline__label-week4">WEEK 4</div>
+                            <div className="timeline__label timeline__label-party">PARTY</div>
+                        </section>
+                        <div className="timeline__line-end"></div>
+                    </div>
+
+
                 </section>
             </article>
 
@@ -114,20 +122,26 @@ const CurrentEvent = () => {
                 <h2 className="visually-hidden">Cycle Status</h2>
 
                 <div className="status-card status-card--past">
-                    <p className="status-card__title">Theme Voting</p>
-                    <p className="status-card__state">ENDED</p>
+                    <div className="status-card__content">
+                        <p className="status-card__title">Theme Voting</p>
+                        <p className="status-card__state">ENDED</p>
+                    </div>
                     <button className="status-card__btn">Notify Me</button>
                 </div>
 
                 <div className="status-card status-card--active">
-                    <p className="status-card__title">Uploading Cycle</p>
-                    <p className="status-card__state">NOW</p>
+                    <div className="status-card__content">
+                        <p className="status-card__title">Uploading Cycle</p>
+                        <p className="status-card__state">NOW</p>
+                    </div>
                     <button className="status-card__btn">Notify Me</button>
                 </div>
 
                 <div className="status-card status-card--upcoming">
-                    <p className="status-card__title">Artwork Voting</p>
-                    <p className="status-card__state">12 DAYS</p>
+                    <div className="status-card__content">
+                        <p className="status-card__title">Artwork Voting</p>
+                        <p className="status-card__state">12 DAYS</p>
+                    </div>
                     <button className="status-card__btn">Notify Me</button>
                 </div>
              </article>
