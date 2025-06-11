@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--font-gt-walsheim-bold);
+  font-family: "GT Walsheim", sans-serif;
   font-size: var(--font-h3);
   color: var(--color-pri-black);
   padding: 3rem 0;
@@ -32,7 +32,7 @@
 
 .article__section-title {
    padding: 2rem;
-  font-family: var(--font-gt-walsheim-bold);
+  font-family: "GT Walsheim", sans-serif;
   font-size: var(--font-h3);
   color: var(--color-pri-black);
   line-height: var(--lh-h3);
@@ -64,15 +64,16 @@
 }
 
 .article__timeline {
-    font-family: var(--font-gt-walsheim-bold);
-    font-size: 1.5rem;
+    font-family: "GT Walsheim", sans-serif;
+    font-size: 1.25rem;
     text-decoration: underline;
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
 
 .article__text {
-    font-family: var(--font-gt-walsheim);
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
     font-size: 1.125rem;
     line-height: 150%;
     max-width: 45ch;
