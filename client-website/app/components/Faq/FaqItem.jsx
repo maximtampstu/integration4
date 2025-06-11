@@ -2,7 +2,7 @@ import { useState } from "react";
 import arrow from "../../../assets/arrow.svg";
 import "./FaqItem.css";
 
-const FaqItem = ({ question, answer }) => {
+const FaqItem = ({ question, answer, color = "default" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleFaq = () => setIsOpen(prev => !prev);
@@ -10,7 +10,7 @@ const FaqItem = ({ question, answer }) => {
   return (
     <section className={`faq-item ${isOpen ? "faq-item--open" : ""}`}>
       <div
-        className="faq-item__question"
+        className={`faq-item__question faq-item--${color}`}
         onClick={toggleFaq}
         role="button"
         tabIndex={0}

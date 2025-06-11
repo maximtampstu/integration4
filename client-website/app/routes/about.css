@@ -1,10 +1,29 @@
-.about__intro-message {
+/* .about__intro-message {
   background-color: var(--color-sec-blue);
   clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
   padding: 4rem 1rem;
   text-align: center;
   color: black;
+} */
+
+.about__intro-message {
+  background-color: var(--color-sec-blue);
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  padding: 0 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: center;
+  height: 40vh; 
 }
+
+.about__intro-message-img {
+  max-width: 100%;
+  height: auto;
+  padding-bottom: 2rem; 
+}
+
 
 .about {
   font-family: "GT Walsheim", sans-serif;
@@ -12,19 +31,19 @@
 }
 
 .about__intro-description {
-  background-color: var( --color-sec-red);
-  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-  color: white;
-  padding: 3rem 3.2rem;
-  text-align: left;
+    background-color: var(--color-sec-red);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    color: white;
+    padding: 3rem 3.9rem;
+    text-align: left;
 }
 
 
 .about__intro-subheading{
     font-family: "GT Walsheim", sans-serif;
     font-weight: 400;
-    font-size: var(--font-h4);
-    /* line-height: ; */
+    font-size: 1.25rem;
+    line-height: 140%;
     text-transform: uppercase;
 }
 
@@ -58,7 +77,8 @@
 }
 
 .about__follow-heading {
-  font-family: var(--font-gt-walsheim);
+  /* font-family: var(--font-gt-walsheim); */
+  font-family: "GT Walsheim", sans-serif;
   font-size: 1.125rem;
   line-height: var(--lh-body);
   font-weight: 400;
@@ -80,7 +100,8 @@
 }
 
 .about__how-heading {
-    font-family: var(--font-gt-walsheim-bold);
+    /* font-family: var(--font-gt-walsheim-bold); */
+    font-family: "GT Walsheim", sans-serif;
     font-size: 2.3rem;
     line-height: 130%;
     color: var(--color-pri-black);
@@ -104,7 +125,8 @@
 }
 
 .about__curator-note-text {
-    font-family: var(--font-gt-walsheim);
+    /* font-family: var(--font-gt-walsheim); */
+    font-family: "GT Walsheim", sans-serif;
     font-size: 1.5rem;
     color: var(--color-pri-black);
     max-width: 32ch;
@@ -118,18 +140,147 @@
 }
 
 .about__cta-text {
-    font-family: var(--font-gt-walsheim);
+    /* font-family: var(--font-gt-walsheim); */
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     line-height: 130%;
 }
 
 .about__cta a {
-  font-family: var(--font-gt-walsheim);
+  /* font-family: var(--font-gt-walsheim); */
+  font-family: "GT Walsheim", sans-serif;
   font-size: var(--font-large-body);
   background-color: var(--color-sec-green);
   color: var(--color-pri-black);
   padding: 1rem 2rem;
   text-decoration: none;
   display: inline-block;
+}
+
+
+.about__now{
+  background-color: var(--color-sec-yellow);
+}
+
+.about__previous{
+  background-color: var(--color-sec-blue);
+}
+
+
+.about__now-event-title, .about__previous-event-title{
+  font-size: 1.5rem;
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 500;
+  
+}
+
+
+
+
+.about__now-event-header, .about__previous-event-header{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1.5rem;
+
+}
+
+.about__now-event-dates, .about__previous-event-dates{
+  font-size: 1.125rem;
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 400;
+  
+}
+
+
+.about__now-heading, .about__previous-heading{
+  font-size: 2.5rem;
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 700;
+}
+
+.about__previous-heading{
+  width: min-content;
+  line-height: 130%;
+}
+
+.about__now-description, .about__previous-description{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.5rem;
+}
+
+
+.about__previous-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-self: start;
+}
+
+
+.about__now-text, .about__previous-text{
+  font-size: 1.125rem;
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 400;
+  line-height: 133%;
+  max-width: 45ch;
+  
+}
+
+
+.about__now-button, .about__previous-button{
+  font-family: "GT Walsheim", sans-serif;
+  font-size: 1.25rem;
+  background-color: var(--color-sec-green);
+  color: var(--color-pri-black);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  align-self: start;
+  text-align: center;
+}
+
+.about__previous-button{
+  align-self: stretch;
+}
+
+.about__previous-button--dark{
+  background-color: var(--color-sec-red);
+  color: var(--color-pri-white);
+}
+
+.about__previous-button--light{
+  background-color: var(--color-sec-yellow);
+}
+
+.about__now-image, .about__previous-image{
+  width: 100%;
+}
+
+
+.about__events-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 10rem;
+}
+
+
+
+.about__faq{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 11rem;
+}
+
+.about__faq-heading{
+  font-family: "GT Walsheim", sans-serif;
+  font-size: 2rem;
+  line-height: 130%;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  margin-left: 1.5rem;
 }
