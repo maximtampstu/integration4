@@ -1,4 +1,4 @@
-name: Deploy Kiosk
+name: Deploy Website
 
 on:
   push:
@@ -19,17 +19,17 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd client-screens
+          cd client-website
           npm install
 
       - name: Build
         run: |
-          cd client-screens
+          cd client-website
           npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./client-screens/dist
-          destination_dir: client-screens
+          publish_dir: ./client-website/dist
+          destination_dir: client-website
