@@ -61,6 +61,13 @@
 }
 
 
+a{
+  color: var(--color-sec-blue);
+  text-decoration: none;
+  color: var(--color-pri-black);
+}
+
+
 @font-face {
   font-family: "GT Walsheim";
   src: url("../assets/font/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.otf") format("opentype");
