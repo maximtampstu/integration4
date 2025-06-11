@@ -60,7 +60,11 @@
   width: 1px;
 }
 
-
+a{
+  color: var(--color-sec-blue);
+  text-decoration: none;
+  color: var(--color-pri-black);
+}
 
 @font-face {
   font-family: "GT Walsheim";
