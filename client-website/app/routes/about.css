@@ -1,0 +1,135 @@
+.about__intro-message {
+  background-color: var(--color-sec-blue);
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  padding: 4rem 1rem;
+  text-align: center;
+  color: black;
+}
+
+.about {
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 400;
+}
+
+.about__intro-description {
+  background-color: var( --color-sec-red);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  color: white;
+  padding: 3rem 3.2rem;
+  text-align: left;
+}
+
+
+.about__intro-subheading{
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
+    font-size: var(--font-h4);
+    /* line-height: ; */
+    text-transform: uppercase;
+}
+
+.about__intro-paragraph {
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 150%;
+    margin-top: 1rem;
+}
+
+.about__follow{
+    margin-top: clamp(2rem, 4vw, 4rem); 
+}
+
+
+.about__follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.about__follow-arrows{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about__follow-heading {
+  font-family: var(--font-gt-walsheim);
+  font-size: 1.125rem;
+  line-height: var(--lh-body);
+  font-weight: 400;
+  text-transform: capitalize;
+  color: var(--color-pri-black);
+}
+
+.about__follow-arrow {
+  width: 1.5rem;
+  height: auto;
+}
+
+
+
+.about__how {
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 4rem;
+}
+
+.about__how-heading {
+    font-family: var(--font-gt-walsheim-bold);
+    font-size: 2.3rem;
+    line-height: 130%;
+    color: var(--color-pri-black);
+    margin-bottom: 8rem;
+    font-weight: 700;
+}
+
+
+.about__curator-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.about__curator-note-icon {
+  width: 2.5rem;
+  height: auto;
+}
+
+.about__curator-note-text {
+    font-family: var(--font-gt-walsheim);
+    font-size: 1.5rem;
+    color: var(--color-pri-black);
+    max-width: 32ch;
+    line-height: 130%;
+}
+
+
+.about__cta {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.about__cta-text {
+    font-family: var(--font-gt-walsheim);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    line-height: 130%;
+}
+
+.about__cta a {
+  font-family: var(--font-gt-walsheim);
+  font-size: var(--font-large-body);
+  background-color: var(--color-sec-green);
+  color: var(--color-pri-black);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  display: inline-block;
+}

@@ -4,6 +4,9 @@ export default function App() {
   return <Outlet />;
 }
 
+import "./reset.css"
+import "./app.css";
+
 export function Layout({ children }) {
   return (
     <html lang="en">
