@@ -82,3 +82,12 @@ a{
   font-style: normal;
   font-display: swap;
 }
+
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("../assets/font/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
