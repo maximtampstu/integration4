@@ -1,0 +1,303 @@
+.current-event {
+  font-family: var(--font-gt-walsheim);
+  background: var(--color-pri-white);
+  color: var(--color-pri-black);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* .current-event__banner {
+  background: var(--color-sec-red);
+  padding: 2.5rem 0 0.5rem 0;
+  text-align: center;
+} */
+
+.current-event__banner-image {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.current-event__about {
+  background: var(--color-pri-white);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.current-event__about-heading {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.current-event__about-text {
+  font-size: 1.125rem;
+  line-height: 133%;
+  font-weight: 400;
+}
+
+.current-event__showcase {
+  margin: 0;
+  padding: 0;
+}
+
+.current-event__showcase-details {
+  background: var(--color-sec-blue);
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.current-event__showcase-label {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.current-event__showcase-title {
+  font-size: 1.125rem;
+  line-height: 130%;
+}
+
+.current-event__showcase-datetime {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.current-event__showcase-date,
+.current-event__showcase-time {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.current-event__showcase-time {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+
+
+.current-event__countdown {
+  background: var(--color-sec-green);
+  text-align: center;
+  padding: 1.5rem 0;
+  display: flex;
+flex-direction: column;
+gap: 0.75rem;
+}
+
+.current-event__countdown-message {
+  font-size: 1.125rem;
+  
+}
+
+.current-event__countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  font-size: 1.125rem;
+}
+.current-event__countdown-timer span {
+  font-weight: 700;
+}
+
+.current-event__timeline {
+  margin-top: 6rem;
+  padding: 0 1.5rem;
+}
+
+
+.current-event__timeline-heading {
+    font-size: 1.98rem;
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: 1.5rem;
+}
+
+.current-event__timeline-subheading {
+  font-size: 1.125rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 340px;
+}
+
+.timeline__week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.timeline__label {
+  background: var(--color-sec-green);
+  opacity: 0.5;
+  font-size: 1.25rem;
+  padding: 1.125rem 2rem;
+  margin-bottom: 0.2rem;
+  color: black;
+}
+
+.timeline__week--active .timeline__status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.timeline__now-label {
+    background: var(--color-sec-blue);
+    font-size: 1.125rem;
+    padding: 0.5rem 1.25rem;
+   
+}
+
+.timeline__week-label {
+    background: var(--color-sec-yellow);
+    color: var(--color-pri-black);
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1.125rem 2rem;
+}
+
+.timeline__uploading {
+  background: var(--color-pri-white);
+  border: 2px solid var(--color-sec-blue);
+  border-radius: 0.7rem;
+  margin-top: 0.7rem;
+  padding: 1.2rem 1rem 1.2rem 1rem;
+  box-shadow: 0 2px 8px 0 rgba(95, 144, 255, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.timeline__arrow {
+  width: 24px;
+  height: 24px;
+  margin-top: 0.2rem;
+}
+
+.timeline__uploading-content {
+  text-align: left;
+  flex: 1;
+}
+
+.timeline__phase {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-sec-blue);
+  margin-bottom: 0.2rem;
+}
+
+.timeline__urgent {
+  color: var(--color-sec-red);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline__description {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.7rem;
+}
+
+.timeline__cta {
+  display: inline-block;
+  background: var(--color-sec-green);
+  color: var(--color-pri-black);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  margin-top: 0.2rem;
+  transition: background 0.2s;
+}
+.timeline__cta:hover {
+  background: #00905a;
+}
+
+/* Week 4 Party label */
+.timeline__week:last-child .timeline__label:last-child {
+  background: var(--color-sec-blue);
+  color: var(--color-pri-white);
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.current-event__status-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  align-items: center;
+}
+
+.status-card {
+  width: 90%;
+  max-width: 340px;
+  border-radius: 0.7rem;
+  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-card--past {
+  background: #ffe7b3;
+  color: #a18a5c;
+}
+.status-card--active {
+  background: #fff7d6;
+  color: var(--color-pri-black);
+  border: 2px solid var(--color-sec-blue);
+}
+.status-card--upcoming {
+  background: var(--color-sec-yellow);
+  color: var(--color-pri-black);
+}
+
+.status-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.status-card__state {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.status-card__btn {
+  background: var(--color-sec-blue);
+  color: var(--color-pri-white);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.status-card__btn:hover {
+  background: #3a6edc;
+}
+
