@@ -49,9 +49,12 @@ export default function VoteArt({ loaderData }) {
           <div className="vote-art__countdown">
             <p><span>DD</span> days</p>
             <p><span>HH</span> h</p>
-            <p><span>MM</span> m</p>
+            <p><span>MM</span> min</p>
           </div>
-          <Link to="/" className="vote-art__link">Back to Home</Link>
+          <Link to="/" className="vote-art__link">
+          <img src={arrow} alt="arrow"  className="vote-art__arrow"/>
+          Back
+          </Link>
         </div>
       </article>
 
@@ -70,7 +73,7 @@ export default function VoteArt({ loaderData }) {
                     <p className="vote-art__item-title">vote now, Be heard</p>
                   </div>
                   <div className="vote-art__item-image-wrapper">
-                    <img src="" alt="" className="vote-art__item-image" />
+                    <img src={line_arrow} alt="line_arrow" className="vote-art__item-image" />
                   </div>
                 </div>
 
@@ -87,12 +90,19 @@ export default function VoteArt({ loaderData }) {
                     className="vote-art__info-button"
                     aria-label="More information"
                   >
-                    i
+                    <span className="vote-art__info-circle">i</span>
                   </button>
+
                 </div>
 
                 {visibleDescriptionId === type.id && (
-                  <p className="vote-art__description">{type.description}</p>
+                  <div className="vote-art__description-box">
+                    <div className="vote-art__description-header">
+                      <div className="small_box"></div>
+                      <div className="big_box"></div>
+                    </div>
+                    <p className="vote-art__description">{type.description}</p>
+                  </div>
                 )}
               </li>
             ))
