@@ -125,9 +125,14 @@ img{
   background-color: var(--color-sec-blue);
 }
 
+.button--black {
+  background-color: var(--color-pri-black);
+  color: var(--color-pri-white);
+}
+
 .button--sec{
   border: var(--color-pri-black) solid 3px;
-  background-color: var(--color-pri-white);
+  background-color: transparent;
 }
 
 .button--sec--5px {

@@ -1,20 +1,15 @@
 import { Link } from "react-router";
-import "./EventCardHome.css";
+import "./EventCardPreviousEvents.css";
 import hipHopCultureThumbnail from "/hip-hop-culture-thumbnail.png"
 import { getEndDate, getMonthAndDayString } from "../../services/events";
 
-const EventCardHome = ({ item }) => {
+const EventCardPreviousEvents = ({ item }) => {
     return (
-        <li className="event-card-home">
-            <div className="event-card-home__info">
-                <img src={item.thumbnail || hipHopCultureThumbnail} alt="Event thumbnail" />
-                <div className="event-card-home__text">
-                    <h3 className="event-card-home__title">
-                        {item.name.split(" ").map((word, index) => (
-                            <span key={index}>{index > 0 ? " " : ""}{word}</span>
-                        ))}
-                    </h3>
-                    <div className="evnet-card-home__date">
+        <li className="event-card-previous-events">
+            <div className="event-card-previous-events__info">
+                <div className="event-card-previous-events__text">
+                    <h3 className="event-card-previous-events__title">{item.name}</h3>
+                    <div className="evnet-card-previous-events__date">
                         <p>{getMonthAndDayString(item.startDate)}</p>
                         <svg width="31" height="14" viewBox="0 0 31 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.9462 0.95734L13.9462 4.91461L0.173464 7.46484L0.173462 5.18305L13.9462 0.95734Z" fill="black" />
@@ -25,10 +20,13 @@ const EventCardHome = ({ item }) => {
                         <p>{getMonthAndDayString(getEndDate(item.startDate))}</p>
                     </div>
                 </div>
+                <div className="event-card-previous-events__image">
+                    <img src={item.thumbnail || hipHopCultureThumbnail} alt="Event thumbnail" />
+                </div>
             </div>
-            <Link className="button button--yellow" to={`/event-gallery/${item.id}`}>See Gallery</Link>
+            <Link className="button button--black" to={`/event-gallery/${item.id}`}>See Gallery</Link>
         </li>
     );
 };
 
-export default EventCardHome;
+export default EventCardPreviousEvents;
