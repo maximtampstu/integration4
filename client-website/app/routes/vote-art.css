@@ -1,0 +1,38 @@
+.vote-art__header-image{
+    width: 100%;
+    z-index: -1;
+    position: relative;
+    margin-top: -6.5rem;
+}
+
+.vote-art {
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 400;
+}
+
+
+.vote-art__instructions p {
+    background-color: var(--color-sec-blue);
+    font-size: 1.125rem;
+    line-height: 133%;
+    margin-top: -4px;
+    padding: 3.375rem 1.5rem;
+    text-align: center;
+}
+
+
+.vote-art__timer{
+    background-color: var(--color-sec-yellow);
+    padding: 3.125rem 4.5rem;
+}
+
+.vote-art__timer-label {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.vote-art__countdown{
+    display: flex;
+    gap: 1.25rem;
+}
