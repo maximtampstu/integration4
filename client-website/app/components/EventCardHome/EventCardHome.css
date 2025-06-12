@@ -29,7 +29,7 @@
     justify-content: space-between;
 }
 
-.event-card-home__text h3{
+.home .event-card-home__text h3{
     font-weight: 500;
     font-size: 1.5rem;
     text-transform: uppercase;

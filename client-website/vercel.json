@@ -1,15 +1,21 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
-        }
-    ],
-    "builds": [
-      { "src": "build/server/index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/assets/(.*)", "dest": "/build/client/assets/$1" },
-      { "src": "/(.*)", "dest": "/build/server/index.js" }
-    ]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "version": 3,
+  "builds": [
+    {
+      "src": "build/server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "build/server/index.js"
+    }
+  ]
 }

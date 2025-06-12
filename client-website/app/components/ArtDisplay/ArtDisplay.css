@@ -1,0 +1,23 @@
+.art-display {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.art-display__head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding: 0 1rem;
+}
+
+.event-gallery .art-display__head h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.art-display .drop-down-select {
+    width: 100%;
+}
