@@ -1,16 +1,16 @@
 import { Link } from "react-router";
 import { useState } from "react";
-import logo from "/you@abby-logo.png"
+import logo from "/you-at-abby-logo.png"
 
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ navOpen }) => {
 
     const [email, setEmail] = useState("");
     const [checkBox, setCheckBox] = useState(false);
 
     return (
-        <footer className="footer">
+        <footer className={navOpen ? "visually-hidden" : "footer"}>
             <div className="footer__top">
                 <div className="footer__general-info">
                     <section className="contact">
@@ -84,7 +84,7 @@ const Footer = () => {
                 </section>
             </div>
             <ul className="footer__bottom">
-                <li><img src={logo} alt="Logo" /></li>
+                <li><Link to="/"><img className="footer__logo" src={logo} alt="Logo" /></Link></li>
                 <div>
                     <li>© 2025 Abby</li>
                     <li>Website by Abby Patrol</li>

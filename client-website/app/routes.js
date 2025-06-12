@@ -10,7 +10,7 @@ export default [
     route("/my-gallery", "routes/my-gallery.jsx"),
     route("/participate", "routes/participate.jsx"),
     route("/previous-events", "routes/previous-events.jsx"),
-    route("/previous-events/:id", "routes/event-gallery.jsx"),
+    route("/event-gallery/:id", "routes/event-gallery.jsx"),
     route("/upload", "routes/upload-list.jsx"),
     route("/upload/:id", "routes/upload.jsx"),
     route("/vote-art", "routes/vote-art.jsx"),

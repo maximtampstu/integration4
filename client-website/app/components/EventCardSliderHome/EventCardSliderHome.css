@@ -1,0 +1,29 @@
+.card-slider{
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.card-slider__cards{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.card-slider__buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+.card-slider__buttons button {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}

@@ -212,3 +212,16 @@ export const addArtVote = async (artId, userId) => {
     throw error;
   }
 }
+
+export const getArtAmount = async () => {
+  try {
+    const { count, error } = await supabase
+      .from("Art")
+      .select('*', { count: 'exact', head: true });
+
+    return count;
+  } catch (error) {
+    console.error("Error adding art vote:", error);
+    throw error;
+  }
+}

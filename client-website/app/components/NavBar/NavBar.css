@@ -1,3 +1,13 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    /* Optionally set a background if you want it visible when closed */
+    background: transparent;
+}
+
 .navbar--open{
     height: 100vh;
     width: 100%;
@@ -11,6 +21,10 @@
     padding: 1.5rem;
 }
 
+.navbar-top__logo{
+    width: 5rem;
+}
+
 .navbar-top__right {
     display: flex;
     align-items: center;
@@ -19,7 +33,7 @@
 .navbar-top__link{
     font-family: var(--font-gt-walsheim);
     background-color: var(--color-sec-green);
-    padding: 0.75rem 1rem;
+    padding: 1.06rem 1.25rem;
     color: var(--color-pri-white);
 }
 
@@ -28,7 +42,7 @@
     padding-bottom: 0.5rem;
 
     border: none;
-    background: none;
+    background: var(--color-sec-yellow);
 }
 
 .navbar-bottom__links{

@@ -10,10 +10,10 @@ const BaseLayout = () => {
     return (
         <>
             <NavBar navOpen={navOpen} setNavOpen={setNavOpen} currentPage={location.pathname} />
-            <main className={navOpen ? "visually-hidden" : "main"} >
+            <main className={navOpen ? "visually-hidden" : "main"} style={{maxWidth: "100vw"}}>
                 <Outlet />
             </main>
-            <Footer className={navOpen ? "visually-hidden" : null} />
+            <Footer navOpen={navOpen} />
         </>
     );
 };
