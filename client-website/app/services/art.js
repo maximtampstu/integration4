@@ -225,3 +225,22 @@ export const getArtAmount = async () => {
     throw error;
   }
 }
+
+
+export const getAllArtworks = async () => {
+  try {
+    const { data, error } = await supabase
+      .from("Art")
+      .select("*");
+
+    if (!error) {
+      return data;
+    } else {
+      console.log("getAllArtworks error", error);
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching all artworks:", error);
+    throw error;
+  }
+};

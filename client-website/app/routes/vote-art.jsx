@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { getAllArtTypes } from "../services/art";
+import { getAllArtTypes, getArtVotes, getAllArtworks } from "../services/art";
 import art_vote from "../../assets/art_vote.svg";
 import line_arrow from "../../assets/line_arrow.svg";
 import arrow from "../../assets/arrow.svg";
@@ -15,17 +15,20 @@ export function meta() {
 
 export async function clientLoader() {
   const artTypes = await getAllArtTypes();
-  return { artTypes };
+  const art_Votes = await getArtVotes();
+  const artworks = await getAllArtworks();
+  return { artTypes, art_Votes, artworks };
 }
 
 export default function VoteArt({ loaderData }) {
-  const { artTypes } = loaderData;
+  const { artTypes, art_Votes, artworks } = loaderData;
   const [visibleDescriptionId, setVisibleDescriptionId] = useState(null);
 
   const toggleDescription = (id) => {
     setVisibleDescriptionId((prevId) => (prevId === id ? null : id));
   };
 
+ 
   return (
     <main className="vote-art">
       <h1 className="visually-hidden">vote for art categories</h1>
@@ -65,47 +68,71 @@ export default function VoteArt({ loaderData }) {
           {artTypes.length === 0 ? (
             <li className="vote-art__empty">No art types available yet.</li>
           ) : (
-            artTypes.map((type) => (
-              <li key={type.id} className="vote-art__item">
-                <div className="vote-art__item-header">
-                  <div className="vote-art__item-message">
-                    <p className="vote-art__item-subtitle">*Don’t miss out</p>
-                    <p className="vote-art__item-title">vote now, Be heard</p>
-                  </div>
-                  <div className="vote-art__item-image-wrapper">
-                    <img src={line_arrow} alt="line_arrow" className="vote-art__item-image" />
-                  </div>
-                </div>
 
-                <div className="vote-art__item-footer">
-                  <Link
-                    to={`/vote-art/${type.id}`}
-                    className="vote-art__button"
-                  >
-                    {type.name}
-                  </Link>
+              artTypes.map((type) => {
+               
+                const userId = 1; 
 
-                  <button
-                    onClick={() => toggleDescription(type.id)}
-                    className="vote-art__info-button"
-                    aria-label="More information"
-                  >
-                    <span className="vote-art__info-circle">i</span>
-                  </button>
+          
+          const votedArtIds = art_Votes
+            .filter(vote => vote.userId === userId)
+            .map(vote => vote.artId);
 
-                </div>
+          
+          const artworksInType = artworks.filter(art => art.artTypeId === type.id);
 
-                {visibleDescriptionId === type.id && (
-                  <div className="vote-art__description-box">
-                    <div className="vote-art__description-header">
-                      <div className="small_box"></div>
-                      <div className="big_box"></div>
+          
+          const hasVoted = artworksInType.some(art => votedArtIds.includes(art.id));
+
+                
+                
+
+                
+
+                return (
+                  <li key={type.id} className="vote-art__item">
+                    <div className="vote-art__item-header">
+                      <div className="vote-art__item-message">
+                        <p className="vote-art__item-subtitle">*Don’t miss out</p>
+                        <p className="vote-art__item-title">
+                          {hasVoted ? "See you at the party" : "vote now, Be heard"}
+                        </p>
+                      </div>
+                      <div className="vote-art__item-image-wrapper">
+                        <img src={line_arrow} alt="line_arrow" className="vote-art__item-image" />
+                      </div>
                     </div>
-                    <p className="vote-art__description">{type.description}</p>
-                  </div>
-                )}
-              </li>
-            ))
+
+                    <div className="vote-art__item-footer">
+                      <Link
+                        to={`/vote-art/${type.id}`}
+                        className={`vote-art__button ${hasVoted ? "vote-art__button--voted" : ""}`}
+                      >
+                        {type.name}
+                      </Link>
+
+                      <button
+                        onClick={() => toggleDescription(type.id)}
+                        className="vote-art__info-button"
+                        aria-label="More information"
+                      >
+                        <span className="vote-art__info-circle">i</span>
+                      </button>
+                    </div>
+
+                    {visibleDescriptionId === type.id && (
+                      <div className="vote-art__description-box">
+                        <div className="vote-art__description-header">
+                          <div className="small_box"></div>
+                          <div className="big_box"></div>
+                        </div>
+                        <p className="vote-art__description">{type.description}</p>
+                      </div>
+                    )}
+                  </li>
+                );
+              })
+
           )}
         </ul>
       </article>

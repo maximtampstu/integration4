@@ -184,3 +184,9 @@
 .vote-art__description-box{
     margin-top: -1rem;
 }
+
+
+.vote-art__button--voted {
+  background-color: var(--color-sec-green); 
+  color: white;
+}
