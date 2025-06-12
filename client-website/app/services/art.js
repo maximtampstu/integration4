@@ -176,6 +176,25 @@ export const getCurrentEventSelectedArtByArtType = async (eventId, artTypeId) =>
   }
 };
 
+export const getCurrentEventSelectedArt = async (eventId) => {
+  try {
+    let { data, error } = await supabase
+      .from("Art")
+      .select("*")
+      .eq("eventId", eventId)
+      .eq("selected", true);
+
+    if (!error) {
+      return data;
+    } else {
+      console.log(" get contact err", error);
+    }
+  } catch (error) {
+    console.error("Error fetching notes:", error);
+    throw error;
+  }
+};
+
 export const getArtVotes = async () => {
   try {
     let { data, error } = await supabase
