@@ -1,6 +1,9 @@
 import { Link } from "react-router";
 import arrow from "../../assets/arrow.svg";
 import asterix from "../../assets/asterix.svg";
+import garden from "../../assets/garden.png";
+import man_in_car from "../../assets/man_in_car.png";
+import you_belong_abby from "../../assets/you_belong_abby.png";
 import "./about.css"; 
 import ArticleSection from "../components/ArticleSection/ArticleSection";
 import FaqItem from "../components/Faq/FaqItem";
@@ -22,10 +25,11 @@ const About = () => {
                     <h2 className="visually-hidden">first section about page</h2>
                     <section className="about__intro-message">
                         <h3 className="visually-hidden">you belong @ abby</h3>
-                        you belong @ abby
+                        <img src={you_belong_abby} alt="you_belong_abby"  className="about__intro-message-img"/>
                     </section>
                     <section className="about__intro-image">
                         <h3 className="visually-hidden">image of the museum</h3>
+                        
                         <img src="" alt=""  className="about__intro-img"/>
                     </section>
                     <section className="about__intro-description">
@@ -98,22 +102,23 @@ const About = () => {
                     </section>
                 </article>
 
-               
+               <section className="about__events-wrapper">
+                <h2 className="visually-hidden">Abby Events Section</h2>
                 <article className="about__now">
-                    <h2 className="visually-hidden">Abby Now Section</h2>
+                    <h3 className="visually-hidden">Abby Now Section</h3>
 
                     <section className="about__now-event">
-                        <h3 className="visually-hidden">Current Featured Event</h3>
+                        <h4 className="visually-hidden">Current Featured Event</h4>
 
                         <div className="about__now-event-header">
-                        <h4 className="about__now-event-title">JAPANESE GARDEN</h4>
+                        <h5 className="about__now-event-title">JAPANESE GARDEN</h5>
                         <p className="about__now-event-dates">JUN 2 – JUL 1</p>
                         </div>
 
                         <div className="about__now-image-wrapper">
                         <img
-                            src=""
-                            alt=""
+                            src={garden}
+                            alt="garden"
                             className="about__now-image"
                         />
                         </div>
@@ -132,7 +137,23 @@ const About = () => {
 
 
                 <article className="about__previous">
-                    <h2 className="visually-hidden">Abby Previous Event Section</h2>
+                    <h3 className="visually-hidden">Abby Previous Event Section</h3>
+
+                    <section className="about__previous-event">
+                        <h4 className="visually-hidden">Previous Featured Event</h4>
+                            <div className="about__previous-event-header">
+                                <h5 className="about__previous-event-title">ROAD-TRIP ROMP</h5>
+                                <p className="about__previous-event-dates">MAY 2 – JUN 1</p>
+                            </div>
+
+                            <div className="about__previous-image-wrapper">
+                                <img
+                                    src={man_in_car}
+                                    alt="man_in_car"
+                                    className="about__previous-image"
+                                />
+                            </div>
+                        </section>
 
                     <section className="about__previous-description">
                         <h3 className="about__previous-heading">PREVIOUSLY @ ABBY</h3>
@@ -150,25 +171,13 @@ const About = () => {
                         </div>
                     </section>
 
-                    <section className="about__previous-event">
-                        <div className="about__previous-event-header">
-                            <h4 className="about__previous-event-title">ROAD-TRIP ROMP</h4>
-                            <p className="about__previous-event-dates">MAY 2 – JUN 1</p>
-                        </div>
-
-                        <div className="about__previous-image-wrapper">
-                            <img
-                                src=""
-                                alt=""
-                                className="about__previous-image"
-                            />
-                        </div>
-                    </section>
+                   
                 </article>
+               </section>
                 
 
-                <article>
-                    <h2></h2>
+                <article className="about__faq">
+                    <h2 className="about__faq-heading">faq</h2>
                 <FaqItem
                     question="Hold up—it's really free to join and submit?"
                     answer="That’s right! Uploading, voting, and attending the showcase are all free."
@@ -176,6 +185,7 @@ const About = () => {
                 <FaqItem
                     question="Who exactly is allowed to submit something or is it open to anyone with an idea?"
                     answer="Anyone aged 14 + living, studying, or working in West Flanders. No prior art experience required."
+                    color="green"
                 />
                 <FaqItem
                     question="Are we allowed to submit the assignment as a group?"
@@ -184,6 +194,7 @@ const About = () => {
                 <FaqItem
                     question="Can I attend without any participation whatsoever?"
                     answer="Yes—just list every collaborator’s name when you upload."
+                    color="green"
                 />
                 </article>
 
