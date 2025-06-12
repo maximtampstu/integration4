@@ -3,7 +3,8 @@ import heroImage from "/hero-home.png"
 import japaneseGardenThumbnail from "/japanese-garden-thumbnail.png"
 import youAreAbbyText from "/you-are-abby-text.png"
 import NotifyBox from "../components/NotifyBox/NotifyBox"
-import EventCardSliderHome from "../components/EventCardSliderHome/EventCardSliderHome"
+import CardSlider from "../components/CardSlider/CardSlider"
+import EventCardHome from "../components/EventCardHome/EventCardHome"
 
 import "./home.css";
 import { getCurrentEvent, getPastEvents } from "../services/events";
@@ -110,7 +111,7 @@ const Home = ({ loaderData }) => {
                     <p>Last season’s favorites</p>
                 </div>
                 <div className="previously-at-abby__content">
-                    <EventCardSliderHome previousEvents={previousEvents} />
+                    <CardSlider data={previousEvents} cardComponent={EventCardHome} />
                     <Link className="button button--sec previously-at-abby__button" to="/previous-events">See More Events</Link>
                 </div>
             </section>

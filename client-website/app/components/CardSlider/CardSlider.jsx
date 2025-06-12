@@ -1,8 +1,8 @@
-import "./EventCardSliderHome.css";
+import "./CardSlider.css";
 import EventCardHome from "../EventCardHome/EventCardHome"
 import { useRef } from 'react';
 
-const EventCardSliderHome = ({ previousEvents }) => {
+const CardSlider = ({ data, cardComponent }) => {
     const scrollRef = useRef(null);
 
     //I used AI to give me a start but then I worked further on that
@@ -16,11 +16,13 @@ const EventCardSliderHome = ({ previousEvents }) => {
         }
     };
 
+    const Card = cardComponent;
+
     return (
         <div className="card-slider">
             <ul className="card-slider__cards" ref={scrollRef}>
-                {previousEvents.map(event => (
-                    <EventCardHome key={event.id} event={event} />
+                {data.map(item => (
+                    <Card key={item.id} item={item} />
                 ))}
             </ul>
             <div className="card-slider__buttons">
@@ -39,5 +41,5 @@ const EventCardSliderHome = ({ previousEvents }) => {
     );
 };
 
-export default EventCardSliderHome;
+export default CardSlider;
 
