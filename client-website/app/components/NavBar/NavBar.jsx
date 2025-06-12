@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import logo from "/you@abby-logo.png"
+import logo from "/you-at-abby-logo.png"
 import NavBarLink from "./NavBarLink"; // Adjust the path if needed
 
-import "./Navbar.css";
+import "./NavBar.css";
 
 const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
 
@@ -11,7 +11,7 @@ const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
     return (
         <nav className={navOpen ? "navbar navbar--open" : "navbar"}>
             <div className="navbar-top">
-                <Link to="/" onClick={handleClose}><img src={logo} alt="Logo" /></Link>
+                <Link className="navbar-top__logo" to="/" onClick={handleClose}><img src={logo} alt="Logo" /></Link>
                 <div className="navbar-top__right">
                     <Link className="navbar-top__link" to="/participate" onClick={handleClose}>Participate</Link>
                     <button className="navbar-top__switch-button" onClick={() => setNavOpen(!navOpen)}>

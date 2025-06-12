@@ -66,6 +66,10 @@ a{
   color: var(--color-pri-black);
 }
 
+img{
+  width: 100%;
+}
+
 @font-face {
   font-family: "GT Walsheim";
   src: url("../assets/font/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.otf") format("opentype");
@@ -81,4 +85,44 @@ a{
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("../assets/font/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("../assets/font/GT-Walsheim-Thin-Trial-BF651b7fc728c4c.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+.button{
+  font-size: 1.25rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-sec-yellow);
+  color: var(--color-pri-black);
+}
+
+.button--green {
+  background-color: var(--color-sec-green);
+}
+
+.button--blue {
+  background-color: var(--color-sec-blue);
+}
+
+.button--sec{
+  border: var(--color-pri-black) solid 3px;
+  background-color: var(--color-pri-white);
+}
+
+.button--sec--5px {
+  border-width: 5px;
 }

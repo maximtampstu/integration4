@@ -61,6 +61,9 @@ export const getPastEvents = async () => {
       .eq("current", false);
 
     if (!error) {
+      if (data.length === 0) {
+        return [];
+      }
       return data;
     } else {
       console.log(" get contact err", error);
@@ -101,7 +104,7 @@ export const getCountDownToParty = (dateStart) => {
 };
 
 export const getMonthByMonthValue = (monthValue) => {
-  const monthNames = ["January", "February", "March", "April", "May", "June" ,"July", "August", "September", "October", "November", "December"]
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun" ,"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   return monthNames[monthValue - 1] || "Invalid month";
 };
 

@@ -149,3 +149,7 @@
 .footer__bottom div li{
     font-size: 1rem;
 }
+
+.footer__logo{
+    width: 5rem;
+}
