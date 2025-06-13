@@ -3,6 +3,7 @@ import { getCurrentEvent } from "../../services/events";
 import { getAllUsers, getCurrentUser } from "../../services/users";
 import { useState } from "react";
 import { Link, Form, redirect } from "react-router";
+import arrow from "../../../assets/arrow.svg";
 
 export async function clientLoader({ params }) {
   const artType = await getArtTypeById(Number(params.id)); //done
@@ -37,10 +38,42 @@ export default function VoteArtType({ loaderData }) {
 
   return (
     <main className="vote-art-type">
-      <div className="vote-art-type__container">
-        <h1 className="vote-art-type__title">Voting for {artType.name}</h1>
-        <Link to="/vote-art" className="vote-art-type__back">← Back to Types</Link>
+      <h1></h1>
+      <article className="vote-art-type__container">
+        <h2 className="visually-hidden">Voting for {artType.name}</h2>
+        
+        <section>
+          <h3 className=""
+                    style={{
+                      backgroundImage: `url()`,
+                      backgroundPosition: "bottom",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >shape the {artType.name} </h3>
+                  <p className="">You can cast exactly one vote in each category. Change your vote anytime before the deadline.</p>
+          
 
+        </section>
+        <section className="">
+          <h3></h3>
+          <p className="">Voting Ends in</p>
+          <div className="">
+            <p><span>DD</span> days</p>
+            <p><span>HH</span> h</p>
+            <p><span>MM</span> min</p>
+          </div>
+          <Link to="/vote-art" className="vote-art__link">
+            <img src={arrow} alt="arrow" className="vote-art__arrow" />
+            Back
+          </Link>
+        </section>
+        {/* <Link to="/vote-art" className="vote-art-type__back">Back to Types</Link> */}
+      </article>
+
+      <article>
+        <h2>ArtWorks</h2>
+        <p>Tap a card to preview the work, then lock in your vote to send it toward victory.</p>
         {votedArt ? (
           <p>You’ve already voted for: <strong>{votedArt.title}</strong></p>
         ) : (
@@ -51,20 +84,15 @@ export default function VoteArtType({ loaderData }) {
                 const creator = users.find((u) => u.id === art.userId);
                 return (
                   <div key={art.id} className="vote-art-type__card">
-                    <h2 className="vote-art-type__card-title">{art.title}</h2>
-                    <p className="vote-art-type__card-creator">
-                      <strong>Creator:</strong> {creator?.username}
-                    </p>
 
-                    <label>
-                      <input
-                        type="radio"
-                        name="artId"
-                        value={art.id}
-                        onChange={handleSelect}
-                        required
-                      /> Vote for this
-                    </label>
+                    <div>
+                      <p className="vote-art-type__card-title">{art.title}</p>
+                      <p className="vote-art-type__card-creator">
+                        <strong>Creator:</strong> {creator?.username}
+                      </p>
+                    </div>
+
+                    
 
                     {art.url.endsWith(".mp3") ? (
                       <audio controls style={{ width: "100%" }}>
@@ -78,8 +106,17 @@ export default function VoteArtType({ loaderData }) {
                       <img src={art.url} alt={art.title} className="vote-art-type__image" />
                     )}
 
-                    <p className="vote-art-type__description">{art.description}</p>
+                    {/* <p className="vote-art-type__description">{art.description}</p> */}
                     <Link to={`/art-detail/${art.id}`} className="vote-art-type__detail-link">View Details</Link>
+                    <label>
+                      <input
+                        type="radio"
+                        name="artId"
+                        value={art.id}
+                        onChange={handleSelect}
+                        required
+                      /> Vote for this
+                    </label>
                   </div>
                 );
               })}
@@ -90,7 +127,9 @@ export default function VoteArtType({ loaderData }) {
             </button>
           </Form>
         )}
-      </div>
+      </article>
     </main>
   );
 }
+
+{/* <h2 className="vote-art-type__title">Voting for {artType.name}</h2> */}
