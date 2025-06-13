@@ -263,3 +263,35 @@ export const getAllArtworks = async () => {
     throw error;
   }
 };
+
+export const getTopTwoArtworks = (art, artVotes) => {
+  const voteCount = {};
+  artVotes.forEach(vote => {
+    voteCount[vote.artId] = (voteCount[vote.artId] || 0) + 1;
+  });
+
+  const artWithVotes = art.map(a => ({
+    ...a,
+    _votes: voteCount[a.id] || 0
+  }));
+
+  const groupedByType = {};
+  artWithVotes.forEach(art => {
+    const type = art.artTypeId;
+    if (!groupedByType[type]) groupedByType[type] = [];
+    groupedByType[type].push(art);
+  });
+
+  const topArtworks = [];
+  for (const type in groupedByType) {
+    const top2 = groupedByType[type]
+      .sort((a, b) => b._votes - a._votes)
+      .slice(0, 2);
+    topArtworks.push(...top2);
+  }
+
+  topArtworks.sort((a, b) => b._votes - a._votes);
+
+  return topArtworks.map(({ _votes, ...rest }) => rest);
+}
+

@@ -1,3 +1,7 @@
+.img{
+    width: 100%;
+}
+
 .art-card-gallery{
     display: flex;
     flex-direction: column;
@@ -25,15 +29,11 @@
     padding: 0.5rem 1rem;
 }
 
-.art-display--all .art-card-gallery__top {
-    background-color: var(--color-sec-green);
-}
-
-.art-display--shortlisted .art-card-gallery__top {
+.art-display--selected .art-card-gallery__top {
     background-color: var(--color-sec-purple);
 }
 
-.art-display--shortlisted .art-card-gallery__square-top {
+.art-display--selected .art-card-gallery__square-top {
     content: '';
     height: 9rem;
     width: 15rem;
@@ -82,15 +82,32 @@
     display: grid;
     place-items: center;
     margin-top: -0.1rem;
+    width: auto;
 }
 
-.art-display--shortlisted .art-card-gallery__mid {
+.art-display--selected .art-card-gallery__mid {
     margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 10.3rem;
+    background-color: var(--color-sec-blue);
+    width: min-content;
 }
 
 .art-card-gallery__frame-wrapper, .art-card-gallery__media{
     grid-column: 1;
     grid-row: 1;
+}
+
+.art-card-gallery__media{
+    height: 10.3rem;
+    width: auto;
+}
+
+.art-card-gallery__media--audio {
+    width: 18rem;
+    height: 3rem;
+    border-radius: 0px;
 }
 
 .art-display--all .art-card-gallery__frame-wrapper {
@@ -103,7 +120,7 @@
     overflow: hidden;
 }
 
-.art-display--all .art-card-gallery__frame-wrapper .art-card-gallery__frame, .art-display--shortlisted .art-card-gallery__frame-wrapper .art-card-gallery__frame {
+.art-display--all .art-card-gallery__frame-wrapper .art-card-gallery__frame, .art-display--selected .art-card-gallery__frame-wrapper .art-card-gallery__frame {
     display: none;
 }
 
@@ -116,15 +133,19 @@
     padding: 1.25rem 0;
 }
 
-.art-display--shortlisted .art-card-gallery__bottom {
+.art-display--selected .art-card-gallery__bottom {
     background-color: var(--color-sec-purple);
 }
 
-.art-display--all .art-card-gallery__bottom, .art-display--shortlisted .art-card-gallery__bottom{
+.art-display--selected .art-card-gallery__bottom{
     margin-top: -0.05rem;
 }
 
-.art-display--shortlisted .art-card-gallery__square-bottom {
+.art-display--all .art-card-gallery__bottom{
+    margin-top: 0;
+}
+
+.art-display--selected .art-card-gallery__square-bottom {
     content: '';
     height: 9rem;
     width: 15rem;

@@ -113,6 +113,11 @@ export const getMonthAndDayString = (date) => {
   return `${day} ${getMonthByMonthValue(month)}`;
 };
 
+export const getDateString = (date) => {
+  const [year, month, day] = date.split("-").map(Number);
+  return `${day} ${getMonthByMonthValue(month)} ${year}`;
+};
+
 export const getStartVotingDate = (dateStart) => {
   const startDate = new Date(dateStart);
   const endDate = new Date(startDate);
@@ -124,3 +129,25 @@ export const getStartVotingDate = (dateStart) => {
   const year = endDate.getFullYear();
   return `${year}-${month}-${day}`;
 };
+
+//AI helped me a bit with this one
+export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay) => {
+  const now = new Date();
+  const startDate = new Date(eventStartDate);
+
+  const phaseStartDate = new Date(startDate);
+  phaseStartDate.setDate(startDate.getDate() + phaseStartDay);
+
+  const phaseEndDate = new Date(startDate);
+  phaseEndDate.setDate(startDate.getDate() + phaseEndDay);
+
+  if (now < phaseStartDate) {
+    const daysUntilStart = Math.ceil((phaseStartDate - now) / (1000 * 60 * 60 * 24));
+    return `Phase starts in ${daysUntilStart} day(s)`;
+  } else if (now >= phaseStartDate && now <= phaseEndDate) {
+    const daysUntilEnd = Math.ceil((phaseEndDate - now) / (1000 * 60 * 60 * 24));
+    return `Phase ends in ${daysUntilEnd} day(s)`;
+  } else {
+    return `Closed`;
+  }
+}

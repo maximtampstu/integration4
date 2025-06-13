@@ -1,11 +1,12 @@
 .navbar {
-    /* position: absolute; */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 1000;
     /* Optionally set a background if you want it visible when closed */
     background: transparent;
+    z-index: 500;
 }
 
 .navbar--open{
@@ -58,6 +59,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    width: max-content;
     font-family: var(--font-gt-walsheim);
     color: var(--color-pri-black);
     font-size: 1.25rem;

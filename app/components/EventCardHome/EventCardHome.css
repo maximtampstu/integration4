@@ -26,6 +26,7 @@
 
 .event-card-home__text{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -43,7 +44,7 @@
     padding-left: 0;
 }
 
-.evnet-card-home__date{
+.event-card-home__date{
     place-self: end;
     width: max-content;
     text-transform: uppercase;

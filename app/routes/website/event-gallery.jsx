@@ -1,4 +1,4 @@
-import { getArtByEventId, getCurrentEventSelectedArt } from "../../services/art";
+import { getArtByEventId, getArtVotes, getCurrentEventSelectedArt, getTopTwoArtworks } from "../../services/art";
 import { getAllUsers } from "../../services/users";
 import { getEndDate, getMonthAndDayString, getEventById } from "../../services/events";
 
@@ -15,13 +15,14 @@ import "./event-gallery.css";
 export async function clientLoader({ params }) {
   const allArtworks = await getArtByEventId(params.id);
   const event = await getEventById(params.id);
-  const users = await getAllUsers();
   const seletedArt = await getCurrentEventSelectedArt(event.id)
-  return { event, users, allArtworks, seletedArt };
+  const allVotes = await getArtVotes()
+  const winnerArt = await getTopTwoArtworks(seletedArt, allVotes);
+  return { event, allArtworks, seletedArt, winnerArt };
 }
 
 export default function CurrentEvent({ loaderData }) {
-  const { event, users, allArtworks, seletedArt } = loaderData;
+  const { event, allArtworks, seletedArt, winnerArt } = loaderData;
 
   return (
     <>
@@ -74,8 +75,8 @@ export default function CurrentEvent({ loaderData }) {
           <p>Discover this cycle’s standout winners, the shortlisted highlights, and the hidden gems across every category, creativity at its best.</p>
         </div>
         <div className="artworks__art">
-          <ArtDisplay label="winners" data={allArtworks} cardComponent={ArtCardGallery} />
-          <ArtDisplay label="shortlisted" data={seletedArt} cardComponent={ArtCardGallery} />
+          <ArtDisplay label="winners" data={winnerArt} cardComponent={ArtCardGallery} />
+          <ArtDisplay label="selected" data={seletedArt} cardComponent={ArtCardGallery} />
           <ArtDisplay label="all" data={allArtworks} cardComponent={ArtCardGallery} />
         </div>
       </section>
