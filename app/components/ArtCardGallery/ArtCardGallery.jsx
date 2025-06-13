@@ -46,7 +46,7 @@ const ArtCardGallery = ({ item }) => {
                             </defs>
                         </svg>                                                
                     ) : (
-                        <img className="art-card-gallery__avatar-image" src="#" alt={`avatar of ${user?.username}`} />
+                            <img className="art-card-gallery__avatar-image" src={user?.avatar} alt={`avatar of ${user?.username}`} />
                     )}
                 </div>
                 <div className="art-card-gallery__user-info">
@@ -59,7 +59,7 @@ const ArtCardGallery = ({ item }) => {
                     <img className="art-card-gallery__frame" src={frame} alt="frame" />
                 </div>
                 {isAudio ? (
-                    <audio className="art-card-gallery__media" controls>
+                    <audio className="art-card-gallery__media art-card-gallery__media--audio" controls>
                         <source src={item.url} type="audio/mpeg" />
                     </audio>
                 ) : isVideo ? (
@@ -67,7 +67,7 @@ const ArtCardGallery = ({ item }) => {
                         <source src={item.url} type="video/mp4" />
                     </video>
                 ) : (
-                    <img className="art-card-gallery__media" src={item.url} alt={item.title} width="300" />
+                    <img className="art-card-gallery__media" src={item.url} alt={item.title} />
                 )}
             </div>
             <div className="art-card-gallery__bottom">
