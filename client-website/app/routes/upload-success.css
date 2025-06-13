@@ -1,0 +1,71 @@
+.upload-success-page{
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
+    background-color: var(--color-sec-purple);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+   
+}
+
+.upload-success__heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 133%;
+  padding-top: 6.75rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.upload-success__message {
+    font-size: 1.25rem;
+    line-height: 140%;
+    text-align: center;
+}
+
+.upload-success__content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.upload-success__link{
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    align-self: center;
+    border: none;
+}
+
+.upload-success__link-more{
+    background-color: var(--color-sec-green);
+}
+
+.upload-success__link-seeArt{
+    background-color: var(--color-sec-yellow);
+}
+
+.upload-success__actions{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+
+.upload-success__frame {
+  background-color: var(--color-sec-yellow);
+  padding: 1rem;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
+}
+
+.upload-success__media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* background-color: var(--color-sec-blue); */
+}
+
