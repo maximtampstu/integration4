@@ -5,7 +5,7 @@
       "destination": "/"
     }
   ],
-  "version": 3,
+  "version": 2,
   "builds": [
     {
       "src": "build/server/index.js",
