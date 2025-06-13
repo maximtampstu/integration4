@@ -1,0 +1,222 @@
+.vote-art-type__instructions {
+  background-color: var(--color-sec-purple);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 3.75rem;
+  text-align: center;
+  margin-top: -10.2rem;
+  padding-top: 7.8rem;
+  display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+}
+
+
+.vote-art-type__headline {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 133%;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 7.8rem;
+  
+}
+
+.vote-art-type__info {
+    font-size: 1.125rem;
+    line-height: 133%;
+    text-align: center;
+    width: 90%;
+}
+
+
+.vote-art-type{
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
+}
+
+
+
+.vote-art-type__countdown-box {
+  background-color: var(--color-sec-yellow);
+  padding: 3.125rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.vote-art-type__timer-label{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.vote-art-type__countdown {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.vote-art-type__countdown p {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.vote-art-type__countdown span {
+  font-weight: 700;
+}
+
+.vote-art__arrow{
+    width: 1rem;
+    transform: rotate(90deg);
+}
+
+.vote-art__link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-sec-blue);
+    font-size: 1.25rem;
+    position: absolute;
+    bottom: -1.4rem;
+    font-weight: 400;
+}
+
+
+.vote-art-type__artworks-heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.vote-art-type__artworks{
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    gap: 2.5rem;
+}
+
+.vote-art-type__artworks-info{
+    font-size: 1.25rem;
+    line-height: 140%;
+    text-align: center;
+    width: 90%;
+}
+
+
+.vote-art-type__artworks-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vote-art-type__form{
+    width: 100%;
+}
+
+
+.art-card-gallery__avatar {
+    width: 3.15rem;
+    background-color: var(--color-sec-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-card-gallery__avatar svg{
+    width: 1.1rem;
+}
+
+.vote-art-type__details{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    background-color: var(--color-sec-yellow);
+    padding: 0.5rem 1rem;
+    margin-top: -0.2rem;
+}
+
+
+.vote-art-type__card-title, .vote-art-type__card-creator{
+    font-size: 1.25rem;
+}
+
+
+.vote-art-type__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.vote-art-type__radio-input {
+  display: none;
+}
+
+.vote-art-type__radio-label {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-sec-purple);
+  font-size: 1.25rem; 
+}
+
+.vote-art-type__detail-link {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-sec-blue);
+  font-size: 1.25rem;
+}
+
+
+.vote-art-type__actions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.vote-art-type__grid{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+.vote-art-type__popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.vote-art-type__popup-inner {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.vote-art-type__popup-buttons button {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.vote-art-type__confirmed {
+  font-weight: bold;
+  color: green;
+}
