@@ -3,6 +3,12 @@ import { Form, Link, redirect } from "react-router";
 import { useNavigation } from "react-router"
 import { getCurrentUser } from "../services/users";
 import { getCurrentEvent } from "../services/events";
+import "./upload.css";
+import uplaod_icon from "../../assets/uplaod_icon.svg";
+import upload_motion from "../../assets/upload_motion.svg";
+import { useState } from "react";
+import arrow from "../../assets/arrow.svg";
+
 
 export async function clientLoader() {
   const currentUser = await getCurrentUser(); //done
@@ -66,62 +72,93 @@ const Upload = ({ loaderData }) => {
   let navigation = useNavigation();
  const isSubmitting = navigation.state === "submitting";
 
+ const [fileName, setFileName] = useState("No file chosen");
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFileName(file ? file.name : "No file chosen");
+  };
+
+
   return (
-    <>
-      <h2>Hi, {currentUser.username}</h2>
-      {/* <p>Email: {currentUser.email}</p> */}
-
-      {isSubmitting && <p>Uploading...</p>}
-      <Form method="post" encType="multipart/form-data" className="media-form">
-        <input type="hidden" name="userId" value={currentUser.id} />
-        <input type="hidden" name="eventId" value={currentEvent.id} />
-        <div className="media-form__field">
-          <label htmlFor="title" className="media-form__label">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            className="media-form__input"
-            placeholder="Enter title"
-            required
-          />
+    <main className="upload-form">
+      <h1 className="visually-hidden">Upload Your Artwork</h1>
+      
+      <div className="upload-form__header">
+              <Link to="/upload" className="upload-form__back">
+              <img src={arrow} alt="arrow"  className="upload-form__arrow"/>
+              Back
+            </Link>
+              <img src={upload_motion} alt="Upload header" className="upload-form__image" />
+              
         </div>
 
-        <div className="media-form__field">
-          <label htmlFor="description" className="media-form__label">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            className="media-form__input"
-            placeholder="Enter description"
-          />
-        </div>
+      <article>
+        <Form method="post" encType="multipart/form-data" className="media-form">
+          <input type="hidden" name="userId" value={currentUser.id} />
+          <input type="hidden" name="eventId" value={currentEvent.id} />
 
-        
+          <div className="media-form__file">
+            {isSubmitting && <p className="media-form__uploading-message">Uploading...</p>}
+            <div className="media-form__field-upload">
+              <div className="media-form__upload-label">
+                <label htmlFor="file" className="media-form__label-upload">Choose a file to upload</label>
+                <img src={uplaod_icon} alt="Upload icon" className="media-form__upload-icon" />
+              </div>
+              <input type="file" id="file" name="file" className="media-form__input" style={{ display: "none" }} onChange={handleFileChange} />
+              
+            </div>
+            <div className="media-form__filename">{fileName}</div>
+          </div>
 
-        <div className="media-form__field">
-          <label className="media-form__label">
-            <input type="checkbox" name="visibility" />
-              I own the rights and grant Abby a 1-month exhibition licence.
-            </label>
-        </div>
+          <div className="media-form__fields">
+            <div className="media-form__field-title">
+              <label htmlFor="title" className="media-form__label-title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                className="media-form__input"
+                placeholder="Artwork title"
+                required
+              />
+            </div>
 
-        <div className="media-form__field">
-          <label htmlFor="file" className="media-form__label">Upload File</label>
-          <input type="file" id="file" name="file" className="media-form__input" />
-        </div>
+            <div className="media-form__field-description">
+              <label htmlFor="description" className="media-form__label-description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                className="media-form__input"
+                placeholder="Tell Abby what we’re seeing..."
+              />
+            </div>
+          </div>
 
-        <div className="media-form__actions">
-          <button type="submit" className="media-form__button media-form__button--primary">
-            Submit
-          </button>
-          <Link to="/" className="media-form__button media-form__button--secondary">
-            Cancel
-          </Link>
-        </div>
-      </Form>
-    </>
+
+          <div className="media-form__actions">
+            <button type="submit" className="media-form__button media-form__button--primary">
+              Submit
+            </button>
+            <Link to="/" className="media-form__button media-form__button--secondary">
+              
+              Cancel
+            </Link>
+          </div>
+          <div className="media-form__field-checkbox">
+            <label className="media-form__label media-form__checkbox">
+              <input type="checkbox" name="visibility" />
+                I own the rights & grant Abby a 1-month exhibition licence.
+              </label>
+          </div>
+        </Form>
+      </article>
+    </main>
   );
 };
 
 export default Upload;
+
+
+
+{/* <h2>Hi, {currentUser.username}</h2> */}
