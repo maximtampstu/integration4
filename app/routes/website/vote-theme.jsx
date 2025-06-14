@@ -92,15 +92,17 @@ const VoteTheme = ({ loaderData }) => {
         </section>
       ) : (hasAlreadyVoted ? (
         <section className="already-voted">
-          <BackButton />
-          <div className="already-voted__text">
-            <h2>You already have voted</h2>
-            <div className="already-voted__info">
-              <p>for</p>
-              <p className="already-voted__name">"{votableThemes.find(item => item.id === themeVotes.find(vote => vote.userEmail === currentUser.email).themeId).name}"</p>
+          <div className="already-voted__content">
+            <div className="already-voted__text">
+              <h2>You already have voted</h2>
+              <div className="already-voted__info">
+                <p>for</p>
+                <p className="already-voted__name">"{votableThemes.find(item => item.id === themeVotes.find(vote => vote.userEmail === currentUser.email).themeId).name}"</p>
+              </div>
             </div>
+              <Link className="button button--green" to="/vote-art">Vote Art</Link>
           </div>
-            <Link className="button button--green" to="/vote-art">Vote Art</Link>
+          <BackButton />
         </section>
       ) : (
         <>
