@@ -1,7 +1,7 @@
 import { getUsersCurrentEventArt, getUsersPreviousEventsArt, getUserReceivedVotes, getUserUploadedArtCount, getAllArtTypes } from "../../services/art";
 import {getEndDate, getPastEvents} from "../../services/events";
 import { Link, Form } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCurrentEvent } from "../../services/events";
 import { getCurrentUser } from "../../services/users";
 import gallery_page_image from "../../../assets/gallery_page_image.svg";
@@ -48,6 +48,11 @@ export default function CurrentEvent({ loaderData }) {
     setArtIdToDelete(e.target.artId.value);
     setShowConfirmationPopup(true);
   }
+
+  useEffect(() => {
+  document.body.style.overflow = showConfirmationPopup ? "hidden" : "";
+}, [showConfirmationPopup]);
+
 
   return (
     <main className="current-event">
@@ -112,8 +117,7 @@ export default function CurrentEvent({ loaderData }) {
 
       <section className="current-event__uploads">
         <h3 className="current-event__uploads-title">uploaded items</h3>
-        <section>
-          <h4></h4>
+        <div className="current-event__uploads-wrapper">
             <section className="current-event__upload-section">
               <h5 className="current-event__section-title">current Event</h5>
               {currentEventArt.length > 0 ? (
@@ -137,7 +141,7 @@ export default function CurrentEvent({ loaderData }) {
                             <source src={art.url} type="audio/mpeg" />
                           </audio>
                         ) : isVideo ? (
-                          <video controls width="300">
+                          <video controls width="100%">
                             <source src={art.url} type="video/mp4" />
                           </video>
                         ) : (
@@ -163,11 +167,15 @@ export default function CurrentEvent({ loaderData }) {
                         </div>
                       </div> */}
                        <div className="art-card__details">
-                          <p className="art-card__title">{art.title}</p>
-                          <p className="art-card__description">{art.description}</p>
+                          <div className="art-card__details-info">
+                            <p className="art-card__title">{art.title}</p>
+                            <p className="art-card__description">{art.description}</p>
+                          </div>
                           
                           <div className="art-card__actions">
+                            <div className="art-card__actions-detailButton">
                             <Link to={`/art-detail/${art.id}`} className="art-card__link">Detail</Link> 
+                            </div>
                             
                             <div className="art-card__action-buttons">
                               <form onSubmit={handleSubmitDelete} className="art-card__delete-form">
@@ -195,6 +203,7 @@ export default function CurrentEvent({ loaderData }) {
                   <Link to="/upload-list" className="current-event__upload-link">upload</Link>
                 </div>
               )}
+             
             </section>
 
             {/* <section>
@@ -261,24 +270,26 @@ export default function CurrentEvent({ loaderData }) {
                         <p className="art-card__event-name">{event?.name}</p>
                         <p className="art-card__type">{artType?.name}</p>
                       </div>
-                      <div className="art-card__media">
-                        {isAudio ? (
-                          <audio controls className="art-card__audio">
-                            <source src={art.url} type="audio/mpeg" />
-                          </audio>
-                        ) : isVideo ? (
-                          <video controls width="300" className="art-card__video">
-                            <source src={art.url} type="video/mp4" />
-                          </video>
-                        ) : (
-                          <img src={art.url} alt={art.title} width="300" className="art-card__image" />
-                        )}
-                      </div>
-                      <div className="art-card__details">
-                        <h3 className="art-card__title">{art.title}</h3>
-                        <p className="art-card__description">{art.description}</p>
-                        <Link to={`/art-detail/${art.id}`} className="art-card__detail-link">detail</Link>
-                      </div>
+                        <div>
+                          <div className="art-card__media">
+                            {isAudio ? (
+                              <audio controls className="art-card__audio">
+                                <source src={art.url} type="audio/mpeg" />
+                              </audio>
+                            ) : isVideo ? (
+                              <video controls width="100%" className="art-card__video">
+                                <source src={art.url} type="video/mp4" />
+                              </video>
+                            ) : (
+                              <img src={art.url} alt={art.title} width="300" className="art-card__image" />
+                            )}
+                          </div>
+                          <div className="art-card__details">
+                            <h3 className="art-card__title">{art.title}</h3>
+                            <p className="art-card__description">{art.description}</p>
+                            <Link to={`/art-detail/${art.id}`} className="art-card__detail-link">detail</Link>
+                          </div>
+                        </div>
                     </div>
                   );
                 })
@@ -286,9 +297,7 @@ export default function CurrentEvent({ loaderData }) {
                 <p className="current-event__empty-msg">You have no artworks in previous events</p>
               )}
             </section>
-
-            
-        </section>
+        </div>
 
       </section>
 
@@ -297,7 +306,7 @@ export default function CurrentEvent({ loaderData }) {
 
       {/* <Link to="/">Back to Home</Link> */}
 
-      {showConfirmationPopup && (
+      {/* {showConfirmationPopup && (
         <div className="confirmation-popup" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.75)", justifyContent: "center", alignItems: "center", display: "flex" }}>
           <div className="confirmation-popup__content" style={{ backgroundColor: "white", padding: "20px", borderRadius: "8px", textAlign: "center", placeSelf: "center" }}>
             <p>Are you sure you want to delete this artwork?</p>
@@ -307,7 +316,31 @@ export default function CurrentEvent({ loaderData }) {
             <button type="button" onClick={() => setShowConfirmationPopup(false)}>No, keep</button>
           </div>
         </div>
-      )}
+      )} */}
+      
+      {showConfirmationPopup && (
+  <div className="popup">
+    <div className="popup__inner">
+      <div className="popup__message">
+        <p className="popup__question">Are you sure you want to delete this artwork?</p>
+      </div>
+
+      <div className="popup__buttons">
+        <Form method="post" action={`/destroy-art/${artIdToDelete}`} onSubmit={() => setShowConfirmationPopup(false)} >
+          <button type="submit" className="popup__btn popup__btn--yes">Yes, Delete</button>
+        </Form>
+        <button
+          type="button"
+          className="popup__btn popup__btn--no"
+          onClick={() => setShowConfirmationPopup(false)}
+        >
+          No, keep
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </main>
   );
 }
