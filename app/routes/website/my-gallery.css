@@ -192,6 +192,7 @@
     font-size: 1.125rem;
     line-height: 133%;
     margin-top: 1.5rem;
+    word-break: break-word;
 }
 
 .art-card__title{
