@@ -1,5 +1,5 @@
 import '../reset.css';
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate, useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import TouchCountDown from "../components/TouchCountDown/TouchCountDown";
 import StartScreen from "../components/StartScreen/StartScreen";
@@ -14,7 +14,9 @@ export async function clientLoader() {
 
 const BaseLayoutKiosk = ({loaderData}) => {
     const { endDate } = loaderData
+    const location = useLocation();
     const navigate = useNavigate();
+
     const [unlocked, setUnlocked] = useState(false);
     const [secondsIdle, setSecondsIdle] = useState(0);
     const [showAlert, setShowAlert] = useState(false);
@@ -33,7 +35,7 @@ const BaseLayoutKiosk = ({loaderData}) => {
                     }
                 } else {
                     setSecondsIdle(prev => prev + 1);
-                    if (secondsIdle === 90) {
+                    if (secondsIdle === 90000000) {
                         setShowAlert(true);
                         setSecondsIdle(0);
                         setTouchCountDownSeconds(10);
@@ -57,7 +59,7 @@ const BaseLayoutKiosk = ({loaderData}) => {
     };
 
     return (
-        <main style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
+        <main className={location.pathname.slice(1).split('/')[1]} style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
             <Outlet />
             {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}
             {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDate} />}
