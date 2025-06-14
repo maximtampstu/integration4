@@ -1,0 +1,94 @@
+.upload-info__top{
+    background-color: var(--color-lau-yellow);
+
+    padding: 8rem 2rem;
+    padding-bottom: 4rem;
+}
+
+.upload-info__top .back-button {
+    place-self: start;
+    color: var(--color-pri-white);
+    background-color: var(--color-pri-black);
+}
+
+.upload-info__top .back-button path {
+    fill: var(--color-pri-white);
+}
+
+.upload-info__head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-top: 5rem;
+}
+
+.upload-info__head h2{
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.upload-info__head p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.upload-info__type-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+}
+
+.upload-info__type-item {
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--color-lau-pink);
+}
+
+.upload-info__type-item--blue{
+    background-color: var(--color-lau-blue);
+}
+
+.upload-info__current{
+    background-color: var(--color-lau-yellow);
+    padding: 1.75rem;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upload-info__current h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.upload-info__current p, .upload-info__bottom p {
+    font-size: 1.25rem;
+}
+
+.upload-info__bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    margin-top: 4rem;
+}
+
+.upload-info__bottom .qr rect {
+    fill: transparent;
+}
+
+.upload-info__bottom .qr div,
+.upload-info__bottom .qr svg {
+    height: 12rem;
+    width: 12rem;
+}
