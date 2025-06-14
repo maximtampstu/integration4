@@ -1,0 +1,76 @@
+.current-event__headline {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 133%;
+  text-transform: uppercase;
+  text-align: center;
+  
+}
+
+
+.current-event{
+    font-family: "GT Walsheim", sans-serif;
+    font-weight: 400;
+    margin-bottom: 10rem;
+}
+
+.current-event__intro{
+    background-color: var(--color-sec-green);
+    margin-top: -6.2rem;
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 7rem;
+    gap: 0.8rem;
+}
+
+.current-event__subtext{
+    font-size: 1.125rem;
+    line-height: 133%;
+    text-align: center;
+    width: 85%;
+}
+
+.current-event__profile{
+    margin: 0 5.75rem;
+    margin-top: -4rem;
+}
+
+.current-event__user-info{
+    background-color: var(--color-sec-blue);
+    padding: 0.75rem;
+    margin-top: -0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-event__username{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+.current-event__edit-link{
+    background-color: var(--color-sec-red);
+    padding: 0.75rem 1rem;
+    color: white;
+    font-size: 1.125rem;
+    text-transform: capitalize;
+}
+
+.current-event__username-box{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.current-event__stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -7,6 +7,7 @@ import arrow from "../../../assets/arrow.svg";
 import art_vote_image from "../../../assets/art_vote_image.svg";
 import "./art-category.css"
 
+
 export async function clientLoader({ params }) {
   const artType = await getArtTypeById(Number(params.id)); 
   const currentEvent = await getCurrentEvent(); 
@@ -153,7 +154,7 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
 
                       <div className="vote-art-type__actions">
                         <Link to={`/art-detail/${art.id}`} className="vote-art-type__detail-link">View Details</Link>
-                        <label className="vote-art-type__radio-label">
+                        <label className={`vote-art-type__radio-label ${confirmedArt == art.id ? "vote-art-type__confirmed" : ""}`}>
                           {/* <input
                             type="radio"
                             name="artId"
@@ -170,7 +171,7 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
                             onChange={() => handleVoteClick(art.id)}
                             required
                             className={`vote-art-type__radio-input ${confirmedArt == art.id ? "vote-art-type__confirmed" : ""}`}
-                          /> {confirmedArt == art.id ? "Confirmed" : "Vote for this"}
+                          /> {confirmedArt == art.id ? "Confirmed" : "lock in vote"}
 
                         </label>
                       </div>
@@ -196,25 +197,32 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
       {showConfirm && (
   <div className="vote-art-type__popup">
     <div className="vote-art-type__popup-inner">
-      {/* <p>Are you sure you want to vote for this artwork?</p> */}
-      <p>
-  Are you sure you want to vote for <strong>{selectedArtwork?.title}</strong>?
-</p>
+      <div className="vote-art-type__popup-message">
+        <p className="vote-art-type__popup-question">
+          Are you sure you want to vote for <strong>{selectedArtwork?.title}</strong>?
+        </p>
+        <p className="vote-art-type__popup-warning">*You won’t be able to recast your vote after it has been submitted </p>
+      </div>
 
       <div className="vote-art-type__popup-buttons">
-        <button
+        <button 
           type="button"
+          className="vote-art-type__popup-btn vote-art-type__popup-btn--yes"
           onClick={() => {
             setShowConfirm(false);
             setConfirmedArt(selectedArt);
             document.body.style.overflow = "";
+            
           }}
         >
           Yes
         </button>
-        <button type="button" onClick={() => {
+        <button 
+        type="button" 
+        className="vote-art-type__popup-btn vote-art-type__popup-btn--no" 
+        onClick={() => {
     setShowConfirm(false);
-    setSelectedArt(null); // 💡 reset selection
+    setSelectedArt(null); 
     document.body.style.overflow = "";
   }}>
           No
