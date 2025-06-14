@@ -142,11 +142,19 @@ img{
 .kiosk-button{
   font-size: 2rem;
   padding: 1rem 1.75rem;
-  background-color: var(--color-lau-yellow);
+  background-color: var(--color-pri-black);
+  color: var(--color-pri-white);
 }
 
 .kiosk-button--blue{
   background-color: var(--color-lau-blue);
+  color: var(--color-pri-black);
+}
+
+.kiosk-button--sec {
+  background-color: var(--color-pri-white);
+  color: var(--color-pri-black);
+  border: var(--color-pri-black) 6px solid;
 }
 
 .kiosk-button--small{

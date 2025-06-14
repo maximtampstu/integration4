@@ -28,8 +28,8 @@ const Home = ({ loaderData }) => {
           : <Link className="kiosk-button" to="/kiosk/vote">Vote</Link>}</li>
         <li><p>or</p></li>
         <div className="home__buttons">
-          <li><Link className="kiosk-button kiosk-button--blue kiosk-button--small" to="/kiosk/about">Discover Us</Link></li>
-          <li><Link className="kiosk-button kiosk-button--blue kiosk-button--small" to="/kiosk/previous-event-gallery">See Previously@ABBY</Link></li>
+          <li><Link className="kiosk-button kiosk-button--sec kiosk-button--small" to="/kiosk/about">Discover Us</Link></li>
+          <li><Link className="kiosk-button kiosk-button--sec kiosk-button--small" to="/kiosk/previous-event-gallery">See Previously@ABBY</Link></li>
         </div>
       </ul>
     </div>

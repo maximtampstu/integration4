@@ -1,0 +1,13 @@
+.previous-event-art-card {
+    width: 13rem;
+}
+
+.previous-event-art-card p{
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    padding: 0.5rem 0;
+    background-color: var(--color-lau-blue);
+    margin-top: -0.2rem;
+}
