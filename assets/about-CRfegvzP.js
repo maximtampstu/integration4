@@ -1,1 +1,0 @@
-import{w as o}from"./with-props-sCgrmHZr.js";import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{B as r}from"./BackButton-CNyxKOt4.js";import"./chunk-DQRVZFIR-DIhVU3QH.js";const s=()=>t.jsxs(t.Fragment,{children:[t.jsx("h1",{children:"About"}),t.jsx("ul",{children:t.jsx("li",{children:t.jsx(r,{})})})]}),a=o(s);export{a as default};
