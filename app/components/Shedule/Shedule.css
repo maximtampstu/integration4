@@ -1,0 +1,194 @@
+.shedule{
+    background-color: var(--color-lau-pink);
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100vw;
+    padding: 1.75rem;
+    margin-bottom: -10.75rem;
+}
+
+.shedule--open {
+    animation: moveIn 0.25s ease-out forwards;
+}
+
+.shedule--close {
+    animation: moveOut 0.25s ease-in forwards;
+}
+
+@keyframes moveIn {
+    from {
+        transform: translateY(0rem);
+    }
+
+    to {
+        transform: translateY(-10.75rem);
+    }
+}
+
+@keyframes moveOut {
+    from {
+        transform: translateY(-10.75rem);
+    }
+
+    to {
+        transform: translateY(0rem);
+    }
+}
+
+.shedule__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shedule__head {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.shedule__head button{
+    background-color: transparent;
+    border: none;
+}
+
+.shedule--open .shedule__head button svg {
+    rotate: 180deg;
+}
+
+.shedule__head h2{
+    font-size: 2rem;
+}
+
+.shedule__head p {
+    background-color: var(--color-pri-black);
+    color: var(--color-lau-pink);
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 8.5rem;
+    text-align: center;
+}
+
+.shedule__info{
+    font-size: 2rem;
+    color: var(--color-pri-black);
+    background-color: transparent;
+    border: solid var(--color-pri-black) 6px;
+    padding: 0.5rem 1.4rem;
+}
+
+.shedule__bottom{
+    display: grid;
+    margin-top: 2rem;
+}
+
+.shedule__bar, .schedule__list{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.schedule__bar{
+    width: 34.5rem;
+    height: 1rem;
+    background-color: var(--color-pri-black);
+    margin: 0 auto;
+    margin-top: -6.65rem;
+}
+
+.schedule__bar-fill{
+    height: 1rem;
+    background-color: var(--color-lau-blue);
+}
+
+.schedule__list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.schedule__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.schedule__item h2{
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+
+    background-color: black;
+    color: var(--color-lau-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule__item p{
+    font-size: 1.5rem;
+}
+
+.schedule__time {
+    font-weight: bold;
+}
+
+.schedule__item--past h2 {
+    color: var(--color-pri-black);
+    background-color: var(--color-lau-blue);
+}
+
+.shedule-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shedule-popup__content {
+    z-index: 901;
+
+    margin: 0 1.5rem;
+    padding: 3.5rem 6rem;
+    background-color: var(--color-lau-pink);
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    text-align: center;
+}
+
+.shedule-popup__content div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shedule-popup__content h2{
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.shedule-popup__content p {
+    font-size: 1.5rem;
+    line-height: 140%;
+    text-align: start;
+}
+
+.shedule-popup__content .kiosk-button {
+    place-self: center;
+}

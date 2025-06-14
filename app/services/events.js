@@ -152,9 +152,9 @@ export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay) => {
   }
 }
 
-export const getCountdown = (startDate) => {
+export const getCountdown = (endDateString) => {
   const now = new Date();
-  const endDate = new Date(getEndDate(startDate));
+  const endDate = new Date(endDateString);
   const diffMs = endDate - now;
 
   if (diffMs <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -163,6 +163,17 @@ export const getCountdown = (startDate) => {
   const days = Math.floor(totalSeconds / (60 * 60 * 24));
   const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
   const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+  const seconds = totalSeconds % 60;
 
-  return { days, hours, minutes };
+  return { days, hours, minutes, seconds };
 }
+
+export const getEventDay = (startDate) => {
+  const today = new Date();
+  const start = new Date(startDate);
+  const diffTime = today - start;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 want dag 1 is startdag
+
+  return diffDays;
+}
+

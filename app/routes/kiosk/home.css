@@ -1,7 +1,8 @@
-.home{
+.home__content{
     display: grid;
     grid-template-columns: 47% 53%;
     grid-template-rows: 40% 60%;
+    height: 100%;
 }
 
 .home__head{
@@ -39,16 +40,15 @@
     font-weight: bold;
 }
 
-.home ul{
+.home__content ul{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 6rem 0;
-    gap: 6rem;
+    gap: 5rem;
 }
 
-.home ul p{
+.home__content ul p{
     font-size: 1.75rem;
 }
 

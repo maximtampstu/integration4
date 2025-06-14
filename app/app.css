@@ -152,3 +152,9 @@ img{
 .kiosk-button--small{
   font-size: 1.75rem;
 }
+
+.kiosk-character-button{
+  padding: 0.6rem;
+  background-color: transparent;
+  border: solid var(--color-pri-black) 6px;
+}
