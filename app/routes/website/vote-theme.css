@@ -14,12 +14,12 @@
     position: relative;
 }
 
-.voting{
+.vote-theme .voting{
     margin-top: -1rem;
     position: relative;
 }
 
-.voting__head{
+.vote-theme .voting__head{
     background-color: var(--color-sec-blue);
     padding: 2.25rem 1.5rem;
     text-align: center;
@@ -29,13 +29,13 @@
     gap: 1rem;
 }
 
-.voting__head h2{
+.vote-theme .voting__head h2{
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.voting__count-down{
+.vote-theme .voting__count-down{
     background-color: var(--color-sec-yellow);
     padding: 2rem 1.5rem;
     text-transform: uppercase;
@@ -47,36 +47,36 @@
     gap: 0.5rem;
 }
 
-.voting__count-down .voting__ends{
+.vote-theme .voting__count-down .voting__ends{
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-.voting__count-down .voting__days {
+.vote-theme .voting__count-down .voting__days {
     font-size: 1.25rem;
 
     display: flex;
     gap: 1rem;
 }
 
-.voting__count-down .voting__days span {
+.vote-theme .voting__count-down .voting__days span {
     font-weight: 500;
 }
 
-.form{
+.vote-theme .form{
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin: 2rem 1.5rem;
 }
 
-.form__theme-options{
+.vote-theme .form__theme-options{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.form__theme-option span {
+.vote-theme .form__theme-option span {
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
@@ -88,28 +88,28 @@
     background-color: var(--color-sec-green);
 }
 
-.form__theme-option input[type="radio"]:checked + span {
+.vote-theme .form__theme-option input[type="radio"]:checked + span {
     border-color: transparent;
     box-shadow: 0 0 0 0.35rem var(--color-sec-red);
     background-color: var(--color-sec-purple);
     color: var(--color-sec-red);
 }
 
-.form__theme-option input[type="radio"] {
+.vote-theme .form__theme-option input[type="radio"] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.form__theme-option span {
+.vote-theme .form__theme-option span {
     display: inline-block;
     text-align: center;
     width: 100%;
     padding: 12px 20px;
 }
 
-.form__submit{
+.vote-theme .form__submit{
     font-family: var(--font-gt-walsheim);
     font-size: 1.5rem;
     font-weight: 500;
@@ -123,7 +123,7 @@
     border: none;
 }
 
-.confirmation-popup {
+.vote-theme .confirmation-popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -138,7 +138,7 @@
     justify-content: center;
 }
 
-.confirmation-popup .confirmation-popup__content {
+.vote-theme .confirmation-popup .confirmation-popup__content {
     z-index: 901;
 
     margin: 0 1.5rem;
@@ -154,49 +154,53 @@
     text-align: center;
 }
 
-.confirmation-popup__head{
+.vote-theme .confirmation-popup__head{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-.confirmation-popup__head .confirmation-popup__choise{
+.vote-theme .confirmation-popup__head .confirmation-popup__choise{
     font-size: 1.25rem;
     font-weight: 500;
 }
 
-.confirmation-popup__head .confirmation-popup__extra {
+.vote-theme .confirmation-popup__head .confirmation-popup__extra {
     font-size: 1rem;
 }
 
-.confirmation-popup__buttons{
+.vote-theme .confirmation-popup__buttons{
     display: flex;
     gap: 2rem;
 }
 
-.confirmation-popup__buttons button{
+.vote-theme .confirmation-popup__buttons button{
     font-size: 1.25rem;
     padding: 0.75rem;
 
     width: 100%;
 }
 
-.confirmation-popup__buttons .confirmation-popup__yes {
+.vote-theme .confirmation-popup__buttons .confirmation-popup__yes {
     background-color: var(--color-pri-black);
     border: none;
     color: var(--color-pri-white);
 }
 
-.confirmation-popup__buttons .confirmation-popup__no {
+.vote-theme .confirmation-popup__buttons .confirmation-popup__no {
     background-color: transparent;
     border: var(--color-pri-black) 3px solid;
     color: var(--color-pri-black);
 }
 
-.vote-complete, .already-voted{
+.already-voted{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.vote-theme .vote-complete, .already-voted__content{
     padding: 5rem 1.25rem;
-    padding-top: 12rem;
     margin-bottom: 8rem;
     background-color: var(--color-sec-yellow);
 
@@ -207,33 +211,37 @@
     gap: 3rem;
 }
 
-.already-voted{
+.vote-theme .vote-complete {
+    padding-top: 12rem;
+}
+
+.vote-theme .already-voted{
     padding-top: 2rem;
 }
 
-.vote-complete__text, .already-voted__text{
+.vote-theme .vote-complete__text, .already-voted__text{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.vote-complete h2, .already-voted h2{
+.vote-theme .vote-complete h2, .already-voted h2{
     font-size: 2.75rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.vote-complete__winning, .already-voted__name{
+.vote-theme .vote-complete__winning, .already-voted__name{
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.vote-complete .button, .already-voted .button{
+.vote-theme .vote-complete .button, .already-voted .button{
     place-self: center;
 }
 
-.already-voted .back-button{
+.vote-theme .already-voted .back-button{
     background-color: var(--color-sec-purple);
     place-self: start;
-    margin-bottom: 1.5rem;
+    margin-bottom: -1.25rem;
 }

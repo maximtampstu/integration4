@@ -3,8 +3,17 @@ import { Outlet, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import TouchCountDown from "../components/TouchCountDown/TouchCountDown";
 import StartScreen from "../components/StartScreen/StartScreen";
+import { getCurrentEvent, getEndDate, getMonthAndDayString } from '../services/events';
 
-const BaseLayoutKiosk = () => {
+export async function clientLoader() {
+    const currentEvent = await getCurrentEvent();
+    const endDate = await getMonthAndDayString(await getEndDate(currentEvent.startDate))
+
+    return { endDate };
+}
+
+const BaseLayoutKiosk = ({loaderData}) => {
+    const { endDate } = loaderData
     const navigate = useNavigate();
     const [unlocked, setUnlocked] = useState(false);
     const [secondsIdle, setSecondsIdle] = useState(0);
@@ -48,11 +57,11 @@ const BaseLayoutKiosk = () => {
     };
 
     return (
-        <div onTouchStart={handleTouchScreen} onClick={handleTouchScreen} style={{ height: "100vh"}}>
+        <main style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
             <Outlet />
             {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}
-            {!unlocked && <StartScreen handleUnlock={handleUnlock} />}
-        </div>
+            {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDate} />}
+        </main>
     );
 };
 
