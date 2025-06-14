@@ -16,7 +16,7 @@
 .banner p {
     font-size: 3rem;
     display: inline-block;
-    animation: scroll-left 15s linear infinite;
+    animation: scroll-left 30s linear infinite alternate;
 }
 
 .banner--4 {
