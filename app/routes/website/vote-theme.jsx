@@ -4,7 +4,7 @@ import { getThemeVotes, addThemeVote, getVotableThemes, getMostVotedThemeId } fr
 import { getCurrentUser } from "../../services/users";
 import "./vote-theme.css";
 import BackButton from "../../components/BackButton/BackButton";
-import { getCurrentEvent, getCountdown } from "../../services/events";
+import { getCurrentEvent, getCountdown, getEndDate } from "../../services/events";
 
 export async function clientLoader() {
   const currentUser = await getCurrentUser();
@@ -42,7 +42,7 @@ const VoteTheme = ({ loaderData }) => {
   //useEffect omdat het een count down is
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountdown(getCountdown(currentEvent.startDate));
+      setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
     }, 1000);
 
     return () => clearInterval(interval); // opschonen bij unmount

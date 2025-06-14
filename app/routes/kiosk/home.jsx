@@ -15,7 +15,7 @@ const Home = ({ loaderData }) => {
   const [uploadingPhase, setUploadingPhase] = useState(true)
 
   return (
-    <>
+    <div className="home__content">
       <div className="home__head">
         <h1 onClick={() => setUploadingPhase(!uploadingPhase)}>You @abby</h1>
       </div>
@@ -32,7 +32,7 @@ const Home = ({ loaderData }) => {
           <li><Link className="kiosk-button kiosk-button--blue kiosk-button--small" to="/kiosk/previous-event-gallery">See Previously@ABBY</Link></li>
         </div>
       </ul>
-    </>
+    </div>
   );
 };
 

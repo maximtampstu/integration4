@@ -4,16 +4,19 @@ import { useState, useEffect } from "react";
 import TouchCountDown from "../components/TouchCountDown/TouchCountDown";
 import StartScreen from "../components/StartScreen/StartScreen";
 import { getCurrentEvent, getEndDate, getMonthAndDayString } from '../services/events';
+import KioskTopBar from '../components/KioskTopBar/KioskTopBar';
+import Shedule from '../components/Shedule/Shedule';
 
 export async function clientLoader() {
     const currentEvent = await getCurrentEvent();
-    const endDate = await getMonthAndDayString(await getEndDate(currentEvent.startDate))
+    const endDate = await getEndDate(currentEvent.startDate)
+    const endDateString = await getMonthAndDayString(endDate)
 
-    return { endDate };
+    return { endDateString, currentEvent };
 }
 
 const BaseLayoutKiosk = ({loaderData}) => {
-    const { endDate } = loaderData
+    const { endDateString, currentEvent } = loaderData
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -21,6 +24,8 @@ const BaseLayoutKiosk = ({loaderData}) => {
     const [secondsIdle, setSecondsIdle] = useState(0);
     const [showAlert, setShowAlert] = useState(false);
     const [touchCountDownSeconds, setTouchCountDownSeconds] = useState(10);
+
+    const [phaseCountDown, setPhaseCountDown] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -60,9 +65,11 @@ const BaseLayoutKiosk = ({loaderData}) => {
 
     return (
         <main className={location.pathname.slice(1).split('/')[1]} style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
+            <KioskTopBar />
             <Outlet />
+            <Shedule currentEvent={currentEvent} />
             {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}
-            {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDate} />}
+            {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDateString} />}
         </main>
     );
 };

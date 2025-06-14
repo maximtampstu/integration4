@@ -1,0 +1,82 @@
+.kiosk-top-bar{
+    position: fixed;
+    width: 100vw;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.kiosk-top-bar button{
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: var(--color-pri-black);
+}
+
+.kiosk-top-bar button div, .kiosk-top-bar button svg {
+    height: 4rem;
+    width: 4rem;
+}
+
+.kiosk-top-bar button svg rect, .qr-popup__content svg rect{
+    fill: transparent;
+}
+
+.kiosk-top-bar button p {
+    font-size: 1.25rem;
+}
+
+.qr-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-popup__content {
+    z-index: 901;
+
+    margin: 0 1.5rem;
+    padding: 3.5rem 6rem;
+    background-color: var(--color-lau-pink);
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    text-align: center;
+}
+
+.qr-popup__content div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qr-popup p{
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.qr-popup__content .qr,
+.qr-popup__content .qr svg {
+    height: 32rem;
+    width: 32rem;
+}
+
+.qr-popup__content .kiosk-character-button {
+    padding-bottom: 0.4rem;
+}
