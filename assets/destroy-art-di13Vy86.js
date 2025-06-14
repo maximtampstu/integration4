@@ -1,0 +1,1 @@
+import{v as o}from"./chunk-DQRVZFIR-DIhVU3QH.js";import{o as e}from"./art-AYjM_fPO.js";import"./supabase-gzL5jvvo.js";async function c({params:t}){const r=t.artId;return await e(r),o("/my-gallery")}export{c as clientAction};

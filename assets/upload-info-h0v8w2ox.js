@@ -1,1 +1,0 @@
-import{w as r}from"./with-props-DYauBgyy.js";import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{B as t}from"./BackButton-BnlfhlT0.js";import"./chunk-DQRVZFIR-CNgL96Wu.js";const n=()=>o.jsxs(o.Fragment,{children:[o.jsx("h1",{children:"Upload Info"}),o.jsx("ul",{children:o.jsx("li",{children:o.jsx(t,{})})})]}),e=r(n);export{e as default};
