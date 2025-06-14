@@ -151,3 +151,18 @@ export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay) => {
     return `Closed`;
   }
 }
+
+export const getCountdown = (startDate) => {
+  const now = new Date();
+  const endDate = new Date(getEndDate(startDate));
+  const diffMs = endDate - now;
+
+  if (diffMs <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const days = Math.floor(totalSeconds / (60 * 60 * 24));
+  const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+  const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+
+  return { days, hours, minutes };
+}
