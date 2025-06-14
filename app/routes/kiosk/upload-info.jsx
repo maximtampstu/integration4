@@ -18,8 +18,8 @@ const UploadInfo = () => {
             <ul className="upload-info__type-list">
                 <li className="upload-info__type-item upload-info__type-item--blue">Motion Graphic</li>
                 <li className="upload-info__type-item">Music</li>
-                <li className="upload-info__type-item upload-info__type-item--blue">PHYSICAL & DIGITAL ART</li>
-                <li className="upload-info__type-item">PERFORMANCE</li>
+                <li className="upload-info__type-item upload-info__type-item--blue">Physical & Digital Art</li>
+                <li className="upload-info__type-item">Performance</li>
             </ul>
             <div className="upload-info__current">
                 <h3>Japanese Garden</h3>
