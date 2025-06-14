@@ -59,14 +59,13 @@ export default function PreviousEvents({ loaderData }) {
 
     if (!isMonthSet && !isYearSet) return true;
 
-    // Define target range
     const m = isMonthSet ? parseInt(month) - 1 : 0;
     const y = isYearSet ? parseInt(year) : start.getFullYear();
 
     const rangeStart = new Date(y, m, 1);
     const rangeEnd = isMonthSet
-      ? new Date(y, m + 1, 0) // last day of selected month
-      : new Date(y, 11, 31);  // end of year if no month selected
+      ? new Date(y, m + 1, 0)
+      : new Date(y, 11, 31); 
 
     return start <= rangeEnd && end >= rangeStart;
   });

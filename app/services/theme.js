@@ -74,3 +74,25 @@ export const getThemeById = async (themeId) => {
     throw error;
   }
 };
+
+//AI helpt to not waste alot of time
+export const getMostVotedThemeId = async (votes) => {
+  const counts = {};
+
+  votes.forEach(vote => {
+    const id = vote.themeId;
+    counts[id] = (counts[id] || 0) + 1;
+  });
+
+  let mostVoted = null;
+  let maxVotes = 0;
+
+  for (const id in counts) {
+    if (counts[id] > maxVotes) {
+      maxVotes = counts[id];
+      mostVoted = Number(id);
+    }
+  }
+
+  return mostVoted;
+}
