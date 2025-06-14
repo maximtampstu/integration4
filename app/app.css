@@ -138,3 +138,17 @@ img{
 .button--sec--5px {
   border-width: 5px;
 }
+
+.kiosk-button{
+  font-size: 2rem;
+  padding: 1rem 1.75rem;
+  background-color: var(--color-lau-yellow);
+}
+
+.kiosk-button--blue{
+  background-color: var(--color-lau-blue);
+}
+
+.kiosk-button--small{
+  font-size: 1.75rem;
+}
