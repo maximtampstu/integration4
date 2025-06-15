@@ -133,7 +133,7 @@
   width: 2rem;
   height: 2rem;
   border: 1.5px solid var(--color-pri-black);
-  border-radius: 50%;
+  
 }
 
 .vote-art__description{
