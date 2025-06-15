@@ -167,3 +167,46 @@ img{
   background-color: transparent;
   border: solid var(--color-pri-black) 6px;
 }
+
+.vote-percentages {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 35% 65%;
+
+  padding-bottom: 6.5rem;
+}
+
+.vote-percentages li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+
+  padding: 1.5rem;
+  text-transform: uppercase;
+  text-align: end;
+}
+
+.vote-percentages li:nth-child(1) {
+  background-color: #FF6837;
+  grid-row: 1 / span 2;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.vote-percentages li:nth-child(2) {
+  background-color: #FF8D68;
+  grid-row: 2;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.vote-percentages li:nth-child(3) {
+  background-color: #FFAF95;
+  font-size: 1.5rem;
+}
+
+.vote-percentages p {
+  font-size: 4.5rem;
+  font-weight: bold;
+}

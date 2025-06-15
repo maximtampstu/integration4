@@ -28,7 +28,7 @@ export async function clientAction({ request }) {
   return { leadingThemeId: leadingTheme };
 }
 
-const VoteTheme = ({ loaderData }) => {
+const VoteTheme = ({ loaderData = {} }) => {
   const { votableThemes, currentUser, hasAlreadyVoted, themeVotes, currentEvent } = loaderData;
 
   const fetcher = useFetcher();

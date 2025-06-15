@@ -10,7 +10,7 @@ export async function clientLoader({ params }) {
     return { theme, votableThemes, votePercentages };
 }
 
-const VoteComplete = ({ loaderData }) => {
+const VoteComplete = ({ loaderData = {} }) => {
     const { theme, votableThemes, votePercentages } = loaderData;
     return (
         <>
@@ -24,7 +24,7 @@ const VoteComplete = ({ loaderData }) => {
                 <p>or</p>
                 <Link className="kiosk-button" to="/kiosk/vote-art">Vote for Art</Link>
             </div>
-            <ul className="vote-complete__percentages">
+            <ul className="vote-percentages">
                 {votePercentages.map(item => (
                     <li>
                         <h3>{votableThemes.find(theme => theme.id === item.themeId).name}</h3>

@@ -19,7 +19,7 @@ export async function clientAction({ request }) {
   return redirect(`/kiosk/vote-complete/${themeId}`)
 }
 
-const VoteTheme = ({ loaderData }) => {
+const VoteTheme = ({ loaderData = {} }) => {
   const { votableThemes, themeVotes } = loaderData;
 
   const [extraInfoId, setExtraInfoId] = useState(null);
