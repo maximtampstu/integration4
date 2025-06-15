@@ -357,3 +357,8 @@
   color: black;
   font-weight: 500;
 }
+
+.vote-complete-page__content{
+  display: flex;
+  
+}
