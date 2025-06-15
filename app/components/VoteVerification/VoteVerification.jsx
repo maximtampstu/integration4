@@ -45,7 +45,7 @@ const VoteVerification = ({ state, themeVotes, changeState, themeId, ClosePopup,
             setCode(generatedCode)
             changeState("code")
             console.log(generatedCode)
-            sendVerificationEmail(email, generatedCode)
+            sendVerificationEmail(email.toLowerCase(), generatedCode)
         }
     }
 
@@ -80,7 +80,7 @@ const VoteVerification = ({ state, themeVotes, changeState, themeId, ClosePopup,
         } else if (verifyCode.length !== 6){
             setError("This code contains 6 digits")
         } else if(verifyCode === code){
-            fetcher.submit({ email, themeId }, { method: "post" });
+            fetcher.submit({ email: email.toLowerCase(), themeId }, { method: "post" });
         } else {
             setError("The code you entered is incorrect")
         }

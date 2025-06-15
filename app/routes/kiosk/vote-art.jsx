@@ -11,7 +11,7 @@ export async function clientLoader() {
     return { eventArt };
 }
 
-const VoteArt = ({ loaderData }) => {
+const VoteArt = ({ loaderData = {} }) => {
     const { eventArt } = loaderData;
     const url = `${window.location.origin}/vote-art`;
 

@@ -9,7 +9,7 @@ export async function clientLoader() {
     return { currentEvent };
 }
 
-const UploadInfo = ({ loaderData }) => {
+const UploadInfo = ({ loaderData = {} }) => {
     const { currentEvent } = loaderData
     const url = `${window.location.origin}/upload`;
 
@@ -30,7 +30,7 @@ const UploadInfo = ({ loaderData }) => {
                 <li className="upload-info__type-item">Performance</li>
             </ul>
             <div className="upload-info__current">
-                <h3>{currentEvent.name}</h3>
+                <h3>{currentEvent?.name || "Japanese Garden"}</h3>
                 <p>Current theme</p>
             </div>
             <div className="upload-info__bottom">

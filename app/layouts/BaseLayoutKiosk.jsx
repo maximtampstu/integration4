@@ -1,5 +1,5 @@
 import '../reset.css';
-import { Outlet, useNavigate, useLocation } from "react-router";
+import { Outlet, useNavigate, useLocation, useNavigation } from "react-router";
 import { useState, useEffect } from "react";
 import TouchCountDown from "../components/TouchCountDown/TouchCountDown";
 import StartScreen from "../components/StartScreen/StartScreen";
@@ -15,10 +15,11 @@ export async function clientLoader() {
     return { endDateString, currentEvent };
 }
 
-const BaseLayoutKiosk = ({loaderData}) => {
-    const { endDateString, currentEvent } = loaderData
+const BaseLayoutKiosk = ({ loaderData = {} }) => {
+    const { endDateString, currentEvent } = loaderData;
     const location = useLocation();
     const navigate = useNavigate();
+    let navigation = useNavigation();
 
     const [unlocked, setUnlocked] = useState(false);
     const [secondsIdle, setSecondsIdle] = useState(0);
@@ -64,13 +65,18 @@ const BaseLayoutKiosk = ({loaderData}) => {
     };
 
     return (
-        <main className={location.pathname.slice(1).split('/')[1]} style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
-            <KioskTopBar />
-            <Outlet />
-            <Shedule currentEvent={currentEvent} />
-            {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}
-            {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDateString} />}
-        </main>
+        <>
+            <main className={location.pathname.slice(1).split('/')[1]} style={{width: "100vw", height:"100dvh", overflow: "hidden"}} onTouchStart={handleTouchScreen} onClick={handleTouchScreen}>
+                <KioskTopBar />
+                <Outlet />
+                <Shedule currentEvent={currentEvent} />
+                {showAlert && <TouchCountDown secondsLeft={touchCountDownSeconds} shown={showAlert} />}
+                {!unlocked && <StartScreen handleUnlock={handleUnlock} endDate={endDateString} />}
+            </main>
+            {navigation.state === "loading" &&
+                <div style={{ position: "fixed", width: "100vw", height: "100vh", backgroundColor: "rgba(0, 0, 0, 0.45)", top: 0, left: 0, zIndex:1000}}></div>
+            }
+        </>
     );
 };
 

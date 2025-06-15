@@ -8,6 +8,7 @@ import "./reset.css"
 import "./app.css";
 
 export function Layout({ children }) {
+
   return (
     <html lang="en" style={{scrollBehavior: "smooth"}}>
       <head>
@@ -65,46 +66,3 @@ export function HydrateFallback() {
     </div>
   );
 }
-
-
-
-// // root.jsx
-// import { Outlet, ScrollRestoration, Scripts, useNavigation } from "react-router";
-// //https://reactrouter.com/6.30.0/components/scroll-restoration
-// //https://reactrouter.com/api/components/Scripts
-
-// export default function Root() {
-//   const navigation = useNavigation();
-
-//   return (
-//     <html lang="en">
-//       <head>
-//         <meta charSet="utf-8" />
-//         <meta name="viewport" content="width=device-width, initial-scale=1" />
-//         <link rel="apple-touch-icon" sizes="180x180" href="../public/apple-touch-icon.png" />
-//         <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon-32x32.png" />
-//         <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon-16x16.png" />
-//         <link rel="manifest" href="../public/site.webmanifest" />
-//         <title>You@Abby</title>
-//       </head>
-//       <body>
-//         <Outlet />
-//         <ScrollRestoration />
-//         <Scripts />
-//         {navigation.state === "loading" && (
-//           <p style={{ position: "absolute", top: "50%", left: "50%", backgroundColor: "red", padding: "0.5rem", textAlign: "center", width: "20rem", height: "20rem", color: "white", fontSize: "4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-//             Loading...
-//           </p>
-//         )}
-//       </body>
-//     </html>
-//   );
-// }
-
-
-
-// /* export function HydrateFallback() {
-//   return (
-//     <p>Loading, please wait...</p>
-//   );
-// } */

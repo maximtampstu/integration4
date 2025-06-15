@@ -14,7 +14,7 @@ export async function clientLoader() {
     return { pastEvent, eventArt, artTypes };
 }
 
-const PreviousEventGallery = ({ loaderData }) => {
+const PreviousEventGallery = ({ loaderData = {} }) => {
     const { pastEvent, eventArt, artTypes } = loaderData
     const url = `${window.location.origin}/event-gallery/${pastEvent.id}`;
 
