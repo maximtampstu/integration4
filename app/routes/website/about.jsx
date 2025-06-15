@@ -4,7 +4,11 @@ import asterix from "../../../assets/asterix.svg";
 import garden from "../../../assets/garden.png";
 import man_in_car from "../../../assets/man_in_car.png";
 import you_belong_abby from "../../../assets/you_belong_abby.png";
+import about_page_hand_image from "../../../assets/about_page_hand_image.svg";
+import road_trip_romp_thumbnail from "../../../assets/road_trip_romp_thumbnail.png";
 import "./about.css";
+import japaneseGardenThumbnail from "/japanese-garden-thumbnail.png"
+
 import ArticleSection from "../../components/ArticleSection/ArticleSection";
 import FaqItem from "../../components/Faq/FaqItem";
 
@@ -12,12 +16,7 @@ const About = () => {
 
     return (
         <>
-            {/* <h1>About</h1>
-            <ul>
-                <li><Link to="/participate">Participate</Link></li>
-                <li><Link to="/event-gallery">Previous Event Gallery</Link></li>
-                <li><Link to="/previous-events">See All Events</Link></li>
-            </ul> */}
+           
             <main className="about">
                 <h1 className="visually-hidden">About Page</h1>
 
@@ -30,7 +29,7 @@ const About = () => {
                     <section className="about__intro-image">
                         <h3 className="visually-hidden">image of the museum</h3>
 
-                        <img src="" alt="" className="about__intro-img" />
+                        <img src={about_page_hand_image} alt="" className="about__intro-img" />
                     </section>
                     <section className="about__intro-description">
                         <h3 className="about__intro-subheading">A living, breathing art cycle where you set the stage.</h3>
@@ -117,7 +116,7 @@ const About = () => {
 
                             <div className="about__now-image-wrapper">
                                 <img
-                                    src={garden}
+                                    src={japaneseGardenThumbnail}
                                     alt="garden"
                                     className="about__now-image"
                                 />
@@ -148,7 +147,7 @@ const About = () => {
 
                             <div className="about__previous-image-wrapper">
                                 <img
-                                    src={man_in_car}
+                                    src={road_trip_romp_thumbnail}
                                     alt="man_in_car"
                                     className="about__previous-image"
                                 />

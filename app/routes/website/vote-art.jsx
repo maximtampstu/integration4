@@ -153,11 +153,3 @@ export default function VoteArt({ loaderData }) {
 
 
 
-//<h2 className="art-types-list__name">{type.name}</h2>
-
-//  <Link
-//                       to={`/vote-art/${type.id}`}
-//                       className="art-types-list__button"
-//                     >
-//                       See Artworks
-//                     </Link>

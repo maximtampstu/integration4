@@ -16,6 +16,13 @@ export async function clientLoader({ params }) {
   const artVotes = await getArtVotes(); 
   const artworks = await getCurrentEventSelectedArtByArtType(currentEvent.id, artType.id); //done
 
+ 
+  console.log('artVotes' , artVotes)
+  // console.log('artworks' , artworks)
+
+
+  
+
   const votedArt = artworks.find((art) =>
     artVotes.some((vote) => vote.artId === art.id && vote.userId === currentUser.id)
   );
@@ -41,6 +48,7 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
   const selectedArtwork = artworks.find((art) => art.id === Number(selectedArt));
 
   
+  // console.log(votedArt)
 
   // const handleSelect = (e) => {
   //   setSelectedArt(e.target.value);
