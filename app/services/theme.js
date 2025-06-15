@@ -96,3 +96,20 @@ export const getMostVotedThemeId = async (votes) => {
 
   return mostVoted;
 }
+
+//used AI for less time lose
+export const getVotePercentages = (votes) => {
+  const totalVotes = votes.length;
+
+  const voteCounts = votes.reduce((acc, vote) => {
+    acc[vote.themeId] = (acc[vote.themeId] || 0) + 1;
+    return acc;
+  }, {});
+
+  return Object.entries(voteCounts)
+    .map(([themeId, count]) => ({
+      themeId: Number(themeId),
+      percentage: Math.round((count / totalVotes) * 100),
+    }))
+    .sort((a, b) => b.percentage - a.percentage);
+};
