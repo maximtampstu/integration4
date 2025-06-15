@@ -287,6 +287,7 @@
     background-color: var(--color-sec-yellow);
     padding: 2rem 1.5rem;
     flex-direction: column;
+    gap: 4rem;
 }
 
 .art-detail__feedback-count{
@@ -301,16 +302,17 @@
 }
 
 .art-detail__feedback-avatar{
-    width: 2.5rem;
+    width: 3rem;
 }
 
 .art-detail__feedback-content{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--color-sec-blue);
     gap: 0.75rem;
     width: 100%;
+    padding: 0.75rem;
 }
 
 .art-detail__feedback-arrow{
@@ -320,4 +322,16 @@
 
 .art-detail__feedback-dots{
     width: 1.5rem;
+}
+
+.art-detail__feedback-text{
+    font-size: 1.125rem;
+    word-break: break-word;
+}
+
+
+.art-detail__feedback-list{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
