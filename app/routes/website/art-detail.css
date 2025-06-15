@@ -294,6 +294,7 @@
     display: flex;
     gap: 0.3rem;
     font-size: 1.25rem;
+    font-weight: 500;
 }
 
 .art-detail__feedback-item{
