@@ -18,6 +18,30 @@ export const getArtById = async (artId) => {
     }
 };
 
+export const getUserReceivedVotes = async (userId) => {
+  const artworks = await getAllArtworks(); 
+  const votes = await getArtVotes();       
+
+  
+  const userArtIds = artworks
+    .filter((art) => art.userId === userId)
+    .map((art) => art.id);
+
+  
+  const totalVotesReceived = votes.filter((vote) =>
+    userArtIds.includes(vote.artId)
+  ).length;
+
+  return totalVotesReceived;
+};
+
+
+export const getUserUploadedArtCount = async (userId) => {
+  const artworks = await getAllArtworks(); 
+  return artworks.filter(art => art.userId === userId).length;
+};
+
+
 export const getArtTypeById = async (artTypeId) => {
   try {
     let { data, error } = await supabase

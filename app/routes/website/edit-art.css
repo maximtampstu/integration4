@@ -1,0 +1,94 @@
+.edit-form {
+  font-family: "GT Walsheim", sans-serif;
+  font-weight: 400;
+  margin-bottom: 10rem;
+}
+
+.edit-form__arrow {
+  width: 0.8rem;
+  transform: rotate(90deg);
+}
+
+.edit-form__back {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  background-color: var(--color-sec-yellow);
+  padding: 0.75rem 1.5rem;
+  align-self: flex-start;
+  margin-left: 1.5rem;
+  margin-bottom: -1.5rem;
+  z-index: 1;
+}
+
+.edit-form__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 2rem;
+}
+
+.edit-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edit-form__label {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.edit-form__input {
+  font-family: "GT Walsheim", sans-serif;
+  font-size: 1.125rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--color-sec-yellow);
+  border: none;
+  color: black;
+}
+
+.edit-form__input::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.edit-form__uploading-message {
+  background-color: var(--color-sec-green);
+  text-align: center;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+}
+
+.edit-form__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.edit-form__button {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  font-family: "GT Walsheim", sans-serif;
+  flex: 1;
+  text-align: center;
+}
+
+.edit-form__button--primary {
+  background-color: var(--color-sec-purple);
+  border: none;
+  flex: 1;
+  text-align: center;
+}
+
+.edit-form__button--secondary {
+  border: 1px solid black;
+}
