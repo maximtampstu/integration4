@@ -3,24 +3,47 @@ import header_image from "../../../assets/header_image.svg";
 import at_abby_kortrijk from "../../../assets/at_abby_kortrijk.svg";
 import arrow from "../../../assets/arrow.svg";
 import "./current-event.css";
+import { getCurrentEvent, getCountDownToParty } from "../../services/events";
+import gallery_page_image from "../../../assets/gallery_page_image.svg"
 
-const CurrentEvent = () => {
+
+export async function clientLoader() {
+  const currentEvent = await getCurrentEvent(); 
+  
+  return {
+    currentEvent
+  };
+}
+
+
+const CurrentEvent = ({ loaderData }) => {
+ const {currentEvent} = loaderData;
+
+//  console.log(currentEvent)
+
+//  console.log(getCountDownToParty(currentEvent.startDate))
+
+const days = getCountDownToParty(currentEvent.startDate).days
+const hours = getCountDownToParty(currentEvent.startDate).hours
+const minutes = getCountDownToParty(currentEvent.startDate).minutes
+
 
     return (
-        // <>
-        //     <h1>Current Event</h1>
-        //     <ul>
-        //         <li><Link to="/participate">Participate</Link></li>
-        //     </ul>
-
-        // </>
         <main className="current-event">
             <h1 className="visually-hidden">Current Event</h1>
             <article className="current-event__intro">
                 <h2 className="visually-hidden">Current Theme</h2>
                 <section className="current-event__banner">
-                    <h3 className="visually-hidden">JAPANESE GARDEN</h3>
-                    <img src={header_image} alt="Japanese garden visual" className="current-event__banner-image" />
+                    
+                     <h3 className="current-event__headline"
+                        style={{
+                            backgroundImage: `url(${gallery_page_image})`,
+                            backgroundPosition: "bottom",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            textAlign: "left"
+                        }}
+                        >{currentEvent.name}</h3>
                 </section>
                 
                 <section className="current-event__about">
@@ -53,9 +76,9 @@ const CurrentEvent = () => {
                     <h3 className="visually-hidden">Countdown</h3>
                     <p className="current-event__countdown-message">Hey, you should come! It starts in</p>
                     <div className="current-event__countdown-timer">
-                        <p><span>22</span> DAYS</p>
-                        <p><span>5</span> H</p>
-                        <p><span>32</span> MIN</p>
+                        <p><span>{days}</span> DAYS</p>
+                        <p><span>{hours}</span> H</p>
+                        <p><span>{minutes}</span> MIN</p>
                     </div>
                 </section>
             </article>

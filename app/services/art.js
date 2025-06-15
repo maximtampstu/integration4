@@ -328,28 +328,4 @@ export const getTopTwoArtworks = (art, artVotes) => {
 
 
 
-export const getVotedArtForUserByType = async (userId, artTypeId, eventId) => {
-  const { data: votes, error: voteError } = await supabase
-    .from("ArtVotes")
-    .select("artId")
-    .eq("userId", userId);
 
-  if (voteError) throw voteError;
-
-  const { data: artworks, error: artError } = await supabase
-    .from("Art")
-    .select("*")
-    .eq("eventId", eventId)
-    .eq("artTypeId", artTypeId)
-    .eq("selected", true);
-
-  if (artError) throw artError;
-
-  const votedArtId = votes.find((v) =>
-    artworks.some((a) => a.id === v.artId)
-  )?.artId;
-
-  const votedArt = artworks.find((a) => a.id === votedArtId);
-
-  return votedArt || null;
-};

@@ -7,11 +7,26 @@
   overflow-x: hidden;
 }
 
-/* .current-event__banner {
-  background: var(--color-sec-red);
-  padding: 2.5rem 0 0.5rem 0;
+.main{
+  margin-top: -6.5rem;
+}
+
+
+.current-event__headline {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 133%;
+  text-transform: uppercase;
   text-align: center;
-} */
+  
+}
+
+.current-event__banner {
+  background: var(--color-sec-yellow);
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  padding-top: 8rem;
+}
 
 .current-event__banner-image {
   width: 100%;
