@@ -1,1 +1,0 @@
-import{w as r}from"./with-props-B93zY1wZ.js";import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{B as o}from"./BackButton-B5WbHyJs.js";import"./chunk-DQRVZFIR-B4fErBJ-.js";const s=()=>t.jsxs(t.Fragment,{children:[t.jsx("h1",{children:"Vote Art"}),t.jsx("ul",{children:t.jsx("li",{children:t.jsx(o,{})})})]}),p=r(s);export{p as default};
