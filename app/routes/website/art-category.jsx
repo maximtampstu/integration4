@@ -61,7 +61,37 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
 };
 
   return (
+    
+
+  votedArt ? (
+   
+
+    <section className="vote-art-type__already-voted-section">
+       <div className="already-voted__back">
+        <Link to="/vote-art" className="back-button">
+          <img src={arrow} alt="Back" className="back-button__arrow" />
+          Back
+        </Link>
+      </div>
+      <div className="already-voted__content">
+        <div className="already-voted__text">
+          <h2>You already have voted</h2>
+          <div className="already-voted__info">
+            <p>for</p>
+            <p className="already-voted__name">"{votedArt.title}"</p>
+          </div>
+        </div>
+        <Link className="button button--green" to="/vote-art">Vote Art</Link>
+      </div>
+     
+    </section>
+
+  ) 
+
+     : (
     <main className="vote-art-type">
+      
+
       <h1 className="visually-hidden">Vote for {artType.name}</h1>
       <article className="vote-art-type__intro">
         <h2 className="visually-hidden">Voting for {artType.name}</h2>
@@ -101,9 +131,7 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
           <h3 className="vote-art-type__artworks-heading">ArtWorks</h3>
           <p className="vote-art-type__artworks-info">Tap a card to preview the work, then lock in your vote to send it toward victory.</p>
         </div>
-        {votedArt ? (
-          <p className="vote-art-type__already-voted">You’ve already voted for: <strong>{votedArt.title}</strong></p>
-        ) : (
+     
           <Form method="post" className="vote-art-type__form">
             <input type="hidden" name="userId" value={currentUser.id} />
             <div className="vote-art-type__grid">
@@ -200,47 +228,49 @@ const [showConfirm, setShowConfirm] = useState(false); // popup trigger
 </button>
 
           </Form>
-        )}
       </article>
+
       {showConfirm && (
-  <div className="vote-art-type__popup">
-    <div className="vote-art-type__popup-inner">
-      <div className="vote-art-type__popup-message">
-        <p className="vote-art-type__popup-question">
-          Are you sure you want to vote for <strong>{selectedArtwork?.title}</strong>?
-        </p>
-        <p className="vote-art-type__popup-warning">*You won’t be able to recast your vote after it has been submitted </p>
-      </div>
+        <div className="vote-art-type__popup">
+          <div className="vote-art-type__popup-inner">
+            <div className="vote-art-type__popup-message">
+              <p className="vote-art-type__popup-question">
+                Are you sure you want to vote for <strong>{selectedArtwork?.title}</strong>?
+              </p>
+              <p className="vote-art-type__popup-warning">*You won’t be able to recast your vote after it has been submitted </p>
+            </div>
 
-      <div className="vote-art-type__popup-buttons">
-        <button 
-          type="button"
-          className="vote-art-type__popup-btn vote-art-type__popup-btn--yes"
-          onClick={() => {
-            setShowConfirm(false);
-            setConfirmedArt(selectedArt);
-            document.body.style.overflow = "";
-            
-          }}
-        >
-          Yes
-        </button>
-        <button 
-        type="button" 
-        className="vote-art-type__popup-btn vote-art-type__popup-btn--no" 
-        onClick={() => {
-    setShowConfirm(false);
-    setSelectedArt(null); 
-    document.body.style.overflow = "";
-  }}>
-          No
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
+            <div className="vote-art-type__popup-buttons">
+              <button 
+                type="button"
+                className="vote-art-type__popup-btn vote-art-type__popup-btn--yes"
+                onClick={() => {
+                  setShowConfirm(false);
+                  setConfirmedArt(selectedArt);
+                  document.body.style.overflow = "";
+                  
+                }}
+              >
+                Yes
+              </button>
+              <button 
+              type="button" 
+              className="vote-art-type__popup-btn vote-art-type__popup-btn--no" 
+              onClick={() => {
+          setShowConfirm(false);
+          setSelectedArt(null); 
+          document.body.style.overflow = "";
+        }}>
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
+
+  )
+    
   );
 }
 
