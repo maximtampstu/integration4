@@ -1,0 +1,143 @@
+.vote-theme__content{
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 55% 45%;
+    height: 100%;
+}
+
+.vote-theme__head{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+    background-color: var(--color-lau-blue);
+
+    padding: 8rem 2rem;
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+}
+
+.vote-theme__head .back-button {
+    place-self: start;
+    color: var(--color-pri-white);
+    background-color: var(--color-pri-black);
+}
+
+.vote-theme__head .back-button path {
+    fill: var(--color-pri-white);
+}
+
+.vote-theme__head h2{
+    font-size: 4.75rem;
+    line-height: 115%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.vote-theme__info{
+    grid-column: 1;
+
+    font-size: 1.25rem;
+    line-height: 140%;
+
+    background-color: var(--color-lau-yellow);
+    padding: 2rem;
+}
+
+.vote-theme__form{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.45rem;
+    margin-top: 8rem;
+}
+
+.vote-theme__error{
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: transparent;
+}
+
+.vote-theme__form .kiosk-button{
+    place-self: auto;
+    border: none;
+    width: 23.5rem;
+}
+
+.vote-theme__radio-button{
+    width: 25.75rem;
+}
+
+.vote-theme__radio-button{
+    display: flex;
+    flex-direction: column;
+}
+
+.vote-theme__radio-button label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--color-lau-blue);
+    color: var(--color-pri-black);
+
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 2rem;
+
+    padding: 1.25rem;
+}
+
+.vote-theme__radio-button label input[type="radio"] {
+    display: none;
+}
+
+.vote-theme__radio-button .theme-name {
+    width: 18rem;
+}
+
+.square-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--color-lau-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vote-theme__form label input[type="radio"]:checked ~ .square-icon::after {
+    content: "";
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: black;
+}
+
+
+.vote-theme__radio-button p{
+    background-color: var(--color-lau-yellow);
+    padding: 1.5rem;
+
+    font-size: 1.25rem;
+    line-height: 140%;
+    margin-top: -0.2rem;
+}
+
+.vote-theme__expand-button{
+    background-color: var(--color-lau-yellow);
+    border: none;
+    padding: 0.75rem 0;
+    margin: 0 1rem;
+}
+
+.vote-theme__expand-button--active{
+    background-color: var(--color-lau-blue);
+    margin-top: -0.75rem;
+}
+
+.vote-theme__expand-button--active svg{
+    rotate: 180deg;
+}

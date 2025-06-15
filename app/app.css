@@ -144,6 +144,7 @@ img{
   padding: 1rem 1.75rem;
   background-color: var(--color-pri-black);
   color: var(--color-pri-white);
+  border: none;
 }
 
 .kiosk-button--blue{
@@ -152,7 +153,7 @@ img{
 }
 
 .kiosk-button--sec {
-  background-color: var(--color-pri-white);
+  background-color: transparent;
   color: var(--color-pri-black);
   border: var(--color-pri-black) 6px solid;
 }
