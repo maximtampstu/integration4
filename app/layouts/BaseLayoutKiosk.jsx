@@ -41,7 +41,7 @@ const BaseLayoutKiosk = ({ loaderData = {} }) => {
                     }
                 } else {
                     setSecondsIdle(prev => prev + 1);
-                    if (secondsIdle === 90000000) {
+                    if (secondsIdle === 90) {
                         setShowAlert(true);
                         setSecondsIdle(0);
                         setTouchCountDownSeconds(10);
