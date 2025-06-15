@@ -306,17 +306,7 @@ export default function CurrentEvent({ loaderData }) {
 
       {/* <Link to="/">Back to Home</Link> */}
 
-      {/* {showConfirmationPopup && (
-        <div className="confirmation-popup" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.75)", justifyContent: "center", alignItems: "center", display: "flex" }}>
-          <div className="confirmation-popup__content" style={{ backgroundColor: "white", padding: "20px", borderRadius: "8px", textAlign: "center", placeSelf: "center" }}>
-            <p>Are you sure you want to delete this artwork?</p>
-            <Form method="post" action={`/destroy-art/${artIdToDelete}`} onSubmit={() => setShowConfirmationPopup(false)}>
-              <button type="submit">Yes, Delete</button>
-            </Form>
-            <button type="button" onClick={() => setShowConfirmationPopup(false)}>No, keep</button>
-          </div>
-        </div>
-      )} */}
+   
       
       {showConfirmationPopup && (
   <div className="popup">

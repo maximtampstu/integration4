@@ -56,17 +56,7 @@ export default function ArtDetail({ loaderData }) {
           <strong>Creator:</strong> {creator?.username}
         </p>
 
-        {/* <div className="art-detail__media">
-          {art.type === "video" ? (
-            <video controls width="100%">
-              <source src={art.url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <img src={art.url} alt={art.title} className="art-detail__image" />
-          )}
-        </div> */}
-
+       
         <div className="art-detail__media">
           {art.url.endsWith(".mp3") ? (
             <audio controls style={{ width: "100%" }}>
