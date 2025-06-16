@@ -1,11 +1,11 @@
-import { Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
+import "./reset.css"
+import "./app.css";
+import { Links, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 
 export default function App() {
   return <Outlet />;
 }
 
-import "./reset.css"
-import "./app.css";
 
 export function Layout({ children }) {
 
@@ -19,6 +19,7 @@ export function Layout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <title>You @ ABBY</title>
+        <Links />
       </head>
       <body>
         {children}
