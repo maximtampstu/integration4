@@ -8,6 +8,7 @@ import uplaod_icon from "../../../assets/uplaod_icon.svg";
 import upload_motion from "../../../assets/upload_motion.svg";
 import { useState } from "react";
 import arrow from "../../../assets/arrow.svg";
+import BackButton from "../../components/BackButton/BackButton";
 
 
 export async function clientLoader() {
@@ -86,8 +87,13 @@ const Upload = ({ loaderData }) => {
 
       <div className="upload-form__header">
         <Link to="/upload" className="upload-form__back">
-          <img src={arrow} alt="arrow" className="upload-form__arrow" />
+          {/* <img src={arrow} alt="arrow" className="upload-form__arrow" /> */}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black"/>
+          </svg>
+
           Back
+          {/* <BackButton /> */}
         </Link>
         <img src={upload_motion} alt="Upload header" className="upload-form__image" />
 
@@ -147,7 +153,7 @@ const Upload = ({ loaderData }) => {
           </div>
           <div className="media-form__field-checkbox">
             <label className="media-form__label media-form__checkbox">
-              <input type="checkbox" name="visibility" />
+              <input type="checkbox" name="visibility"  required/>
               I own the rights & grant Abby a 1-month exhibition licence.
             </label>
           </div>

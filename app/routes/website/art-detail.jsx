@@ -62,8 +62,14 @@ export default function ArtDetail({ loaderData }) {
         <h2 className="visually-hidden"> art detail section</h2>
         <section className="art-detail__header">
             <h3 className="visually-hidden"> detail header</h3>
-            <Link to={`/my-gallery`} className="art-detail__back">
-              <img src={arrow} alt="Back arrow" className="art-detail__arrowing" />
+            <Link to={`/my-gallery`} 
+              className={`art-detail__back ${art.url.endsWith(".mp3") ? "art-detail__back--audio" : ""}`}
+            >
+              {/* <img src={arrow} alt="Back arrow" className="art-detail__arrowing" /> */}
+              <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.5 9.09764L14.5 14L14.5 9.38047L3.15875 6.97643L14.5 4.57239L14.5 1.66948e-07L0.5 4.85522L0.5 9.09764Z" fill="black"/>
+              </svg>
+
               Back 
             </Link>
             <div className="art-detail__media">
@@ -102,7 +108,14 @@ export default function ArtDetail({ loaderData }) {
           <div className="art-detail__meta-extra">
             <div className="art-detail__theme-block">
               <img src={arrow} alt="arrow" className="art-detail__icon" />
-              <p className="art-detail__theme">published for <span>{event?.name || "Untitled Event"}</span></p>
+              {/* <p className="art-detail__theme">published for <span>{event?.name || "Untitled Event"}</span></p> */}
+              <p className="art-detail__theme">
+                published for{" "}
+                <Link to={`/event-gallery/${event?.id}`} className="art-detail__theme-link">
+                  <span>{event?.name || "Untitled Event"}</span>
+                </Link>
+              </p>
+
             </div>
 
             <div className="art-detail__votes-block">
