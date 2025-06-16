@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { getAllArtTypes, getArtVotes, getAllArtworks } from "../../services/art";
 import art_vote from "../../../assets/art_vote.svg";
 import line_arrow from "../../../assets/line_arrow.svg";
-import arrow from "../../../assets/arrow.svg";
+
 import "./vote-art.css";
 
 export function meta() {
@@ -55,7 +55,11 @@ export default function VoteArt({ loaderData }) {
             <p><span>MM</span> min</p>
           </div>
           <Link to="/" className="vote-art__link">
-            <img src={arrow} alt="arrow" className="vote-art__arrow" />
+            
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black"/>
+            </svg>
+
             Back
           </Link>
         </div>
