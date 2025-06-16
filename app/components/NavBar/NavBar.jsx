@@ -4,6 +4,8 @@ import NavBarLink from "./NavBarLink"; // Adjust the path if needed
 
 import "./NavBar.css";
 
+const BASE = import.meta.env.BASE_URL;
+
 const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
 
     const handleClose = () => setNavOpen(false);
@@ -22,9 +24,9 @@ const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
                             </svg>
                         ) : (
                             <svg width="32" height="27" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line y1="2" x2="32" y2="2" stroke="black" strokeWidth="4"/>
-                                <line y1="10" x2="32" y2="10" stroke="black" strokeWidth="4"/>
-                                <line y1="18" x2="32" y2="18" stroke="black" strokeWidth="4"/>
+                                <line y1="2" x2="32" y2="2" stroke="black" strokeWidth="4" />
+                                <line y1="10" x2="32" y2="10" stroke="black" strokeWidth="4" />
+                                <line y1="18" x2="32" y2="18" stroke="black" strokeWidth="4" />
                             </svg>
                         )}
                     </button>
@@ -33,16 +35,16 @@ const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
             {navOpen && (
                 <div className="navbar-bottom">
                     <div className="navbar-bottom__links">
-                        <NavBarLink link="/about" label="About Us" active={currentPage === "/about"} onClick={handleClose} />
+                        <NavBarLink link={`${BASE}about`} label="About Us" active={currentPage === "/about"} onClick={handleClose} />
                         <NavBarLink link="/current-event" label="Now@ABBY" active={currentPage === "/current-event"} onClick={handleClose} />
                         <NavBarLink link="/previous-events" label="Previously@ABBY" active={currentPage === "/previous-events"} onClick={handleClose} />
                     </div>
                     <div className="navbar-bottom__extras">
                         <NavBarLink link="/my-gallery" label="My Gallery" active={currentPage === "/my-gallery"} onClick={handleClose} />
                         <div className="navbar-bottom__languages">
-                            <p style={{ backgroundColor: "var(--color-sec-blue)"}}>EN</p>
-                            <p style={{ backgroundColor: "var(--color-sec-green)"}}>NL</p>
-                            <p style={{ backgroundColor: "var(--color-sec-orange)"}}>FR</p>
+                            <p style={{ backgroundColor: "var(--color-sec-blue)" }}>EN</p>
+                            <p style={{ backgroundColor: "var(--color-sec-green)" }}>NL</p>
+                            <p style={{ backgroundColor: "var(--color-sec-orange)" }}>FR</p>
                         </div>
                     </div>
                 </div>
