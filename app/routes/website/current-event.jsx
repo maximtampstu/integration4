@@ -3,8 +3,11 @@ import header_image from "../../../assets/header_image.svg";
 import at_abby_kortrijk from "../../../assets/at_abby_kortrijk.svg";
 import arrow from "../../../assets/arrow.svg";
 import "./current-event.css";
-import { getCurrentEvent, getCountDownToParty } from "../../services/events";
 import gallery_page_image from "../../../assets/gallery_page_image.svg"
+import { useState, useEffect } from "react";
+import { getCurrentEvent, getEndDate, getCountdown } from "../../services/events";
+
+
 
 
 export async function clientLoader() {
@@ -18,14 +21,21 @@ export async function clientLoader() {
 
 const CurrentEvent = ({ loaderData }) => {
  const {currentEvent} = loaderData;
+ const [countdown, setCountdown] = useState(getCountdown(getEndDate(currentEvent.startDate)));
 
-//  console.log(currentEvent)
 
-//  console.log(getCountDownToParty(currentEvent.startDate))
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
+  }, 1000);
 
-const days = getCountDownToParty(currentEvent.startDate).days
-const hours = getCountDownToParty(currentEvent.startDate).hours
-const minutes = getCountDownToParty(currentEvent.startDate).minutes
+  return () => clearInterval(interval);
+}, [currentEvent.startDate]);
+
+
+
+const { days, hours, minutes } = countdown;
+
 
 
     return (
