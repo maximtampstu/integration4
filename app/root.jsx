@@ -10,7 +10,7 @@ import "./app.css";
 export function Layout({ children }) {
 
   return (
-    <html lang="en" style={{scrollBehavior: "smooth"}}>
+    <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,11 +58,11 @@ export function ErrorBoundary({ error }) {
   );
 }
 
-export function HydrateFallback() {
-  return (
-    <div id="loading-splash">
-      <div id="loading-splash-spinner" />
-      <p>Loading, please wait...</p>
-    </div>
-  );
-}
+// export function HydrateFallback() {
+//   return (
+//     <div id="loading-splash">
+//       <div id="loading-splash-spinner" />
+//       <p>Loading, please wait...</p>
+//     </div>
+//   );
+// }
