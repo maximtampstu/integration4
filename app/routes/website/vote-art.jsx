@@ -54,7 +54,7 @@ export default function VoteArt({ loaderData }) {
             <p><span>HH</span> h</p>
             <p><span>MM</span> min</p>
           </div>
-          <Link to="/" className="vote-art__link">
+          <Link to="/participate" className="vote-art__link">
             <img src={arrow} alt="arrow" className="vote-art__arrow" />
             Back
           </Link>

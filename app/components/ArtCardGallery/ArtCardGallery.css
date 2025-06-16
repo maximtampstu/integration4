@@ -153,6 +153,7 @@
     place-self: end;
     margin-top: -8rem;
     z-index: -1;
+    position: relative;
 }
 
 .art-card-gallery a{

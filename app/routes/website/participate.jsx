@@ -23,8 +23,8 @@ const Participate = ({loaderData}) => {
             </div>
             <ul className="participation-list">
                 <ParticipateCard label="Upload your work" eventStart={currentEvent.startDate} phaseStart={0} phaseEnd={18} active={true} path="/upload" color="orange" text="Make your piece, music set, motion graphic, digital/physical art, or performance idea. Describe your idea in a few words. You can edit until the upload gate closes."/>
-                <ParticipateCard label="Vote Theme" eventStart={currentEvent.startDate} phaseStart={21} phaseEnd={26} active={false} path="/vote-theme" color="blue" text="Browse the submissions. Pick the piece, set, graphic, or performance you want to see win. So help shape Abby"/>
-                <ParticipateCard label="Vote Art" eventStart={currentEvent.startDate} phaseStart={21} phaseEnd={26} active={false} path="/vote-art" color="blue" text="Look through the theme ideas. Choose the one you want to shape Abby with next event"/>
+                <ParticipateCard label="Vote Theme" eventStart={currentEvent.startDate} phaseStart={21} phaseEnd={26} active={false} path="/vote-theme" color="blue" text="Look through the theme ideas. Choose the one you want to shape Abby with next event"/>
+                <ParticipateCard label="Vote Art" eventStart={currentEvent.startDate} phaseStart={21} phaseEnd={26} active={false} path="/vote-art" color="blue" text="Browse the submissions. Pick the piece, set, graphic, or performance you want to see win. So help shape Abby"/>
             </ul>
             <div className={`question ${hasInteracted ? (popup ? "question--open" : "question--close") : ""}`}>
                 <button onClick={() => {

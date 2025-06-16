@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 const BaseLayoutWebsite = () => {
     const location = useLocation();
     const [navOpen, setNavOpen] = useState(false);
+    let navigation = useNavigation();
 
     return (
         <>
@@ -14,6 +15,9 @@ const BaseLayoutWebsite = () => {
                 <Outlet />
             </main>
             <Footer navOpen={navOpen} />
+            {navigation.state === "loading" &&
+                <div style={{ position: "fixed", width: "100vw", height: "100vh", backgroundColor: "rgba(0, 0, 0, 0.45)", top: 0, left: 0, zIndex: 1000 }}></div>
+            }
         </>
     );
 };

@@ -109,6 +109,7 @@
 
 .form__email-input input{
     border: none;
+    width: 100%;
     background-color: transparent;
     font-family: var(--font-gt-walsheim);
     font-size: var(--font-body);
@@ -125,12 +126,19 @@
     background-color: transparent;
 }
 
+.subscribe-feedback{
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-sec-orange);
+}
+
 .footer__bottom{
     border-style: solid none none none;
     border-color: var(--color-pri-black);
     border-width: 1px;
 
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding: 3rem 0;
     padding-bottom: 1.5rem;
 

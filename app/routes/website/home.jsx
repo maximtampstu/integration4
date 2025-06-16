@@ -1,13 +1,12 @@
 import { Link } from "react-router";
-import heroImage from "/hero-home.png"
-import japaneseGardenThumbnail from "/japanese-garden-thumbnail.png"
-import youAreAbbyText from "/you-are-abby-text.png"
+import heroImage from "../../../assets/hero-home.png"
+import youAreAbbyText from "../../../assets/you-are-abby-text.png"
 import NotifyBox from "../../components/NotifyBox/NotifyBox"
 import CardSlider from "../../components/CardSlider/CardSlider"
 import EventCardHome from "../../components/EventCardHome/EventCardHome"
 
 import "./home.css";
-import { getCurrentEvent, getPastEvents } from "../../services/events";
+import { getCurrentEvent, getEndUploadingDate, getMonthAndDayString, getPastEvents } from "../../services/events";
 import { getThemeVotes } from "../../services/theme";
 import { getArtAmount, getArtVotes } from "../../services/art";
 
@@ -16,12 +15,13 @@ export async function clientLoader() {
     const previousEvents = await getPastEvents()
     const totalVotes = (await getThemeVotes()).length + (await getArtVotes()).length
     const totalArt = await getArtAmount()
+    const endUploadingDate = await getMonthAndDayString(getEndUploadingDate(currentEvent.startDate))
 
-    return { currentEvent, previousEvents, totalVotes, totalArt };
+    return { currentEvent, previousEvents, totalVotes, totalArt, endUploadingDate };
 }
 
 const Home = ({ loaderData }) => {
-    const { currentEvent, previousEvents, totalVotes, totalArt } = loaderData
+    const { currentEvent, previousEvents, totalVotes, totalArt, endUploadingDate } = loaderData
     return (
         <>
             <h1 className="visually-hidden">Home</h1>
@@ -54,17 +54,17 @@ const Home = ({ loaderData }) => {
                     <p>This Month's Theme</p>
                 </div>
                 <div className="now-at-abby__event">
-                    <img src={currentEvent.thumbnail || japaneseGardenThumbnail} alt={currentEvent.name} />
-                    <h3>{currentEvent.name}</h3>
+                    <img src={currentEvent?.thumbnail} alt={currentEvent?.name} />
+                    <h3>{currentEvent?.name}</h3>
                     <div>
-                        <p>This month’s theme is “{currentEvent.name}”. Show us your take, or dive in to vote. Your choices build the experience.</p>
+                        <p>This month’s theme is “{currentEvent?.name}”. Show us your take, or dive in to vote. Your choices build the experience.</p>
                         <Link className="button button--green" to="/about">How does it work?</Link>
                     </div>
                 </div>
             </section>
             <section className="banner">
                 <h2 className="visually-hidden">Banner</h2>
-                <p>Artwork Voting - available until 20.05 • Artwork Voting - available until 20.05 • Artwork Voting - available until 20.05 • Artwork Voting - available until 20.05 • </p>
+                <p>Artwork Uploading - available until {endUploadingDate} • Artwork Uploading - available until {endUploadingDate} • Artwork Uploading - available until {endUploadingDate} • Artwork Uploading - available until {endUploadingDate} • </p>
             </section>
             <section className="you-are-abby">
                 <div className="you-are-abby__head">

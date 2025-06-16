@@ -8,7 +8,7 @@ import BackButton from "../../components/BackButton/BackButton"
 import ArtDisplay from "../../components/ArtDisplay/ArtDisplay"
 import ArtCardGallery from "../../components/ArtCardGallery/ArtCardGallery"
 
-import underTheSeaThumbnail from "/under-the-sea-thumbnail.png"
+import textFallBack from "../../../assets/text-fall-back.png"
 
 import "./event-gallery.css";
 
@@ -29,7 +29,7 @@ export default function CurrentEvent({ loaderData }) {
       <h1 className="visually-hidden">Event Gallery</h1>
       <section className="hero-image">
         <div className="hero-image__content">
-          <h2 className="hero-image__masked-text" style={{ backgroundImage: `url(${event.thumbnail || underTheSeaThumbnail})` }}>
+          <h2 className="hero-image__masked-text" style={{ backgroundImage: `url(${event.thumbnail || textFallBack})` }}>
             {event.name}
           </h2>
         </div>

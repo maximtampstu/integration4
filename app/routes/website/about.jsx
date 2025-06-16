@@ -1,13 +1,12 @@
 import { Link } from "react-router";
 import arrow from "../../../assets/arrow.svg";
 import asterix from "../../../assets/asterix.svg";
-import garden from "../../../assets/garden.png";
-import man_in_car from "../../../assets/man_in_car.png";
+
 import you_belong_abby from "../../../assets/you_belong_abby.png";
 import about_page_hand_image from "../../../assets/about_page_hand_image.svg";
 import road_trip_romp_thumbnail from "../../../assets/road_trip_romp_thumbnail.png";
 import "./about.css";
-import japaneseGardenThumbnail from "/japanese-garden-thumbnail.png"
+import japaneseGardenThumbnail from "../../../assets/japanese-garden-thumbnail.png"
 
 import ArticleSection from "../../components/ArticleSection/ArticleSection";
 import FaqItem from "../../components/Faq/FaqItem";

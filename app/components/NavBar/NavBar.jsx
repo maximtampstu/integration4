@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import logo from "/you-at-abby-logo.png"
+import logo from "../../../assets/you-at-abby-logo.png"
 import NavBarLink from "./NavBarLink"; // Adjust the path if needed
 
 import "./NavBar.css";
@@ -38,7 +38,7 @@ const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
                         <NavBarLink link="/previous-events" label="Previously@ABBY" active={currentPage === "/previous-events"} onClick={handleClose} />
                     </div>
                     <div className="navbar-bottom__extras">
-                        <NavBarLink link="/my-gallery" label="My Gallery" active={currentPage === "/my-gallery"} />
+                        <NavBarLink link="/my-gallery" label="My Gallery" active={currentPage === "/my-gallery"} onClick={handleClose} />
                         <div className="navbar-bottom__languages">
                             <p style={{ backgroundColor: "var(--color-sec-blue)"}}>EN</p>
                             <p style={{ backgroundColor: "var(--color-sec-green)"}}>NL</p>
