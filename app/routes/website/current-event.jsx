@@ -4,8 +4,9 @@ import at_abby_kortrijk from "../../../assets/at_abby_kortrijk.svg";
 import arrow from "../../../assets/arrow.svg";
 import "./current-event.css";
 import gallery_page_image from "../../../assets/gallery_page_image.svg"
+import NotifyBox from "../../components/NotifyBox/NotifyBox"
 import { useState, useEffect } from "react";
-import { getCurrentEvent, getEndDate, getCountdown } from "../../services/events";
+import { getCurrentEvent, getEndDate, getCountdown, getPhaseStatus } from "../../services/events";
 
 
 
@@ -177,33 +178,10 @@ const { days, hours, minutes } = countdown;
 
 
 
-            <article className="current-event__status-cards">
-                <h2 className="visually-hidden">Cycle Status</h2>
-
-                <div className="status-card status-card--past">
-                    <div className="status-card__content">
-                        <p className="status-card__title">Theme Voting</p>
-                        <p className="status-card__state">ENDED</p>
-                    </div>
-                    <button className="status-card__btn">Notify Me</button>
-                </div>
-
-                <div className="status-card status-card--active">
-                    <div className="status-card__content">
-                        <p className="status-card__title">Uploading Cycle</p>
-                        <p className="status-card__state">NOW</p>
-                    </div>
-                    <button className="status-card__btn">Notify Me</button>
-                </div>
-
-                <div className="status-card status-card--upcoming">
-                    <div className="status-card__content">
-                        <p className="status-card__title">Artwork Voting</p>
-                        <p className="status-card__state">12 DAYS</p>
-                    </div>
-                    <button className="status-card__btn">Notify Me</button>
-                </div>
-             </article>
+            <ul className="you-are-abby__list">
+                <NotifyBox label="Uploading Cycle" time={getPhaseStatus(currentEvent.startDate, 1, 17)} active={false} />
+                <NotifyBox label="Art & Theme Voting" time={getPhaseStatus(currentEvent.startDate, 21, 27)} active={true} />
+            </ul>
 
         </main>
     );

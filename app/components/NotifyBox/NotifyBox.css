@@ -31,3 +31,56 @@
 .notify-box__button{
     border: none;
 }
+
+.notify-box form{
+    height: 55px;
+
+    display: flex;
+    gap: 0.5rem;
+    align-items: end;
+
+    color: var(--color-sec-red);
+}
+
+.notify-box form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.notify-box form input {
+    height: 3rem;
+    width: 15.5rem;
+    font-size: 1.05rem;
+
+    padding-left: 0.5rem;
+
+    border: var(--color-sec-red) 0.25rem solid;
+    background-color: var(--color-sec-yellow);
+    color: var(--color-sec-red);
+}
+
+.notify-box input::placeholder{
+    color: var(--color-sec-red);
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.notify-box form button {
+    background-color: var(--color-sec-blue);
+    border: none;
+    height: 3rem;
+    width: 3rem;
+}
+
+.notify-box .notify-box__subscribed{
+    height: 55px;
+}
+
+.notify-box .notify-box__subscribed p{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: var(--color-sec-purple);
+    margin-top: -0.75rem;
+}

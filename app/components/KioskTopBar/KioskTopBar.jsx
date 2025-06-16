@@ -11,7 +11,7 @@ const KioskTopBar = () => {
     return (
         <>
             <div className="kiosk-top-bar">
-                <Link to="kiosk/home/">
+                <Link to="/kiosk/home">
                     <svg width="118" height="54" viewBox="0 0 118 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.7184 3.86189H0L13.4947 35.3295H20.4809L12.7184 3.86189Z" fill="black" />
                         <path d="M24.4818 3.86183H37.2002L23.7055 35.3295H16.7193L24.4818 3.86183Z" fill="black" />

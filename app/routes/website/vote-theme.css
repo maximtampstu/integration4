@@ -4,7 +4,7 @@
 
 .vote-theme p {
     font-size: 1.25rem;
-    line-height: 125%;
+    line-height: 133%;
 }
 
 .vote-theme .back-button{
@@ -17,6 +17,7 @@
 .vote-theme .voting{
     margin-top: -1rem;
     position: relative;
+    margin-bottom: 6rem;
 }
 
 .vote-theme .voting__head{
@@ -66,7 +67,7 @@
 .vote-theme .form{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
     margin: 2rem 1.5rem;
 }
 
@@ -121,6 +122,12 @@
     color: black;
     background-color: var(--color-sec-yellow);
     border: none;
+}
+
+.vote-theme .voting__error{
+    font-weight: bold;
+    color: var(--color-sec-orange);
+    text-align: center;
 }
 
 .vote-theme .confirmation-popup {
