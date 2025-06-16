@@ -140,7 +140,7 @@ export async function clientAction({ request, params }) {
     visibility: formData.get("visibility") === "true",
   }, params.id);
 
-  return redirect("/my-gallery");
+  return redirect(`${BASE}my-gallery`);
 }
 
 export default function EditArt({ loaderData }) {

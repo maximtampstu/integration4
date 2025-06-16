@@ -5,6 +5,8 @@ import BackButton from "../../components/BackButton/BackButton";
 import { useState } from "react";
 import "./vote-theme.css"
 
+const BASE = import.meta.env.BASE_URL;
+
 export async function clientLoader() {
   const votableThemes = await getVotableThemes();
   const themeVotes = await getThemeVotes();
@@ -16,7 +18,7 @@ export async function clientAction({ request }) {
   const themeId = Number(data.get("themeId"))
   const email = data.get("email")
   await addThemeVote(themeId, email)
-  return redirect(`/kiosk/vote-complete/${themeId}`)
+  return redirect(`${BASE}kiosk/vote-complete/${themeId}`)
 }
 
 const VoteTheme = ({ loaderData = {} }) => {
@@ -32,10 +34,10 @@ const VoteTheme = ({ loaderData = {} }) => {
   const changeState = (state) => {
     setState(state)
   }
-  
+
   const handleSubmitVote = (e) => {
     e.preventDefault()
-    if (voteSelected === null){
+    if (voteSelected === null) {
       setError("Select a theme to vote")
     } else {
       setVote(e.target.theme.value)
@@ -56,14 +58,14 @@ const VoteTheme = ({ loaderData = {} }) => {
     setError("/")
   }
 
-  
+
 
   return (
     <>
       <h1 className="visually-hidden">Vote Theme</h1>
       <div className="vote-theme__content">
         <div className="vote-theme__head">
-          <BackButton/>
+          <BackButton />
           <h2>Vote for the next theme</h2>
         </div>
         <p className="vote-theme__info">Choose the theme that ignites your creativity and shapes Abby’s next immersive experience.</p>
@@ -82,7 +84,7 @@ const VoteTheme = ({ loaderData = {} }) => {
               </button>
             </div>
           ))}
-          <p className="vote-theme__error" style={{ color: error === "/" ? "transparent" : "var(--color-lau-orange)"}}>{error}</p>
+          <p className="vote-theme__error" style={{ color: error === "/" ? "transparent" : "var(--color-lau-orange)" }}>{error}</p>
           <button className="kiosk-button kiosk-button--blue" type="submit">Vote</button>
         </form>
       </div>

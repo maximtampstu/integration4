@@ -10,6 +10,8 @@ import { useState } from "react";
 import arrow from "../../../assets/arrow.svg";
 import BackButton from "../../components/BackButton/BackButton";
 
+const BASE = import.meta.env.BASE_URL;
+
 
 export async function clientLoader() {
   const currentUser = await getCurrentUser(); //done
@@ -65,7 +67,7 @@ export async function clientAction({ request, params }) {
     artTypeId
   });
 
-  return redirect(`/upload-success/${createdArt.id}`);
+  return redirect(`${BASE}upload-success/${createdArt.id}`);
 }
 
 const Upload = ({ loaderData }) => {
@@ -89,7 +91,7 @@ const Upload = ({ loaderData }) => {
         <Link to="/upload" className="upload-form__back">
           {/* <img src={arrow} alt="arrow" className="upload-form__arrow" /> */}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black"/>
+            <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black" />
           </svg>
 
           Back
@@ -153,7 +155,7 @@ const Upload = ({ loaderData }) => {
           </div>
           <div className="media-form__field-checkbox">
             <label className="media-form__label media-form__checkbox">
-              <input type="checkbox" name="visibility"  required/>
+              <input type="checkbox" name="visibility" required />
               I own the rights & grant Abby a 1-month exhibition licence.
             </label>
           </div>
