@@ -1,51 +1,49 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# https://www.webstoemp.com/blog/github-actions-deploy-craftcms/
+# https://swharden.com/blog/2022-04-24-github-actions-ftp/
+# https://www.voorhoede.nl/en/blog/super-fast-npm-install-on-github-actions/
 
+
+name: 🚀 FTP Deploy
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches:
+      - main 
   workflow_dispatch:
-
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
+  
+env:
+  WEB_PATH: ~/subsites/integration4.tamperemaxim.be
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  ftp-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: lts/*
-          cache: 'npm'
+          node-version: '18'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+
       - name: Install dependencies
-        run: npm ci
-      - name: Build
+        run: npm ci --ignore-scripts
+
+      - name: 🏗️ create production build
         run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      # Setup container with private SSH Key (used by rsync)
+      - name: 🔑 Load private SSH key
+        uses: webfactory/ssh-agent@v0.7.0
         with:
-          # Upload dist folder
-          path: './build/client'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      # RSYNC
+      - name: Deploy web files with rsync
+        run: |
+          rsync -azh --delete-after -e "ssh -o StrictHostKeyChecking=no" build/client/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}

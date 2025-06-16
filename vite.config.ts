@@ -4,6 +4,6 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/integration4/",
+  // base: "/integration4/",
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 });
