@@ -2,13 +2,12 @@ import { addArt } from "../../services/art";
 import { Form, Link, redirect } from "react-router";
 import { useNavigation } from "react-router"
 import { getCurrentUser } from "../../services/users";
-import { getCurrentEvent } from "../../services/events";
+import { getCurrentEvent} from "../../services/events";
 import "./upload.css";
 import uplaod_icon from "../../../assets/uplaod_icon.svg";
 import upload_motion from "../../../assets/upload_motion.svg";
 import { useState } from "react";
-import arrow from "../../../assets/arrow.svg";
-import BackButton from "../../components/BackButton/BackButton";
+
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -74,6 +73,7 @@ const Upload = ({ loaderData }) => {
   const { currentUser, currentEvent } = loaderData;
   let navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+  
 
   const [fileName, setFileName] = useState("No file chosen");
 

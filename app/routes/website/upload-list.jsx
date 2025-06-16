@@ -1,21 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { getAllArtTypes } from "../../services/art";
 import upload_list from "../../../assets/upload_list.svg";
 import "./upload-list.css";
+import { getCurrentEvent, getEndUploadingDate, getCountdown } from "../../services/events";
 
 export async function clientLoader() {
   const artTypes = await getAllArtTypes();
-  return { artTypes };
+  const currentEvent = await getCurrentEvent();
+  return { artTypes, currentEvent };
 }
 
 export default function UploadList({ loaderData }) {
-  const { artTypes } = loaderData;
+  const { artTypes, currentEvent } = loaderData;
   const [visibleDescriptionId, setVisibleDescriptionId] = useState(null);
+  const [countdown, setCountdown] = useState(getCountdown(getEndUploadingDate(currentEvent.startDate)));
 
   const toggleDescription = (id) => {
     setVisibleDescriptionId((prevId) => (prevId === id ? null : id));
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCountdown(getCountdown(getEndUploadingDate(currentEvent.startDate)));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [currentEvent.startDate]);
+
 
   return (
     <main className="upload-art">
@@ -35,9 +47,12 @@ export default function UploadList({ loaderData }) {
       <section className="upload-art__timer">
         <p className="upload-art__timer-label">Uploading Ends in</p>
         <div className="upload-art__countdown">
-          <p><span>DD</span> days</p>
+          {/* <p><span>DD</span> days</p>
           <p><span>HH</span> h</p>
-          <p><span>MM</span> min</p>
+          <p><span>MM</span> min</p> */}
+           <p><span>{countdown.days}</span> days</p>
+          <p><span>{countdown.hours}</span> h</p>
+          <p><span>{countdown.minutes}</span> min</p>
         </div>
 
       </section>

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { getAllArtTypes, getArtVotes, getAllArtworks } from "../../services/art";
+import { getCurrentEvent, getCountdown, getEndDate } from "../../services/events";
 import art_vote from "../../../assets/art_vote.svg";
 import line_arrow from "../../../assets/line_arrow.svg";
+
 
 import "./vote-art.css";
 
@@ -17,16 +19,35 @@ export async function clientLoader() {
   const artTypes = await getAllArtTypes();
   const art_Votes = await getArtVotes();
   const artworks = await getAllArtworks();
-  return { artTypes, art_Votes, artworks };
+  const currentEvent = await getCurrentEvent();
+
+  
+  return { artTypes, art_Votes, artworks, currentEvent };
 }
 
 export default function VoteArt({ loaderData }) {
-  const { artTypes, art_Votes, artworks } = loaderData;
+  const { artTypes, art_Votes, artworks, currentEvent } = loaderData;
   const [visibleDescriptionId, setVisibleDescriptionId] = useState(null);
+  const [countdown, setCountdown] = useState(getCountdown(getEndDate(currentEvent.startDate)));
+
+  
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
+
+  }, 1000);
+  return () => clearInterval(interval);
+}, [currentEvent.startDate]);
+
+  
 
   const toggleDescription = (id) => {
     setVisibleDescriptionId((prevId) => (prevId === id ? null : id));
   };
+
+ 
+
 
 
   return (
@@ -50,10 +71,15 @@ export default function VoteArt({ loaderData }) {
         <div className="vote-art__timer">
           <p className="vote-art__timer-label">Voting Ends in</p>
           <div className="vote-art__countdown">
-            <p><span>DD</span> days</p>
+            {/* <p><span>DD</span> days</p>
             <p><span>HH</span> h</p>
-            <p><span>MM</span> min</p>
+            <p><span>MM</span> min</p> */}
+            <p><span>{countdown.days}</span> days</p>
+            <p><span>{countdown.hours}</span> h</p>
+            <p><span>{countdown.minutes}</span> min</p>
           </div>
+          
+
           <Link to="/participate" className="vote-art__link">         
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black"/>
