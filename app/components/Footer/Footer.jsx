@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { useState } from "react";
-import logo from "/you-at-abby-logo.png"
+import logo from "../../../assets/you-at-abby-logo.png"
 
 import "./Footer.css";
 
@@ -8,6 +8,24 @@ const Footer = ({ navOpen }) => {
 
     const [email, setEmail] = useState("");
     const [checkBox, setCheckBox] = useState(false);
+    const [feedback, setFeedback] = useState("/");
+   
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!email.trim()) {
+            setFeedback("Please enter your email.");
+            return;
+        }
+        if (!checkBox) {
+            setFeedback("Please agree with the privacy policy.");
+            return;
+        }
+
+        setFeedback("You're in! New updates soon.");
+        setEmail("");
+        setCheckBox(false);
+      };
 
     return (
         <footer className={navOpen ? "visually-hidden" : "footer"}>
@@ -58,20 +76,17 @@ const Footer = ({ navOpen }) => {
                 </div>
                 <section>
                     <h2>Stay Informed</h2>
-                    <form className="form" onSubmit={(e) => {
-                            e.preventDefault();
-                            setEmail("")
-                            setCheckBox(false)
-                        }}>
+                    <form className="form" onSubmit={handleSubmit}>
+                        <p style={feedback === "/" ? {color: "transparent"} : null} className="subscribe-feedback">{feedback}</p>
                         <label className="form__checkbox">
-                            <input type="checkbox" checked={checkBox} onChange={(e) => setCheckBox(e.target.checked)} required/>
+                            <input type="checkbox" checked={checkBox} onChange={(e) => setCheckBox(e.target.checked)} />
                             <span className="checkmark"></span>
                             I agree with the privacy policy
                         </label>
                         <div>
                             <label htmlFor="email">Email</label>
                             <div className="form__email-input">
-                                <input type="email" id="email" placeholder="Your email address" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="email" id="email" placeholder="Your email address"  value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <button type="submit">
                                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.273412 17.0319L0.18467 11.8612L16.125 8.25439L16.1762 11.2359L0.273412 17.0319Z" fill="black" />

@@ -18,6 +18,9 @@
 }
 
 .home .hero-image{
+    margin-top: -6.5rem;
+    position: relative;
+
     display: flex;
     flex-direction: column-reverse;
 }

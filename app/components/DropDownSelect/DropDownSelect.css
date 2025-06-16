@@ -30,7 +30,7 @@
 }
 
 .drop-down-select::after {
-    content: url("/arrow-down.svg");
+    content: url("../../../assets/arrow-down.svg");
     position: absolute;
     right: 0.75rem;
     top: 53%;

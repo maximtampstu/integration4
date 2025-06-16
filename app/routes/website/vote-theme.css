@@ -9,7 +9,7 @@
 
 .vote-theme .back-button{
     margin-left: 1.25rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
     z-index: 5;
     position: relative;
 }
@@ -213,10 +213,19 @@
 
 .vote-theme .vote-complete {
     padding-top: 12rem;
+    margin-top: -6.25rem;
+}
+
+.vote-complete .back-button {
+    margin-top: -10.25rem;
 }
 
 .vote-theme .already-voted{
     padding-top: 2rem;
+}
+
+.already-voted .back-button {
+    margin-top: 1rem;
 }
 
 .vote-theme .vote-complete__text, .already-voted__text{

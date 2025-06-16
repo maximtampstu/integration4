@@ -13,6 +13,9 @@ h1{
 }
 
 .participate{
+    margin-top: -6.5rem;
+    position: relative;
+
     padding-top: 8rem;
     padding-bottom: 4rem;
     background-color: var(--color-sec-yellow);

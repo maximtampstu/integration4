@@ -1,10 +1,6 @@
 .navbar {
-    /* position: absolute; */
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
-    z-index: 1000;
-    /* Optionally set a background if you want it visible when closed */
     background: transparent;
     z-index: 500;
 }

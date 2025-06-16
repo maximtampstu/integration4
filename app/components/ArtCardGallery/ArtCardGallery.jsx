@@ -5,7 +5,7 @@ import { getUserById } from "../../services/users";
 import { getArtTypeById } from "../../services/art";
 import "./ArtCardGallery.css";
 
-import frame from "/winner-frame.png"
+import frame from "../../../assets/winner-frame.png"
 
 
 const ArtCardGallery = ({ item }) => {
@@ -27,6 +27,7 @@ const ArtCardGallery = ({ item }) => {
 
     return (
         <li className="art-card-gallery">
+            <Link to={`/art-detail/${item.id}`}>
             <div className="art-card-gallery__square-top"></div>
             <div className="art-card-gallery__top">
                 <div className="art-card-gallery__avatar">
@@ -46,7 +47,7 @@ const ArtCardGallery = ({ item }) => {
                             </defs>
                         </svg>                                                
                     ) : (
-                            <img className="art-card-gallery__avatar-image" src={user?.avatar} alt={`avatar of ${user?.username}`} />
+                        <img className="art-card-gallery__avatar-image" src={user?.avatar} alt={`avatar of ${user?.username}`} />
                     )}
                 </div>
                 <div className="art-card-gallery__user-info">
@@ -74,7 +75,8 @@ const ArtCardGallery = ({ item }) => {
                 <p>{category?.name}</p>
             </div>
             <div className="art-card-gallery__square-bottom"></div>
-            <Link className="button button--black" to={`/event-gallery/${item.id}`}>See Gallery</Link>
+            </Link>
+            <Link className="button button--black" to={`/art-detail/${item.id}`}>View Detail</Link>
         </li>
     );
 };

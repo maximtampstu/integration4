@@ -172,8 +172,19 @@ export const getEventDay = (startDate) => {
   const today = new Date();
   const start = new Date(startDate);
   const diffTime = today - start;
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 want dag 1 is startdag
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
 
   return diffDays;
 }
 
+export const getEndUploadingDate = (dateStart) => {
+  const startDate = new Date(dateStart);
+  const endDate = new Date(startDate);
+
+  endDate.setDate(startDate.getDate() + 17);
+
+  const day = String(endDate.getDate()).padStart(2, '0');
+  const month = String(endDate.getMonth() + 1).padStart(2, '0');
+  const year = endDate.getFullYear();
+  return `${year}-${month}-${day}`;
+};

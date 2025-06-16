@@ -3,9 +3,7 @@ import { useState } from "react";
 
 import { getCountDownToParty, getCurrentEvent, getEndDate, getPastEvents } from "../../services/events";
 import "./previous-events.css";
-
-import roadTripRompThumbnail from "/road-trip-romp-thumbnail.png"
-import japaneseGardenThumbnail from "/japanese-garden-thumbnail.png"
+import textFallBack from "../../../assets/text-fall-back.png"
 
 import CardSlider from "../../components/CardSlider/CardSlider"
 import EventCardPreviousEvents from "../../components/EventCardPreviousEvents/EventCardPreviousEvents"
@@ -76,11 +74,11 @@ export default function PreviousEvents({ loaderData }) {
         <div className="hero-image__info">
           <h1>Previously <br></br>@ <br></br>abby</h1>
           <div className="hero-image__text">
-            <h2>{previousEvents[0].name}</h2>
+            <h2>{previousEvents[0]?.name}</h2>
             <p>Explore the ideas that have already reshaped AbbY. Spark your own</p>
           </div>
         </div>
-        <img src={previousEvents[0].thumbnail || roadTripRompThumbnail} alt={previousEvents[0].name} />
+        <img src={previousEvents[0]?.thumbnail} alt={previousEvents[0]?.name} />
       </section>
       <section className="extra-info">
         <h2 className="visually-hidden">Extra info</h2>
@@ -133,7 +131,7 @@ export default function PreviousEvents({ loaderData }) {
       <section className="now-at-abby">
         <div className="now-at-abby__head">
           <h2>Now@Abby</h2>
-          <p className="now-at-abby__masked-text" style={{ backgroundImage: `url(${currentEvent.thumbnail || japaneseGardenThumbnail})` }}>
+          <p className="now-at-abby__masked-text" style={{ backgroundImage: `url(${currentEvent?.thumbnail || textFallBack})` }}>
             {currentEvent.name}
           </p>
         </div>

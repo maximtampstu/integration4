@@ -31,6 +31,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    margin-top: -6.5rem;
+    position: relative;
 }
 
 .previous-events .hero-image__text{
