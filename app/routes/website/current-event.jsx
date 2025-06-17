@@ -5,7 +5,7 @@ import arrow from "../../../assets/arrow.svg";
 import "./current-event.css";
 import gallery_page_image from "../../../assets/gallery_page_image.svg"
 import { useState, useEffect } from "react";
-import { getCurrentEvent, getEndDate, getCountdown } from "../../services/events";
+import { getCurrentEvent, getEndDate, getCountdown, getDateString } from "../../services/events";
 
 
 
@@ -24,19 +24,21 @@ const CurrentEvent = ({ loaderData }) => {
  const [countdown, setCountdown] = useState(getCountdown(getEndDate(currentEvent.startDate)));
 
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
-  }, 1000);
-
-  return () => clearInterval(interval);
-}, [currentEvent.startDate]);
-
-
-
-const { days, hours, minutes } = countdown;
-
-
+ 
+ useEffect(() => {
+     const interval = setInterval(() => {
+         setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
+        }, 1000);
+        
+        return () => clearInterval(interval);
+    }, [currentEvent.startDate]);
+    
+    
+    
+    const { days, hours, minutes } = countdown;
+    
+    
+    console.log(currentEvent.startDate)
 
     return (
         <main className="current-event">
@@ -72,7 +74,11 @@ const { days, hours, minutes } = countdown;
                     <div className="current-event__showcase-label">
                         <p className="current-event__showcase-title">Showcase  & Party</p>
                         <div className="current-event__showcase-datetime">
-                            <p className="current-event__showcase-date">1 JULY 25’</p>
+                            {/* <p className="current-event__showcase-date">1 JULY 25’</p> */}
+                            <p className="current-event__showcase-date">
+                                {getDateString(getEndDate(currentEvent.startDate)).toUpperCase().replace("20", "'")}
+                            </p>
+
                             <p className="current-event__showcase-time">16:00</p>
                         </div>
 
@@ -125,7 +131,7 @@ const { days, hours, minutes } = countdown;
                                     We can’t wait to see how you envision a <strong>Japanese garden</strong>! Maybe it’s a playlist, a graphic, motion design, video snippets, or photography—anything that captures the theme.
                                     </p>
                                 </div>
-                                    <Link to="" className="timeline__cta">Take Part Now</Link>
+                                    <Link to="/upload" className="timeline__cta">Take Part Now</Link>
                             </div>
                         </section>
 

@@ -30,7 +30,7 @@ export default function VoteArt({ loaderData }) {
   const [visibleDescriptionId, setVisibleDescriptionId] = useState(null);
   const [countdown, setCountdown] = useState(getCountdown(getEndDate(currentEvent.startDate)));
 
-  
+
 
 useEffect(() => {
   const interval = setInterval(() => {
@@ -121,7 +121,11 @@ useEffect(() => {
                 <li key={type.id} className="vote-art__item">
                   <div className="vote-art__item-header">
                     <div className="vote-art__item-message">
-                      <p className="vote-art__item-subtitle">*Don’t miss out</p>
+            
+                      <p className="vote-art__item-subtitle">
+                        {hasVoted ? `U voted for ${type.name}` : "*Don’t miss out"}
+                      </p>
+
                       <p className="vote-art__item-title">
                         {hasVoted ? "See you at the party" : "vote now, Be heard"}
                       </p>

@@ -140,7 +140,7 @@ export default function PreviousEvents({ loaderData }) {
             <h3>live for another {days} days.</h3>
             <p>Jump in while the canvas is blank.</p>
           </div>
-          <Link className="button" to="/">Check It Out</Link>
+          <Link className="button" to="/current-event">Check It Out</Link>
         </div>
       </section>
     </>

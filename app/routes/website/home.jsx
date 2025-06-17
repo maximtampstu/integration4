@@ -58,7 +58,7 @@ const Home = ({ loaderData }) => {
                     <h3>{currentEvent?.name}</h3>
                     <div>
                         <p>This month’s theme is “{currentEvent?.name}”. Show us your take, or dive in to vote. Your choices build the experience.</p>
-                        <Link className="button button--green" to="/about">How does it work?</Link>
+                        <Link className="button button--green" to="/current-event">How does it work?</Link>
                     </div>
                 </div>
             </section>

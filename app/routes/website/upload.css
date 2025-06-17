@@ -22,6 +22,24 @@
     align-items: center;
 }
 
+.upload__headline {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 133%;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 3rem;
+  
+}
+
+.upload__banner {
+  background: var(--color-sec-purple);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 6rem;
+}
+
+
 .upload-form__header{
     display: flex;
     flex-direction: column;
@@ -61,6 +79,7 @@
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     margin-top: -3rem;
+    
 }
 
 
