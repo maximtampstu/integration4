@@ -146,19 +146,12 @@ const About = ({ loaderData }) => {
                             <h4 className="visually-hidden">Current Featured Event</h4>
 
                             <div className="about__now-event-header">
-                                {/* <h5 className="about__now-event-title">JAPANESE GARDEN</h5>
-                                <p className="about__now-event-dates">JUN 2 – JUL 1</p> */}
                                 <h5 className="about__now-event-title">{currentEvent.name.toUpperCase()}</h5>
                                 <p className="about__now-event-dates">{`${startMonth} ${startDay} – ${endMonth} ${endDay}`}</p>
 
                             </div>
 
                             <div className="about__now-image-wrapper">
-                                {/* <img
-                                    src={japaneseGardenThumbnail}
-                                    alt="garden"
-                                    className="about__now-image"
-                                /> */}
                                 <img
                                 src={currentEvent.thumbnail || japaneseGardenThumbnail}
                                 alt="event thumbnail"
@@ -170,11 +163,6 @@ const About = ({ loaderData }) => {
 
                         <section className="about__now-description">
                             <h3 className="about__now-heading">NOW @ ABBY</h3>
-                            {/* <p className="about__now-text">
-                                Imagine a chill oasis of sakura petals drifting on raked gravel, mossy
-                                stones, and bonsai silhouettes—your calm escape in the middle of the
-                                buzz.
-                            </p> */}
                             <p className="about__now-text">{currentEvent.description}</p>
 
                             <Link to="/participate" className="about__now-button">Shape ABBY</Link>
@@ -188,29 +176,18 @@ const About = ({ loaderData }) => {
                         <section className="about__previous-event">
                             <h4 className="visually-hidden">Previous Featured Event</h4>
                             <div className="about__previous-event-header">
-                                {/* <h5 className="about__previous-event-title">ROAD-TRIP ROMP</h5>
-                                <p className="about__previous-event-dates">MAY 2 – JUN 1</p> */}
                                 <h5 className="about__previous-event-title">{pastEvent.name.toUpperCase()}</h5>
                                 <p className="about__previous-event-dates">{`${pastStartMonth} ${pastStartDay} – ${pastEndMonth} ${pastEndDay}`}</p>
 
                             </div>
 
                             <div className="about__previous-image-wrapper">
-                                {/* <img
-                                    src={road_trip_romp_thumbnail}
-                                    alt="man_in_car"
-                                    className="about__previous-image"
-                                /> */}
                                 <img src={pastEvent.thumbnail || road_trip_romp_thumbnail} alt="past event" className="about__previous-image" />
-
                             </div>
                         </section>
 
                         <section className="about__previous-description">
                             <h3 className="about__previous-heading">PREVIOUSLY @ ABBY</h3>
-                            {/* <p className="about__previous-text">
-                                Discover how our most recent “Road-Trip Romp” themed event went!
-                            </p> */}
 
                             <p className="about__previous-text">
                             {pastEvent.description}
@@ -218,7 +195,7 @@ const About = ({ loaderData }) => {
 
 
                             <div className="about__previous-buttons">
-                                <Link to="/previous-events" className="about__previous-button about__previous-button--dark">
+                                <Link to={`/event-gallery/${pastEvent.id}`} className="about__previous-button about__previous-button--dark">
                                     See Gallery
                                 </Link>
                                 <Link to="/previous-events" className="about__previous-button about__previous-button--light">

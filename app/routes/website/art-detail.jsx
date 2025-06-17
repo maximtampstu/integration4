@@ -6,18 +6,18 @@ import arrow from "../../../assets/arrow.svg";
 import dots from "../../../assets/dots.svg";
 import { Link, useFetcher } from "react-router";
 import "./art-detail.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { getCurrentEvent } from "../../services/events";
 
 
 export async function clientLoader({ params }) {
-  const art = await getArtById(params.id); //done
-  const users = await getAllUsers(); //done
-  const event = await getEventById(art.eventId); //done
-  const artType = await getArtTypeById(art.artTypeId); //done
-  const feedback = await getFeedbackByArtId(art.id); //done
-  const currentUserId = (await getCurrentUser()).id //done
-  const creator = await getUserById(art.userId); //done
+  const art = await getArtById(params.id); 
+  const users = await getAllUsers(); 
+  const event = await getEventById(art.eventId); 
+  const artType = await getArtTypeById(art.artTypeId); 
+  const feedback = await getFeedbackByArtId(art.id); 
+  const currentUserId = (await getCurrentUser()).id 
+  const creator = await getUserById(art.userId); 
   const currentUser = await getCurrentUser(); 
   const totalVotes = await getUserReceivedVotes(currentUser.id); 
   const currentEvent = await getCurrentEvent(); 
@@ -54,6 +54,19 @@ export default function ArtDetail({ loaderData }) {
     setComment("")
   }
 
+        const scrollRef = useRef(null);
+    
+        //I used AI to give me a start but then I worked further on that
+        const scroll = (direction) => {
+            if (scrollRef.current) {
+                const scrollAmount = scrollRef.current.offsetWidth;
+                scrollRef.current.scrollBy({
+                    left: direction === 'left' ? -scrollAmount : scrollAmount,
+                    behavior: 'smooth',
+                });
+            }
+        };
+
   return (
     <main className="art-detail">
       <h1 className="visually-hidden"> at detail page</h1>
@@ -65,7 +78,6 @@ export default function ArtDetail({ loaderData }) {
             <Link to={`/my-gallery`} 
               className={`art-detail__back ${art.url.endsWith(".mp3") ? "art-detail__back--audio" : ""}`}
             >
-              {/* <img src={arrow} alt="Back arrow" className="art-detail__arrowing" /> */}
               <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.5 9.09764L14.5 14L14.5 9.38047L3.15875 6.97643L14.5 4.57239L14.5 1.66948e-07L0.5 4.85522L0.5 9.09764Z" fill="black"/>
               </svg>
@@ -108,7 +120,6 @@ export default function ArtDetail({ loaderData }) {
           <div className="art-detail__meta-extra">
             <div className="art-detail__theme-block">
               <img src={arrow} alt="arrow" className="art-detail__icon" />
-              {/* <p className="art-detail__theme">published for <span>{event?.name || "Untitled Event"}</span></p> */}
               <p className="art-detail__theme">
                 published for{" "}
                 <Link to={`/event-gallery/${event?.id}`} className="art-detail__theme-link">
@@ -234,6 +245,8 @@ export default function ArtDetail({ loaderData }) {
       <section className="art-detail__related">
         <h2 className="art-detail__related-title">in this category</h2>
         <section className="art-grid">
+          <div className="card-slider">
+            <div className="card-slider__cards" ref={scrollRef}>
           {allArtInCategory.map((art) => {
             const creator = users.find((u) => u.id === art.userId);
 
@@ -283,58 +296,22 @@ export default function ArtDetail({ loaderData }) {
               </div>
             );
           })}
+           </div>
+            <div className="card-slider__buttons">
+                <button onClick={() => scroll('left')} className="button button--sec button--sec--5px">
+                    <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.9556 9.4271L6.25264 14.0001L30.9556 18.5749V27.2541L0.746002 17.9855V10.0147L30.9556 0.746094V9.4271Z" fill="black" />
+                    </svg>
+                </button>
+                <button onClick={() => scroll('right')} className="button button--sec button--sec--5px">
+                    <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.447615 9.4271L25.1506 14.0001L0.447615 18.5749V27.2541L30.6572 17.9855V10.0147L0.447615 0.746094V9.4271Z" fill="black" />
+                    </svg>
+                </button>
+            </div>
+        </div>
         </section>
-        <section className="art-grid">
-          {allArtInCategory.map((art) => {
-            const creator = users.find((u) => u.id === art.userId);
 
-            return (
-              <div key={art.id} className="art-card">
-                <div className="art-card__media">
-                  {art.url.endsWith(".mp3") || art.type === "music" ? (
-                    <audio controls style={{ width: "100%" }}>
-                      <source src={art.url} type="audio/mpeg" />
-                    </audio>
-                  ) : art.type === "video" ? (
-                    <video controls width="100%">
-                      <source src={art.url} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={art.url} alt={art.title} className="art-card__image" />
-                  )}
-                </div>
-
-                <div className="art-card__info">
-                  <div className="art-card__creator-avatar">
-                    {creator?.avatar ? (
-                      <img src={creator.avatar} alt={`avatar of ${creator.username}`} className="art-card__avatar-img" />
-                    ) : (
-                      <svg width="24" height="45" viewBox="0 0 24 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clipPath="url(#clip0_828_2413)">
-                          <path d="M14.5497 8.80082C14.5497 7.25126 13.2935 5.99508 11.7439 5.99507C10.1944 5.99507 8.93818 7.25124 8.93818 8.80082V9.19675H3.00293V8.80082C3.00293 3.97331 6.91643 0.0598145 11.7439 0.0598145C16.5714 0.0598262 20.4849 3.9733 20.4849 8.80082V9.19675H14.5497V8.80082Z" fill="#231F20" />
-                          <path d="M3.00293 8.86553V8.4696H8.93818V8.86553C8.9382 10.4151 10.1944 11.6713 11.7439 11.6713C13.2935 11.6713 14.5497 10.415 14.5497 8.86553V8.4696H20.4849V8.86553C20.4849 13.693 16.5714 17.6065 11.7439 17.6065C6.91644 17.6065 3.00295 13.693 3.00293 8.86553Z" fill="#231F20" />
-                          <path d="M18.0395 37.1339H5.7373V44.9037H18.0395V37.1339Z" fill="#231F20" />
-                          <path d="M23.3276 44.9037H15.748L10.8633 18.5237H15.2338L23.3276 44.9037Z" fill="#231F20" />
-                          <path d="M0.179688 44.9037H7.75937L12.644 18.5237H8.27352L0.179688 44.9037Z" fill="#231F20" />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_828_2413">
-                            <rect width="23.5252" height="45" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    )}
-                  </div>
-
-                  <div className="art-card__text">
-                    <p className="art-card__title">{art.title}</p>
-                    <p className="art-card__username">@{creator?.username || "unknown"}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </section>
       </section>
 
     </main>

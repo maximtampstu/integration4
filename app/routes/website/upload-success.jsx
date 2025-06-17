@@ -7,7 +7,7 @@ import Confetti from "react-confetti";
 import { useState } from "react";
 
 export async function clientLoader({ params }) {
-  const art = await getArtById(Number(params.id)); //done
+  const art = await getArtById(Number(params.id));
   return { art };
 }
 

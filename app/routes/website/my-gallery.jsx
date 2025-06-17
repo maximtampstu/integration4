@@ -21,7 +21,6 @@ export async function clientLoader() {
 
   const currentEventArt = await getUsersCurrentEventArt(currentEvent.id, currentUser.id); 
   const previousEventsArt = await getUsersPreviousEventsArt(currentEvent.id, currentUser.id); 
-  // const totalVotes = await userVotes(currentUser.id); 
 
   return {
     currentEventArt,
@@ -109,12 +108,7 @@ export default function CurrentEvent({ loaderData }) {
           </section>
         </section>
 
-        
-
       </article>
-
-
-     
 
       <section className="current-event__uploads">
         <h3 className="current-event__uploads-title">uploaded items</h3>
@@ -122,7 +116,6 @@ export default function CurrentEvent({ loaderData }) {
             <section className="current-event__upload-section">
               <h5 className="current-event__section-title">current Event</h5>
               {currentEventArt.length > 0 ? (
-                // currentEventArt.map((art) => {
                   [...currentEventArt].reverse().map((art) => {
                   const isAudio = art?.url?.endsWith(".mp3");
                   const isVideo = art?.type === "video";
@@ -208,55 +201,6 @@ export default function CurrentEvent({ loaderData }) {
              
             </section>
 
-            {/* <section>
-              <h5>previous events</h5>
-              {previousEventsArt.length > 0 ? (
-                previousEventsArt.map((art) => {
-                  const isAudio = art?.url?.endsWith(".mp3");
-                  const isVideo = art?.type === "video";
-                  const event = pastEvents.find(e => e.id === art.eventId);
-                  const artType = allArtTypes.find(type => type.id === art.artTypeId);
-
-                  return (
-                    <div key={art.id} className="art-card">
-                      <div>
-                        <p>{event?.name}</p> 
-                        <p>{artType?.name}</p> 
-                      </div>
-
-                      
-
-                      <div>
-                        <div>
-                          {isAudio ? (
-                            <audio controls>
-                              <source src={art.url} type="audio/mpeg" />
-                            </audio>
-                          ) : isVideo ? (
-                            <video controls width="300">
-                              <source src={art.url} type="video/mp4" />
-                            </video>
-                          ) : (
-                            <img src={art.url} alt={art.title} width="300" />
-                          )}
-
-                        </div>
-                        <div>
-                          <h3>{art.title}</h3>
-                          <p>{art.description}</p>  
-                          <Link to={`/art-detail/${art.id}`} className="">detail</Link>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  );
-                })
-              ) : (
-                <p>You have no artworks in previous events</p>
-              )}
-            </section> */}
-
             <section className="current-event__upload-section">
               <h5 className="current-event__section-title">previous events</h5>
               {previousEventsArt.length > 0 ? (
@@ -302,13 +246,6 @@ export default function CurrentEvent({ loaderData }) {
         </div>
 
       </section>
-
-      
-
-
-      {/* <Link to="/">Back to Home</Link> */}
-
-   
       
       {showConfirmationPopup && (
   <div className="popup">

@@ -191,3 +191,15 @@
   background-color: var(--color-sec-green); 
   color: white;
 }
+
+.voting__days {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.voting__days span {
+    font-weight: 500;
+}

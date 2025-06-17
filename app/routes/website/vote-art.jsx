@@ -70,14 +70,11 @@ useEffect(() => {
 
         <div className="vote-art__timer">
           <p className="vote-art__timer-label">Voting Ends in</p>
-          <div className="vote-art__countdown">
-            {/* <p><span>DD</span> days</p>
-            <p><span>HH</span> h</p>
-            <p><span>MM</span> min</p> */}
-            <p><span>{countdown.days}</span> days</p>
-            <p><span>{countdown.hours}</span> h</p>
-            <p><span>{countdown.minutes}</span> min</p>
-          </div>
+          <ul className="voting__days">
+                <li><span>{countdown.days}</span> days</li>
+                <li><span>{countdown.hours}</span> h</li>
+                <li><span>{countdown.minutes}</span> min</li>
+              </ul>
           
 
           <Link to="/participate" className="vote-art__link">         
@@ -112,18 +109,13 @@ useEffect(() => {
 
               const hasVoted = artworksInType.some(art => votedArtIds.includes(art.id));
 
-
-
-
-
-
               return (
                 <li key={type.id} className="vote-art__item">
                   <div className="vote-art__item-header">
                     <div className="vote-art__item-message">
             
                       <p className="vote-art__item-subtitle">
-                        {hasVoted ? `U voted for ${type.name}` : "*Don’t miss out"}
+                        {hasVoted ? `U already voted for ${type.name}` : "*Don’t miss out"}
                       </p>
 
                       <p className="vote-art__item-title">

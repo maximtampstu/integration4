@@ -1,11 +1,12 @@
 import { getArtVotes, addArtVote, getCurrentEventSelectedArtByArtType, getArtTypeById } from "../../services/art";
 import { getCurrentEvent } from "../../services/events";
 import { getAllUsers, getCurrentUser } from "../../services/users";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, Form, redirect } from "react-router";
 import arrow from "../../../assets/arrow.svg";
 import art_vote_image from "../../../assets/art_vote_image.svg";
 import "./art-category.css"
+import { getCountdown, getEndDate } from "../../services/events";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -17,18 +18,11 @@ export async function clientLoader({ params }) {
   const artVotes = await getArtVotes();
   const artworks = await getCurrentEventSelectedArtByArtType(currentEvent.id, artType.id); //done
 
-
-  console.log('artVotes', artVotes)
-  // console.log('artworks' , artworks)
-
-
-
-
   const votedArt = artworks.find((art) =>
     artVotes.some((vote) => vote.artId === art.id && vote.userId === currentUser.id)
   );
 
-  return { artworks, artType, users, votedArt, currentUser };
+  return { artworks, artType, users, votedArt, currentUser, currentEvent };
 }
 
 export async function clientAction({ request }) {
@@ -40,26 +34,41 @@ export async function clientAction({ request }) {
 }
 
 export default function VoteArtType({ loaderData }) {
-  const { artworks, users, artType, votedArt, currentUser } = loaderData;
-  // const [selectedArt, setSelectedArt] = useState(null);
+  const { artworks, users, artType, votedArt, currentUser, currentEvent } = loaderData;
   const [selectedArt, setSelectedArt] = useState(null); // currently selected
   const [confirmedArt, setConfirmedArt] = useState(null); // confirmed artId
   const [showConfirm, setShowConfirm] = useState(false); // popup trigger
+  const [countdown, setCountdown] = useState(getCountdown(currentEvent.startDate));
+  
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCountdown(getCountdown(getEndDate(currentEvent.startDate)));
+      }, 1000);
+  
+      return () => clearInterval(interval); // opschonen bij unmount
+    }, [currentEvent.startDate]);
 
   const selectedArtwork = artworks.find((art) => art.id === Number(selectedArt));
-
-
-  // console.log(votedArt)
-
-  // const handleSelect = (e) => {
-  //   setSelectedArt(e.target.value);
-  // };
 
   const handleVoteClick = (artId) => {
     setSelectedArt(artId);
     setShowConfirm(true);
     document.body.style.overflow = "hidden";
   };
+
+      const scrollRef = useRef(null);
+  
+      //I used AI to give me a start but then I worked further on that
+      const scroll = (direction) => {
+          if (scrollRef.current) {
+              const scrollAmount = scrollRef.current.offsetWidth;
+              scrollRef.current.scrollBy({
+                  left: direction === 'left' ? -scrollAmount : scrollAmount,
+                  behavior: 'smooth',
+              });
+          }
+      };
 
   return (
 
@@ -113,17 +122,16 @@ export default function VoteArtType({ loaderData }) {
             <section className="vote-art-type__countdown-box">
               <h3 className="visually-hidden">Voting Timer</h3>
               <p className="vote-art-type__timer-label">Voting Ends in</p>
-              <div className="vote-art-type__countdown">
-                <p><span>DD</span> days</p>
-                <p><span>HH</span> h</p>
-                <p><span>MM</span> min</p>
-              </div>
+              <ul className="voting__days">
+                <li><span>{countdown.days}</span> days</li>
+                <li><span>{countdown.hours}</span> h</li>
+                <li><span>{countdown.minutes}</span> min</li>
+              </ul>
               <Link to="/vote-art" className="vote-art__link">
                 <img src={arrow} alt="arrow" className="vote-art__arrow" />
                 Back
               </Link>
             </section>
-            {/* <Link to="/vote-art" className="vote-art-type__back">Back to Types</Link> */}
           </article>
 
           <article className="vote-art-type__artworks">
@@ -136,14 +144,12 @@ export default function VoteArtType({ loaderData }) {
             <Form method="post" className="vote-art-type__form">
               <input type="hidden" name="userId" value={currentUser.id} />
               <div className="vote-art-type__grid">
+                <div className="card-slider">
+            <ul className="card-slider__cards" ref={scrollRef}>
                 {artworks.map((art) => {
                   const creator = users.find((u) => u.id === art.userId);
                   return (
                     <div key={art.id} className="vote-art-type__card">
-
-
-
-
 
                       <div className="vote-art-type__media">
                         {art.url.endsWith(".mp3") ? (
@@ -192,14 +198,7 @@ export default function VoteArtType({ loaderData }) {
                       <div className="vote-art-type__actions">
                         <Link to={`/art-detail/${art.id}`} className="vote-art-type__detail-link">View Details</Link>
                         <label className={`vote-art-type__radio-label ${confirmedArt == art.id ? "vote-art-type__confirmed" : ""}`}>
-                          {/* <input
-                            type="radio"
-                            name="artId"
-                            value={art.id}
-                            onChange={handleSelect}
-                            required
-                            className="vote-art-type__radio-input"
-                          /> Vote for this */}
+
                           <input
                             type="radio"
                             name="artId"
@@ -208,18 +207,29 @@ export default function VoteArtType({ loaderData }) {
                             onChange={() => handleVoteClick(art.id)}
                             required
                             className={`vote-art-type__radio-input ${confirmedArt == art.id ? "vote-art-type__confirmed" : ""}`}
-                          /> {confirmedArt == art.id ? "Confirmed" : "lock in vote"}
+                          /> {confirmedArt == art.id ? "Confirmed" : "lock vote"}
 
                         </label>
                       </div>
                     </div>
                   );
                 })}
+                </ul>
+            <div className="card-slider__buttons">
+                <button onClick={() => scroll('left')} className="button button--sec button--sec--5px">
+                    <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.9556 9.4271L6.25264 14.0001L30.9556 18.5749V27.2541L0.746002 17.9855V10.0147L30.9556 0.746094V9.4271Z" fill="black" />
+                    </svg>
+                </button>
+                <button onClick={() => scroll('right')} className="button button--sec button--sec--5px">
+                    <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.447615 9.4271L25.1506 14.0001L0.447615 18.5749V27.2541L30.6572 17.9855V10.0147L0.447615 0.746094V9.4271Z" fill="black" />
+                    </svg>
+                </button>
+            </div>
+        </div>
               </div>
 
-              {/* <button type="submit" disabled={!selectedArt} className="vote-art-type__submit">
-              Submit
-            </button> */}
               <button
                 type="submit"
                 disabled={!confirmedArt}
@@ -274,5 +284,3 @@ export default function VoteArtType({ loaderData }) {
 
   );
 }
-
-{/* <h2 className="vote-art-type__title">Voting for {artType.name}</h2> */ }

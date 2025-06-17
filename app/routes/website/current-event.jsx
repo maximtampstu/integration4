@@ -8,7 +8,7 @@ import NotifyBox from "../../components/NotifyBox/NotifyBox"
 import { useState, useEffect } from "react";
 
 
-import { getCurrentEvent, getEndDate, getCountdown, getPhaseStatus } from "../../services/events";
+import { getCurrentEvent, getEndDate, getCountdown, getPhaseStatus, getDateString } from "../../services/events";
 
 
 
@@ -78,11 +78,9 @@ const CurrentEvent = ({ loaderData }) => {
                     <div className="current-event__showcase-label">
                         <p className="current-event__showcase-title">Showcase  & Party</p>
                         <div className="current-event__showcase-datetime">
-                            {/* <p className="current-event__showcase-date">1 JULY 25’</p> */}
                             <p className="current-event__showcase-date">
                                 {getDateString(getEndDate(currentEvent.startDate)).toUpperCase().replace("20", "'")}
                             </p>
-
                             <p className="current-event__showcase-time">16:00</p>
                         </div>
 
@@ -111,13 +109,7 @@ const CurrentEvent = ({ loaderData }) => {
                 <section className="timeline">
                     <h3 className="visually-hidden">Timeline</h3>
                     <div className="timeline__container">
-
                         <div className="timeline__line-start"></div>
-                        {/* <section className="timeline__week">
-                            <h4 className="visually-hidden">Week 1</h4>
-                            <div className="timeline__label">WEEK 1</div>
-                        </section> */}
-
                         <section className="timeline__week timeline__week--active">
                             <h4 className="visually-hidden">Week 1</h4>
 
@@ -130,7 +122,6 @@ const CurrentEvent = ({ loaderData }) => {
                                 <img src={arrow} alt="arrow" className="timeline__arrow" />
                                 <div className="timeline__uploading-content">
                                     <p className="timeline__phase">UPLOADING</p>
-                                    {/* <p className="timeline__urgent">ENDS TOMORROW!</p> */}
                                     <p className="timeline__description">
                                     We can’t wait to see how you envision a <strong>Japanese garden</strong>! Maybe it’s a playlist, a graphic, motion design, video snippets, or photography—anything that captures the theme.
                                     </p>
@@ -146,26 +137,6 @@ const CurrentEvent = ({ loaderData }) => {
                         </section>
 
                         <div className="timeline__line"></div>
-                        {/* <section className="timeline__week timeline__week--active">
-                            <h4 className="visually-hidden">Week 3</h4>
-
-                            <div className="timeline__status">
-                                <div className="timeline__now-label">NOW</div>
-                                <div className="timeline__week-label">WEEK 3</div>
-                            </div>
-
-                            <div className="timeline__uploading">
-                                <img src={arrow} alt="arrow" className="timeline__arrow" />
-                                <div className="timeline__uploading-content">
-                                    <p className="timeline__phase">UPLOADING</p>
-                                    <p className="timeline__urgent">ENDS TOMORROW!</p>
-                                    <p className="timeline__description">
-                                    We can’t wait to see how you envision a <strong>Japanese garden</strong>! Maybe it’s a playlist, a graphic, motion design, video snippets, or photography—anything that captures the theme.
-                                    </p>
-                                </div>
-                                    <Link to="" className="timeline__cta">Take Part Now</Link>
-                            </div>
-                        </section> */}
 
                         <section className="timeline__week">
                             <h4 className="visually-hidden">Week 3</h4>

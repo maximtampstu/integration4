@@ -241,8 +241,6 @@
 
 .art-detail__feedback-form{
     display: flex;
-    
-    /* gap: 0.75rem; */
 }
 
 .art-detail__feedback-icon svg{
@@ -343,7 +341,6 @@
 }
 
 
-
 .art-detail__feedback-controls {
   display: flex;
   flex: 1;
@@ -361,4 +358,45 @@
   border: none;
   color: black;
   border-radius: 0;
+}
+
+.card-slider{
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.card-slider__cards{
+    display: flex;
+    gap: 2rem;
+    height: max-content;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.card-slider__buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-slider__buttons button {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.art-card{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    place-self: center;
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: start;
 }

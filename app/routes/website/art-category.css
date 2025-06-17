@@ -191,11 +191,6 @@
 }
 
 
-
-
-
-
-
 .vote-art-type__popup {
   position: fixed;
   inset: 0;
@@ -229,7 +224,6 @@
   flex: 1;
   padding: 0.75rem;
   font-size: 1.25rem;
-  /* border: none; */
 }
 
 .vote-art-type__confirmed {
@@ -361,4 +355,57 @@
 .vote-complete-page__content{
   display: flex;
   
+}
+
+
+.voting__days {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.voting__days span {
+    font-weight: 500;
+}
+
+.card-slider{
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.card-slider__cards{
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.card-slider__buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-slider__buttons button {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.vote-art-type__card{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    place-self: center;
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: start;
 }

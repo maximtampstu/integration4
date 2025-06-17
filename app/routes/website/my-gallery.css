@@ -137,9 +137,7 @@
 
 
 .art-card__event-name{
-    /* flex: 1.5; */
     background-color: var(--color-sec-blue);
-    /* width: 60%; */
 }
 
 .art-card__event-name, .art-card__type{
@@ -150,7 +148,6 @@
     place-items: center;
     text-align: center;
     line-height: 133%;
-    /* width: 100%; */
     flex-grow: 1;
 }
 

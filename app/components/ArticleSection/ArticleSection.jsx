@@ -1,37 +1,3 @@
-// const ArticleSection = ({
-//   title,
-//   sectionTitle,
-//   sectionNumber,
-//   timelineTitle,
-//   descriptionText,
-//   arrowImageSrc,
-// }) => {
-//   return (
-    
-//       <section className="article__section">
-//         <h3 className="article__section-title">{sectionTitle}</h3>
-//         <p className="article__section-number">{sectionNumber}</p>
-//         <section className="article__description-container">
-//           <h4 className="visually-hidden">description box</h4>
-//           <img
-//             src={arrowImageSrc}
-//             alt={arrowImageSrc}
-//             className="article__arrow-image"
-//           />
-//           <section className="article__content">
-//             <h5 className="article__timeline">{timelineTitle}</h5>
-//             <p className="article__text">{descriptionText}</p>
-//           </section>
-//         </section>
-//       </section>
-
-//   );
-// };
-
-// export default ArticleSection;
-
-
-
 import "./ArticleSection.css";
 
 const ArticleSection = ({

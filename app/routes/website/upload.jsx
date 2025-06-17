@@ -15,10 +15,9 @@ const BASE = import.meta.env.BASE_URL;
 
 
 export async function clientLoader({ params }) {
-  const currentUser = await getCurrentUser(); //done
-  const currentEvent = await getCurrentEvent(); //done
+  const currentUser = await getCurrentUser();
+  const currentEvent = await getCurrentEvent();
   const art = await getArtTypeById(params.id);
-  // console.log(art)
   return { currentUser, currentEvent, art };
 }
 
@@ -93,15 +92,12 @@ const Upload = ({ loaderData }) => {
 
       <div className="upload-form__header">
         <Link to="/upload" className="upload-form__back">
-          {/* <img src={arrow} alt="arrow" className="upload-form__arrow" /> */}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black" />
           </svg>
 
           Back
-          {/* <BackButton /> */}
         </Link>
-        {/* <img src={upload_motion} alt="Upload header" className="upload-form__image" /> */}
         <div className="upload__banner">
           <h3 className="upload__headline"
             style={{
@@ -109,7 +105,6 @@ const Upload = ({ loaderData }) => {
                 backgroundPosition: "bottom",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                // textAlign: "left"
             }}
             >upload your {art.name}</h3>
         </div>
@@ -183,4 +178,3 @@ export default Upload;
 
 
 
-{/* <h2>Hi, {currentUser.username}</h2> */ }

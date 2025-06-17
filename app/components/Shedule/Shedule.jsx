@@ -26,12 +26,12 @@ const Shedule = ({ currentEvent }) => {
         <>
             <div className={`shedule ${hasInteracted ? (sheduleOpen ? "shedule--open" : "shedule--close") : ""}`}>
                 <div className="shedule__top">
-                    <div className="shedule__head">
-                        <button>
-                            <svg onClick={() => {
+                    <div onClick={() => {
                                 setSheduleOpen(!sheduleOpen);
                                 setHasInteracted(true);
-                            }} width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            }} className="shedule__head">
+                        <button>
+                            <svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.2559 0L0 33H11.5488L17.5589 6.26706L23.569 33L35 33L22.862 0L12.2559 0Z" fill="black" />
                             </svg>
                         </button>

@@ -8,7 +8,7 @@ const CardSlider = ({ data, cardComponent }) => {
     //I used AI to give me a start but then I worked further on that
     const scroll = (direction) => {
         if (scrollRef.current) {
-            const scrollAmount = scrollRef.current.offsetWidth; // scroll by container width
+            const scrollAmount = scrollRef.current.offsetWidth;
             scrollRef.current.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth',

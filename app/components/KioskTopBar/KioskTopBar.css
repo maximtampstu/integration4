@@ -28,6 +28,8 @@
 
 .kiosk-top-bar button p {
     font-size: 1.25rem;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
 .qr-popup {
