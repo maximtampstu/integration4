@@ -267,6 +267,7 @@
 .vote-art-type__popup-btn--no{
   background-color: transparent;
   border: 3px solid black;
+  color: black;
 }
 
 .vote-art-type__submit:disabled {
