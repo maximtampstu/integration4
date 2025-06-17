@@ -130,8 +130,8 @@ export const getStartVotingDate = (dateStart) => {
   return `${year}-${month}-${day}`;
 };
 
-//AI helped me a bit with this one
-export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay) => {
+//AI helped me a bit with this one but added that the type and s showing or not showing
+export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay, type) => {
   const now = new Date();
   const startDate = new Date(eventStartDate);
 
@@ -143,10 +143,10 @@ export const getPhaseStatus = (eventStartDate, phaseStartDay, phaseEndDay) => {
 
   if (now < phaseStartDate) {
     const daysUntilStart = Math.ceil((phaseStartDate - now) / (1000 * 60 * 60 * 24));
-    return `Phase starts in ${daysUntilStart} day(s)`;
+    return `Starts in ${daysUntilStart} day${daysUntilStart > 0 && "s"}`;
   } else if (now >= phaseStartDate && now <= phaseEndDate) {
     const daysUntilEnd = Math.ceil((phaseEndDate - now) / (1000 * 60 * 60 * 24));
-    return `Phase ends in ${daysUntilEnd} day(s)`;
+    return `Ends in ${daysUntilEnd} day${daysUntilEnd > 0 && "s"}`;
   } else {
     return `Closed`;
   }

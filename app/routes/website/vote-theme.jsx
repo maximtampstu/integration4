@@ -35,6 +35,7 @@ const VoteTheme = ({ loaderData = {} }) => {
   let navigate = useNavigate()
 
   const [themeId, setThemeId] = useState("")
+  const [giveError, setGiveError] = useState(false)
   const [confirmationPopup, setConfirmationPopup] = useState(false)
   const [justVoted, setJustVoted] = useState(false)
   const [countdown, setCountdown] = useState(getCountdown(currentEvent.startDate));
@@ -67,7 +68,9 @@ const VoteTheme = ({ loaderData = {} }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setThemeId(Number(e.target.themeId.value))
+    if(themeId === ""){
+      return setGiveError(true)
+    }
     openPopup()
   }
 
@@ -86,7 +89,7 @@ const VoteTheme = ({ loaderData = {} }) => {
               <p className="vote-complete__winning">"{(votableThemes.find(item => item.id === fetcher.data.leadingThemeId).name)}"</p>
               <p>is in the lead.</p>
             </div>
-            <p>Thanks for making your mark!</p>
+            <p >Thanks for making your mark!</p>
           </div>
           <Link className="button button--green" to="/previous-events">See Previous Themes</Link>
         </section>
@@ -124,11 +127,15 @@ const VoteTheme = ({ loaderData = {} }) => {
                   <div className="form__theme-options">
                     {votableThemes.map(theme => (
                       <label key={theme.id} className="form__theme-option">
-                        <input type="radio" name="themeId" value={theme.id} required />
+                        <input onClick={(e) => {
+                          setThemeId(Number(e.target.value));
+                          setGiveError(false)
+                        }} type="radio" name="themeId" value={theme.id} />
                         <span>{theme.name}</span>
                       </label>
                     ))}
                   </div>
+               <p style={{color: !giveError && "transparent"}} className="voting__error">Select a theme to vote</p>
               <button className="form__submit" type="submit">Vote</button>
             </form>
           </section>

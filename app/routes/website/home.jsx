@@ -6,7 +6,7 @@ import CardSlider from "../../components/CardSlider/CardSlider"
 import EventCardHome from "../../components/EventCardHome/EventCardHome"
 
 import "./home.css";
-import { getCurrentEvent, getEndUploadingDate, getMonthAndDayString, getPastEvents } from "../../services/events";
+import { getCurrentEvent, getEndUploadingDate, getMonthAndDayString, getPastEvents, getPhaseStatus } from "../../services/events";
 import { getThemeVotes } from "../../services/theme";
 import { getArtAmount, getArtVotes } from "../../services/art";
 
@@ -76,8 +76,8 @@ const Home = ({ loaderData }) => {
                     <p>Spaces where anyone can test ideas, remix themes, and see their work shape Abby. Be part of it, dont hesitate to Participate</p>
                 </div>
                 <ul className="you-are-abby__list">
-                    <NotifyBox label="Uploading Cycle" time="Now" active={false} />
-                    <NotifyBox label="Art Voting" time="12 Days" active={true} />
+                    <NotifyBox label="Uploading Cycle" time={getPhaseStatus(currentEvent.startDate, 1, 17)} active={false} />
+                    <NotifyBox label="Art & Theme Voting" time={getPhaseStatus(currentEvent.startDate, 21, 27)} active={true} />
                 </ul>
             </section>
             <section className="stats">

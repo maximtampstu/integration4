@@ -318,3 +318,10 @@ text-align: center;
 .status-card--past, .status-card--active{
     opacity: 0.5;
 }
+
+.current-event .you-are-abby__list {
+  margin: 7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

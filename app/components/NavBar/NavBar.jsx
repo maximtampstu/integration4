@@ -1,10 +1,8 @@
 import { Link } from "react-router";
 import logo from "../../../assets/you-at-abby-logo.png"
-import NavBarLink from "./NavBarLink"; // Adjust the path if needed
+import NavBarLink from "./NavBarLink";
 
 import "./NavBar.css";
-
-const BASE = import.meta.env.BASE_URL;
 
 const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
 
@@ -35,14 +33,14 @@ const NavBar = ({ navOpen, setNavOpen, currentPage }) => {
             {navOpen && (
                 <div className="navbar-bottom">
                     <div className="navbar-bottom__links">
-                        <NavBarLink link={`${BASE}about`} label="About Us" active={currentPage === "/about"} onClick={handleClose} />
+                        <NavBarLink link="/about" label="About Us" active={currentPage === "/about"} onClick={handleClose} />
                         <NavBarLink link="/current-event" label="Now@ABBY" active={currentPage === "/current-event"} onClick={handleClose} />
                         <NavBarLink link="/previous-events" label="Previously@ABBY" active={currentPage === "/previous-events"} onClick={handleClose} />
                     </div>
                     <div className="navbar-bottom__extras">
                         <NavBarLink link="/my-gallery" label="My Gallery" active={currentPage === "/my-gallery"} onClick={handleClose} />
                         <div className="navbar-bottom__languages">
-                            <p style={{ backgroundColor: "var(--color-sec-blue)" }}>EN</p>
+                            <p style={{ backgroundColor: "var(--color-sec-blue)", textDecoration: "underline"}}>EN</p>
                             <p style={{ backgroundColor: "var(--color-sec-green)" }}>NL</p>
                             <p style={{ backgroundColor: "var(--color-sec-orange)" }}>FR</p>
                         </div>
