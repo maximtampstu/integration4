@@ -258,6 +258,10 @@
   gap: 0.5rem;
 }
 
+.vote-art-type__popup-btn{
+  color: black;
+}
+
 .vote-art-type__popup-btn--yes{
   background-color: black;
   color: white;
