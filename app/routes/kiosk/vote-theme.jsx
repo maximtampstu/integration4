@@ -18,7 +18,7 @@ export async function clientAction({ request }) {
   const themeId = Number(data.get("themeId"))
   const email = data.get("email")
   await addThemeVote(themeId, email)
-  return redirect(`${BASE}kiosk/vote-complete/${themeId}`)
+  return redirect(`/kiosk/vote-complete/${themeId}`)
 }
 
 const VoteTheme = ({ loaderData = {} }) => {

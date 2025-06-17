@@ -74,12 +74,13 @@ const About = ({ loaderData }) => {
                 <section className="about__follow">
                     <h2 className="about__follow-heading">hey, follow me</h2>
                     <div className="about__follow-arrows">
-                        <img src={arrow} alt="arrows" className="about__follow-arrow" />
-                        <img src={arrow} alt="arrows" className="about__follow-arrow" />
-                        <img src={arrow} alt="arrows" className="about__follow-arrow" />
+                        <a href="#how-section"><img src={arrow} alt="arrow" className="about__follow-arrow" /></a>
+                        <a href="#how-section"><img src={arrow} alt="arrow" className="about__follow-arrow" /></a>
+                        <a href="#how-section"><img src={arrow} alt="arrow" className="about__follow-arrow" /></a>
                     </div>
+
                 </section>
-                <article className="about__how">
+                <article className="about__how" id="how-section">
                     <h2 className="about__how-heading">SO.. HOW DO YOU SHAPE ABBY?</h2>
 
 
@@ -132,7 +133,7 @@ const About = ({ loaderData }) => {
                             Don’t hesitate to take a peek at this month’s schedule!
                         </p>
 
-                        <Link to="/participate">Check It Out</Link>
+                        <Link to="/current-event">Check It Out</Link>
                     </section>
                 </article>
 
@@ -176,7 +177,7 @@ const About = ({ loaderData }) => {
                             </p> */}
                             <p className="about__now-text">{currentEvent.description}</p>
 
-                            <Link to="" className="about__now-button">Shape ABBY</Link>
+                            <Link to="/participate" className="about__now-button">Shape ABBY</Link>
                         </section>
                     </article>
 
@@ -217,7 +218,7 @@ const About = ({ loaderData }) => {
 
 
                             <div className="about__previous-buttons">
-                                <Link to="" className="about__previous-button about__previous-button--dark">
+                                <Link to="/previous-events" className="about__previous-button about__previous-button--dark">
                                     See Gallery
                                 </Link>
                                 <Link to="/previous-events" className="about__previous-button about__previous-button--light">

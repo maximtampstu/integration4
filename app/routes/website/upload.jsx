@@ -7,15 +7,19 @@ import "./upload.css";
 import uplaod_icon from "../../../assets/uplaod_icon.svg";
 import upload_motion from "../../../assets/upload_motion.svg";
 import { useState } from "react";
+import { getArtTypeById } from "../../services/art";
+import gallery_page_image from "../../../assets/gallery_page_image.svg";
 
 
 const BASE = import.meta.env.BASE_URL;
 
 
-export async function clientLoader() {
+export async function clientLoader({ params }) {
   const currentUser = await getCurrentUser(); //done
   const currentEvent = await getCurrentEvent(); //done
-  return { currentUser, currentEvent };
+  const art = await getArtTypeById(params.id);
+  // console.log(art)
+  return { currentUser, currentEvent, art };
 }
 
 export async function clientAction({ request, params }) {
@@ -70,7 +74,7 @@ export async function clientAction({ request, params }) {
 }
 
 const Upload = ({ loaderData }) => {
-  const { currentUser, currentEvent } = loaderData;
+  const { currentUser, currentEvent, art } = loaderData;
   let navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   
@@ -97,8 +101,18 @@ const Upload = ({ loaderData }) => {
           Back
           {/* <BackButton /> */}
         </Link>
-        <img src={upload_motion} alt="Upload header" className="upload-form__image" />
-
+        {/* <img src={upload_motion} alt="Upload header" className="upload-form__image" /> */}
+        <div className="upload__banner">
+          <h3 className="upload__headline"
+            style={{
+                backgroundImage: `url(${gallery_page_image})`,
+                backgroundPosition: "bottom",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                // textAlign: "left"
+            }}
+            >upload your {art.name}</h3>
+        </div>
       </div>
 
       <article>

@@ -38,7 +38,8 @@ export async function clientLoader() {
 export default function CurrentEvent({ loaderData }) {
   const { currentEventArt, previousEventsArt, currentUser, totalVotes, artCount, currentEvent, allArtTypes, pastEvents } = loaderData;
 
-  console.log(pastEvents, previousEventsArt)
+  console.log("currentEventArt:", currentEventArt);
+
 
   const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
   const [artIdToDelete, setArtIdToDelete] = useState("");
@@ -121,7 +122,8 @@ export default function CurrentEvent({ loaderData }) {
             <section className="current-event__upload-section">
               <h5 className="current-event__section-title">current Event</h5>
               {currentEventArt.length > 0 ? (
-                currentEventArt.map((art) => {
+                // currentEventArt.map((art) => {
+                  [...currentEventArt].reverse().map((art) => {
                   const isAudio = art?.url?.endsWith(".mp3");
                   const isVideo = art?.type === "video";
                   return (
