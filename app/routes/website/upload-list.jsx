@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { getAllArtTypes } from "../../services/art";
 import upload_list from "../../../assets/upload_list.svg";
+import { useNavigate } from "react-router";
 import "./upload-list.css";
 import { getCurrentEvent, getEndUploadingDate, getCountdown } from "../../services/events";
 
@@ -15,7 +16,7 @@ export default function UploadList({ loaderData }) {
   const { artTypes, currentEvent } = loaderData;
   const [visibleDescriptionId, setVisibleDescriptionId] = useState(null);
   const [countdown, setCountdown] = useState(getCountdown(getEndUploadingDate(currentEvent.startDate)));
-
+  const navigate = useNavigate();
   const toggleDescription = (id) => {
     setVisibleDescriptionId((prevId) => (prevId === id ? null : id));
   };
@@ -52,12 +53,12 @@ export default function UploadList({ loaderData }) {
           <p><span>{countdown.hours}</span> h</p>
           <p><span>{countdown.minutes}</span> min</p>
         </div>
-        <Link to="/participate" className="upload-form__button">         
+        <button to="/" onClick={() => navigate(-1)} className="upload-form__button">         
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.846e-08 9.09764L14 14L14 9.38047L2.65875 6.97643L14 4.57239L14 1.66948e-07L1.0905e-07 4.85522L5.846e-08 9.09764Z" fill="black"/>
           </svg>
           Back
-        </Link>
+        </button>
 
       </section>
 

@@ -110,6 +110,7 @@
     position: absolute;
     bottom: -1.4rem;
     font-weight: 400;
+    border: none;
 }
 
 .upload-art__info-circle {

@@ -38,3 +38,16 @@ export const addFeedback = async (artId, userId, feedback) => {
         throw error;
     }
 }
+
+export const deleteArtFeedback = async (artId) => {
+    const { error } = await supabase
+    .from("Feedback") // replace with your actual table name if different
+    .delete()
+    .eq("artId", artId);
+
+  if (error) {
+    console.error("Error deleting feedback:", error);
+  } else {
+    console.log(`All feedback for artId ${artId} deleted successfully.`);
+  }
+}
